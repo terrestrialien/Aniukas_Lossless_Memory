@@ -1,0 +1,43 @@
+{
+  "assertion": {
+    "adoption_evidence": [
+      "win://WIN-00019"
+    ],
+    "asserted_by": "principal:assistant",
+    "kind": "AI-inferred",
+    "reliability_note": "Fictional teaching scenario; these people and documents do not exist."
+  },
+  "candidate_statement": "Offer a large-print weekly lending schedule at the desk.",
+  "confidence": 0.95,
+  "confidence_basis": "Explicit user acceptance with reasons in the next turn.",
+  "created_in": "TXN-000018",
+  "event_types": [
+    "IDEA_PROPOSED",
+    "RULE_CREATED"
+  ],
+  "format_version": "1",
+  "id": "CAND-CONFIRMED",
+  "instance_id": "alm.synthetic.example",
+  "kind": "candidate",
+  "resolution_record_id": "SYS-RULE-0010",
+  "scope_id": "GLOBAL",
+  "source_refs": [
+    "win://WIN-00018",
+    "win://WIN-00019"
+  ],
+  "state": "confirmed",
+  "state_history": [
+    {
+      "commit_id": "TXN-000018",
+      "reason": "Assistant offered a tentative accessibility idea.",
+      "state": "open"
+    },
+    {
+      "commit_id": "TXN-000018",
+      "reason": "The user adopted it so members and volunteers can share one schedule.",
+      "state": "confirmed"
+    }
+  ],
+  "subject": "Weekly large-print schedule",
+  "updated_in": "TXN-000018"
+}

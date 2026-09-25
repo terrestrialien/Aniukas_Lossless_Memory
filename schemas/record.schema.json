@@ -1,0 +1,460 @@
+{
+  "$id": "urn:aniukas-lossless-memory:format:1:record",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "created_in": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "current": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "assertion": {
+                "properties": {
+                  "adoption_evidence": {
+                    "maxItems": 0
+                  },
+                  "kind": {
+                    "const": "AI-inferred"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "confidence": {
+                "exclusiveMaximum": 1
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "assertion": {
+          "additionalProperties": false,
+          "properties": {
+            "adoption_evidence": {
+              "items": {
+                "pattern": "^win://[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+                "type": "string"
+              },
+              "minItems": 0,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "asserted_by": {
+              "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+              "type": "string"
+            },
+            "kind": {
+              "enum": [
+                "user-stated",
+                "AI-inferred",
+                "document",
+                "external-source",
+                "system-observed"
+              ]
+            },
+            "reliability_note": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "asserted_by",
+            "kind",
+            "adoption_evidence",
+            "reliability_note"
+          ],
+          "type": "object"
+        },
+        "conditions": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "confidence_basis": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "consequences": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "edges": {
+          "additionalProperties": false,
+          "properties": {
+            "caused_by": {
+              "items": {
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+                "type": "string"
+              },
+              "minItems": 0,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "contradicts": {
+              "items": {
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+                "type": "string"
+              },
+              "minItems": 0,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "extends": {
+              "items": {
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+                "type": "string"
+              },
+              "minItems": 0,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "promoted_from": {
+              "items": {
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+                "type": "string"
+              },
+              "minItems": 0,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "promoted_to": {
+              "items": {
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+                "type": "string"
+              },
+              "minItems": 0,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "related": {
+              "items": {
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+                "type": "string"
+              },
+              "minItems": 0,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "resolves": {
+              "items": {
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+                "type": "string"
+              },
+              "minItems": 0,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "responds_to": {
+              "items": {
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+                "type": "string"
+              },
+              "minItems": 0,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "superseded_by": {
+              "items": {
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+                "type": "string"
+              },
+              "minItems": 0,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "supersedes": {
+              "items": {
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+                "type": "string"
+              },
+              "minItems": 0,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "supports": {
+              "items": {
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+                "type": "string"
+              },
+              "minItems": 0,
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "required": [],
+          "type": "object"
+        },
+        "importance": {
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "parent_bases": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "derivative_kind": {
+                "enum": [
+                  "exception",
+                  "specialization",
+                  "extension",
+                  "restriction",
+                  "override",
+                  "combination"
+                ]
+              },
+              "differences": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "inherited_portion": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "reason": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "record_id": {
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+                "type": "string"
+              },
+              "registration_state": {
+                "enum": [
+                  "pending",
+                  "registered",
+                  "rejected"
+                ]
+              },
+              "revision_id": {
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "record_id",
+              "revision_id",
+              "derivative_kind",
+              "inherited_portion",
+              "differences",
+              "reason",
+              "registration_state"
+            ],
+            "type": "object"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "statement": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "candidate",
+            "active",
+            "deferred",
+            "rejected",
+            "experimental",
+            "conditional",
+            "conflicted",
+            "superseded",
+            "historical",
+            "historical-origin",
+            "unknown",
+            "open",
+            "resolved"
+          ]
+        },
+        "title": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "triggers": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "type": {
+          "enum": [
+            "rule",
+            "fact",
+            "decision",
+            "observation",
+            "belief",
+            "preference",
+            "goal",
+            "constraint",
+            "hypothesis",
+            "inference",
+            "question",
+            "procedure",
+            "idea",
+            "state_event"
+          ]
+        },
+        "valid_from": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "valid_time_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "valid_until": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "why": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "title",
+        "statement",
+        "why",
+        "status",
+        "importance",
+        "confidence",
+        "confidence_basis",
+        "assertion",
+        "valid_from",
+        "valid_until",
+        "valid_time_note",
+        "edges",
+        "parent_bases",
+        "triggers",
+        "conditions",
+        "consequences"
+      ],
+      "type": "object"
+    },
+    "current_revision_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "derivation_map_ref": {
+      "anyOf": [
+        {
+          "pattern": "^(mem|rev|win|log|map|proposal|candidate|conflict|commit|review|outbox|audit)://[A-Za-z][A-Za-z0-9_.:-]{1,127}(?:/m[1-9][0-9]*(?:-[1-9][0-9]*)?)?$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "extensions": {
+      "propertyNames": {
+        "pattern": "^[a-z0-9]+[.][a-z0-9_.-]+$"
+      },
+      "type": "object"
+    },
+    "format_version": {
+      "const": "1"
+    },
+    "history_ref": {
+      "pattern": "^(mem|rev|win|log|map|proposal|candidate|conflict|commit|review|outbox|audit)://[A-Za-z][A-Za-z0-9_.:-]{1,127}(?:/m[1-9][0-9]*(?:-[1-9][0-9]*)?)?$",
+      "type": "string"
+    },
+    "id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "instance_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "kind": {
+      "const": "record"
+    },
+    "registered_derivative_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "revision_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "scope_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "updated_in": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "format_version",
+    "instance_id",
+    "kind",
+    "id",
+    "scope_id",
+    "current_revision_id",
+    "revision_count",
+    "current",
+    "history_ref",
+    "derivation_map_ref",
+    "registered_derivative_count",
+    "created_in",
+    "updated_in"
+  ],
+  "title": "Aniukas Lossless Memory profile 1: record",
+  "type": "object"
+}

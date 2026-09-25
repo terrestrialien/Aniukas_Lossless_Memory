@@ -1,0 +1,38 @@
+{
+  "created_in": "TXN-000010",
+  "current": {
+    "assertion": {
+      "adoption_evidence": [],
+      "asserted_by": "principal:synthetic-user",
+      "kind": "user-stated",
+      "reliability_note": "Fictional teaching scenario; these people and documents do not exist."
+    },
+    "conditions": [],
+    "confidence": 0.7,
+    "confidence_basis": "The organizer's number is recalled clearly, but the current room limit is unverified.",
+    "consequences": [],
+    "edges": {},
+    "importance": "high",
+    "parent_bases": [],
+    "statement": "The organizer reported that the meeting room seats 30.",
+    "status": "conflicted",
+    "title": "Meeting room capacity claim",
+    "triggers": [],
+    "type": "fact",
+    "valid_from": "2026-09-23T11:10:00Z",
+    "valid_time_note": null,
+    "valid_until": null,
+    "why": "The workshop plan used this unverified organizer account."
+  },
+  "current_revision_id": "LIB-FACT-0003.r1",
+  "derivation_map_ref": null,
+  "format_version": "1",
+  "history_ref": "rev://LIB-FACT-0003.r1",
+  "id": "LIB-FACT-0003",
+  "instance_id": "alm.synthetic.example",
+  "kind": "record",
+  "registered_derivative_count": 0,
+  "revision_count": 1,
+  "scope_id": "PROJECT-LIBRARY",
+  "updated_in": "TXN-000010"
+}

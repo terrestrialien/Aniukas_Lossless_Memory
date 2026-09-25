@@ -1,0 +1,28 @@
+{
+  "ack_commit_id": "TXN-000007",
+  "attempts": 1,
+  "delivery_history": [
+    {
+      "commit_id": "TXN-000006",
+      "reason": "Durably queued by source owner.",
+      "state": "pending"
+    },
+    {
+      "commit_id": "TXN-000007",
+      "reason": "Target owner committed an acknowledgement.",
+      "state": "delivered"
+    }
+  ],
+  "delivery_state": "delivered",
+  "event_type": "register-derivation",
+  "format_version": "1",
+  "id": "OUTBOX-REGISTER",
+  "instance_id": "alm.synthetic.example",
+  "kind": "outbox-event",
+  "payload_refs": [
+    "rev://LIB-RULE-0005.r1"
+  ],
+  "scope_id": "PROJECT-LIBRARY",
+  "source_commit_id": "TXN-000006",
+  "target_scope_id": "GLOBAL"
+}

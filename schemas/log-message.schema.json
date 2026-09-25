@@ -1,0 +1,110 @@
+{
+  "$id": "urn:aniukas-lossless-memory:format:1:log-message",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "extensions": {
+      "propertyNames": {
+        "pattern": "^[a-z0-9]+[.][a-z0-9_.-]+$"
+      },
+      "type": "object"
+    },
+    "format_version": {
+      "const": "1"
+    },
+    "id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "identity_note": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "instance_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "kind": {
+      "const": "log-message"
+    },
+    "log_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "ordinal": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "original_byte_end": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "original_byte_start": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "role": {
+      "enum": [
+        "user",
+        "assistant",
+        "system",
+        "tool",
+        "agent",
+        "human",
+        "unknown"
+      ]
+    },
+    "speaker": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "text": {
+      "type": "string"
+    },
+    "time_note": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "timestamp": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "format_version",
+    "instance_id",
+    "kind",
+    "id",
+    "log_id",
+    "ordinal",
+    "timestamp",
+    "time_note",
+    "role",
+    "speaker",
+    "identity_note",
+    "text",
+    "original_byte_start",
+    "original_byte_end"
+  ],
+  "title": "Aniukas Lossless Memory profile 1: log-message",
+  "type": "object"
+}

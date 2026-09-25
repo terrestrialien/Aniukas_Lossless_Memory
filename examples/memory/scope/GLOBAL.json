@@ -1,0 +1,11 @@
+{
+  "display_name": "GLOBAL",
+  "format_version": "1",
+  "grant_authorizer_id": "principal:human-admin",
+  "id": "GLOBAL",
+  "instance_id": "alm.synthetic.example",
+  "kind": "scope",
+  "owner_principal_id": "principal:governor",
+  "parent_scope_id": null,
+  "scope_type": "GLOBAL"
+}

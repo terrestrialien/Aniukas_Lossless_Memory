@@ -1,0 +1,71 @@
+{
+  "$id": "urn:aniukas-lossless-memory:format:1:scope",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "display_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "extensions": {
+      "propertyNames": {
+        "pattern": "^[a-z0-9]+[.][a-z0-9_.-]+$"
+      },
+      "type": "object"
+    },
+    "format_version": {
+      "const": "1"
+    },
+    "grant_authorizer_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "instance_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "kind": {
+      "const": "scope"
+    },
+    "owner_principal_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "parent_scope_id": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "scope_type": {
+      "enum": [
+        "GLOBAL",
+        "USER",
+        "PROJECT",
+        "TASK"
+      ]
+    }
+  },
+  "required": [
+    "format_version",
+    "instance_id",
+    "kind",
+    "id",
+    "scope_type",
+    "parent_scope_id",
+    "owner_principal_id",
+    "grant_authorizer_id",
+    "display_name"
+  ],
+  "title": "Aniukas Lossless Memory profile 1: scope",
+  "type": "object"
+}

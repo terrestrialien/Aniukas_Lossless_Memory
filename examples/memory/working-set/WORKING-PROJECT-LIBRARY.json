@@ -1,0 +1,47 @@
+{
+  "actual_bytes": 1031,
+  "budget_bytes": 20480,
+  "counting_method": "UTF-8 bytes of the named rendered file",
+  "entries": [
+    {
+      "pinned": false,
+      "record_id": "LIB-DEC-0001",
+      "revision_id": "LIB-DEC-0001.r2"
+    },
+    {
+      "pinned": false,
+      "record_id": "LIB-FACT-0003",
+      "revision_id": "LIB-FACT-0003.r1"
+    },
+    {
+      "pinned": false,
+      "record_id": "LIB-FACT-0004",
+      "revision_id": "LIB-FACT-0004.r1"
+    },
+    {
+      "pinned": false,
+      "record_id": "LIB-PREF-0001",
+      "revision_id": "LIB-PREF-0001.r1"
+    },
+    {
+      "pinned": false,
+      "record_id": "LIB-RULE-0006",
+      "revision_id": "LIB-RULE-0006.r1"
+    }
+  ],
+  "format_version": "1",
+  "id": "WORKING-PROJECT-LIBRARY",
+  "instance_id": "alm.synthetic.example",
+  "kind": "working-set",
+  "omitted_record_ids": [
+    "LIB-RULE-0005",
+    "LIB-IDEA-0001"
+  ],
+  "overflow": false,
+  "rendered_file": "primary/PROJECT-LIBRARY.md",
+  "rendered_sha256": "e6bc63b2efc45ba0ed685831ade87fd69af81e923009dd94211409b891a2d8e8",
+  "scope_id": "PROJECT-LIBRARY",
+  "snapshot_sequence": 21,
+  "token_count": null,
+  "tokenizer": null
+}

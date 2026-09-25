@@ -1,0 +1,29 @@
+{
+  "ack_commit_id": "TXN-000016",
+  "attempts": 1,
+  "delivery_history": [
+    {
+      "commit_id": "TXN-000015",
+      "reason": "Durably queued by source owner.",
+      "state": "pending"
+    },
+    {
+      "commit_id": "TXN-000016",
+      "reason": "Target owner committed an acknowledgement.",
+      "state": "delivered"
+    }
+  ],
+  "delivery_state": "delivered",
+  "event_type": "promotion-accepted",
+  "format_version": "1",
+  "id": "OUTBOX-PROMOTION",
+  "instance_id": "alm.synthetic.example",
+  "kind": "outbox-event",
+  "payload_refs": [
+    "proposal://SUG-PROMOTION",
+    "mem://SYS-RULE-0020"
+  ],
+  "scope_id": "GLOBAL",
+  "source_commit_id": "TXN-000015",
+  "target_scope_id": "PROJECT-LIBRARY"
+}

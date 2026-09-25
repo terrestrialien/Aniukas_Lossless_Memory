@@ -1,0 +1,24 @@
+{
+  "ack_commit_id": null,
+  "attempts": 0,
+  "delivery_history": [
+    {
+      "commit_id": "TXN-000009",
+      "reason": "Durably queued by source owner.",
+      "state": "pending"
+    }
+  ],
+  "delivery_state": "pending",
+  "event_type": "parent-updated",
+  "format_version": "1",
+  "id": "OUTBOX-PARENT-UPDATE",
+  "instance_id": "alm.synthetic.example",
+  "kind": "outbox-event",
+  "payload_refs": [
+    "rev://SYS-RULE-0011.r4",
+    "mem://LIB-RULE-0005"
+  ],
+  "scope_id": "GLOBAL",
+  "source_commit_id": "TXN-000009",
+  "target_scope_id": "PROJECT-LIBRARY"
+}

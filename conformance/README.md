@@ -1,0 +1,29 @@
+# Portable conformance cases
+
+`cases.json` is a language-neutral set of checks for the **bounded reference fixture** in `examples/memory/`. A case starts with a fresh copy of that fixture, applies its ordered operations, and checks either `valid` or one expected error code from [Data contracts](../docs/DATA_CONTRACTS.md). The suite contains 56 cases covering all 51 reference contract checks; several checks have multiple independent cases. Positive cases cover valid but easy-to-reject data, including multiple pinned parents, an unknown speaker, and source-only review. [cases.schema.json](cases.schema.json) describes the suite syntax.
+
+Run the Python reference adapter with `python tools/check_conformance_cases.py` from the repository root. Other implementations can read the JSON directly and apply the same cases in TypeScript, Go, Rust, or another language. The adapter requires the packages in `requirements-dev.txt`. It checks the *intended* diagnostic as well as the typed error; a generic validation failure cannot pass a case. It does not claim to test a running memory service. An implementation with an API should map each mutation to the equivalent import, commit, query, or update call and assert the documented outcome. For example, a revoked grant is tested at commit time in an API, and a rewritten historical entity is tested against an established baseline. Record any profile-specific API mapping alongside implementation results.
+
+## Case shape
+
+The stable suite format is `version: 1` with a `cases` array. Each case has a unique `id`, a plain-language `description`, a `source_test` identifying the matching reference contract check, an ordered `operations` array, and an `expect` object. `expect.result` is `valid` or `error`. An error also has `error_code` and `diagnostic_contains`; the latter pins the precise fixture-checker reason. `compare_baseline: true` means compare immutable history against the unmodified fixture after applying the change. Optional `assertions` inspect data before validation. A builder may replace diagnostic wording but must preserve the typed error meaning.
+
+Paths in operations are relative to the fixture root, use `/`, and may not escape it. JSON pointers use [RFC 6901](https://www.rfc-editor.org/rfc/rfc6901) notation: `/a/0/b` addresses `b` in the first element of `a`; `~1` represents `/` and `~0` represents `~`. `line` is a **zero-based** JSONL row index. Operations run in listed order:
+
+| Operation | Meaning |
+| --- | --- |
+| `set`, `remove` | Set or remove a JSON value at `file` and `pointer`. For JSONL, add `line`. A set may create a new object member; an array index replaces an existing element. |
+| `append` | Append `value` to the array at `pointer`. |
+| `copy_file`, `delete_file` | Copy or remove a fixture file. |
+| `replace_utf8` | Replace exactly `count` occurrences (default one) of literal UTF-8 `old` with `new`. |
+| `repeat_byte` | Replace a file with `count` repetitions of one byte (`0`–`255`). |
+| `lf_to_crlf` | Replace each LF byte with CRLF, only if the input had no CR bytes. |
+| `recompute` `commit_digest` | Recompute `payload_sha256` as SHA-256 of canonical JSON with that field omitted. |
+| `recompute` `revision_snapshot` | Recompute the revision's `snapshot_sha256`. If this is the current revision, copy its snapshot to the record's `current` and regenerate affected primary Markdown, byte counts, and hashes. This removes accidental digest/projection failures so the intended semantic mutation is tested. |
+| `recompute` `chunk_digest` | Recompute the named manifest chunk's byte length and SHA-256 from its file. This allows tests of message semantics without failing only on a stale chunk hash. |
+
+Canonical JSON for digests uses UTF-8, sorted object keys, no insignificant whitespace, JSON literal `true`/`false`/`null`, and no non-finite numbers, as shown by the reference generator. Ordinary `.json` files are emitted as UTF-8 sorted, indented JSON with a final LF. `.jsonl` files use canonical JSON per line with a final LF. The `generated_bytes_match` assertion additionally checks deterministic generator output; `source_byte_selectors_match` checks that example message text still maps to the original source bytes. `equals` and `length` check named JSON pointers.
+
+For `revision_snapshot`, each working set is rendered in entry order as UTF-8 text: first `# Primary: {scope_id}` and a blank line, then one line per entry in the form `- [{record_id} @ {revision_id}] {title}: {statement} (status: {status}; history: {revision_count} {revisions}, {history_ref}; derivatives: {registered_derivative_count}, {derivation_map_ref})`, followed by a final LF. `{title}`, `{statement}` and `{status}` come from that entry's current record snapshot; the other values come from the record itself. `{revisions}` is `revision` when the count is 1 and `revisions` otherwise. The `; derivatives: …` part appears only when the record has a nonzero registered derivative count and a map reference. The renderer updates `rendered_sha256` and `actual_bytes` from those exact bytes. This mechanical refresh ensures a semantic mutation is not accidentally caught only by a stale projection.
+
+Error codes reuse the vocabulary in [Data contracts](../docs/DATA_CONTRACTS.md#error-semantics). For fixture checks, `BROKEN_REFERENCE` also covers inconsistent identity, lineage, or metadata links; `UNSUPPORTED_FORMAT` covers malformed syntax and schema shape; `SOURCE_UNAVAILABLE` covers missing or altered source bytes; `SNAPSHOT_UNAVAILABLE` covers an altered previously committed historical object; and `PROJECTION_STALE` covers a materialized view that disagrees with canonical records. The reference adapter maps exact diagnostics to these types. Runtime errors may add details without changing the shared meaning.

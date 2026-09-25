@@ -1,0 +1,85 @@
+{
+  "$id": "urn:aniukas-lossless-memory:format:1:evidence-window",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cited_by": {
+      "items": {
+        "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "context_after": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "context_before": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "created_in": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "extensions": {
+      "propertyNames": {
+        "pattern": "^[a-z0-9]+[.][a-z0-9_.-]+$"
+      },
+      "type": "object"
+    },
+    "format_version": {
+      "const": "1"
+    },
+    "id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "instance_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "kind": {
+      "const": "evidence-window"
+    },
+    "log_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "message_end": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "message_start": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "scope_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "source_digest": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "format_version",
+    "instance_id",
+    "kind",
+    "id",
+    "scope_id",
+    "log_id",
+    "source_digest",
+    "message_start",
+    "message_end",
+    "context_before",
+    "context_after",
+    "cited_by",
+    "created_in"
+  ],
+  "title": "Aniukas Lossless Memory profile 1: evidence-window",
+  "type": "object"
+}

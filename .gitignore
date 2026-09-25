@@ -1,0 +1,27 @@
+# Local tools and build output
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+dist/
+build/
+*.egg-info/
+.DS_Store
+Thumbs.db
+# Operational data belongs outside the public checkout.
+/private/
+/instances/
+/runtime-data/
+/backups/
+/models/
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+config/local.*

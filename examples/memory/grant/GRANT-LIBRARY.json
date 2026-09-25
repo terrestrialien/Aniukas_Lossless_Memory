@@ -1,0 +1,19 @@
+{
+  "format_version": "1",
+  "generation": 1,
+  "id": "GRANT-LIBRARY",
+  "instance_id": "alm.synthetic.example",
+  "issued_at": "2026-09-23T00:00:00Z",
+  "issued_by": "principal:human-admin",
+  "kind": "grant",
+  "operations": [
+    "commit",
+    "review",
+    "propose",
+    "observe"
+  ],
+  "principal_id": "principal:library-owner",
+  "revoked_at": null,
+  "role": "PROJECT_OWNER",
+  "scope_id": "PROJECT-LIBRARY"
+}

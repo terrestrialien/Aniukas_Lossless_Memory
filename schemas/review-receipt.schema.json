@@ -1,0 +1,187 @@
+{
+  "$id": "urn:aniukas-lossless-memory:format:1:review-receipt",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "anyOf": [
+    {
+      "properties": {
+        "reviewed": {
+          "minItems": 1
+        }
+      }
+    },
+    {
+      "properties": {
+        "sources": {
+          "minItems": 1
+        }
+      }
+    }
+  ],
+  "properties": {
+    "alternatives": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "conflicts": {
+      "items": {
+        "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "consequences": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "constraints": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "created_at": {
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "type": "string"
+    },
+    "extensions": {
+      "propertyNames": {
+        "pattern": "^[a-z0-9]+[.][a-z0-9_.-]+$"
+      },
+      "type": "object"
+    },
+    "format_version": {
+      "const": "1"
+    },
+    "gaps": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "grant_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "instance_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "intent": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "kind": {
+      "const": "review-receipt"
+    },
+    "outcome": {
+      "enum": [
+        "sufficient",
+        "blocked"
+      ]
+    },
+    "principal_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "read_sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "reviewed": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "record_id": {
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+            "type": "string"
+          },
+          "revision_id": {
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "record_id",
+          "revision_id"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "scope_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "source_digest": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "window_id": {
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "window_id",
+          "source_digest"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "format_version",
+    "instance_id",
+    "kind",
+    "id",
+    "scope_id",
+    "principal_id",
+    "grant_id",
+    "read_sequence",
+    "reviewed",
+    "sources",
+    "intent",
+    "alternatives",
+    "constraints",
+    "consequences",
+    "gaps",
+    "conflicts",
+    "outcome",
+    "created_at"
+  ],
+  "title": "Aniukas Lossless Memory profile 1: review-receipt",
+  "type": "object"
+}

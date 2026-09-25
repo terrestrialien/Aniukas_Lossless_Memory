@@ -1,0 +1,48 @@
+{
+  "alternatives": [
+    "Keep the previous interpretation unchanged."
+  ],
+  "change": "Use the spelling 'résumé' with accents on a future workshop flyer.",
+  "commit_id": "TXN-000017",
+  "created_at": null,
+  "evidence_gap": {
+    "deepest_available": "HISTORY",
+    "reason": "Legacy note has no surviving source; do not manufacture evidence."
+  },
+  "format_version": "1",
+  "id": "LIB-PREF-0001.r1",
+  "instance_id": "alm.synthetic.example",
+  "kind": "revision",
+  "number": 1,
+  "predecessor_id": null,
+  "reason": "Legacy source and date are unavailable; do not invent either.",
+  "record_id": "LIB-PREF-0001",
+  "scope_id": "PROJECT-LIBRARY",
+  "snapshot": {
+    "assertion": {
+      "adoption_evidence": [],
+      "asserted_by": "principal:synthetic-user",
+      "kind": "user-stated",
+      "reliability_note": "Fictional teaching scenario; these people and documents do not exist."
+    },
+    "conditions": [],
+    "confidence": 1.0,
+    "confidence_basis": "Clear fictional speaker statement; this score describes interpretation, not factual truth.",
+    "consequences": [],
+    "edges": {},
+    "importance": "high",
+    "parent_bases": [],
+    "statement": "Use the spelling 'résumé' with accents on a future workshop flyer.",
+    "status": "active",
+    "title": "Flyer spelling",
+    "triggers": [],
+    "type": "preference",
+    "valid_from": null,
+    "valid_time_note": "Original legacy note date unknown.",
+    "valid_until": null,
+    "why": "An imported legacy preference mentions this spelling, but its original note was not retained."
+  },
+  "snapshot_sha256": "b1c74ca6a372cfc5594d117a4ee85a8e33fbc7bd8368aad0d2d864cef7c52882",
+  "source_refs": [],
+  "time_note": "Original event time is unknown; the enclosing commit records import time."
+}

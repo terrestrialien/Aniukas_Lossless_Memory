@@ -1,0 +1,22 @@
+{
+  "caused_by": [],
+  "created_at": "2026-09-23T12:12:00Z",
+  "expected_revisions": [],
+  "format_version": "1",
+  "grant_id": "GRANT-LIBRARY",
+  "high_impact": false,
+  "id": "TXN-000012",
+  "idempotency_key": "synthetic-event-12",
+  "instance_id": "alm.synthetic.example",
+  "kind": "commit",
+  "payload_sha256": "1f65836ff212c7c65d30d3562bd33c53715b7daff01e5f0c55867e5e4e2cecfd",
+  "principal_id": "principal:library-owner",
+  "review_receipt_ids": [],
+  "scope_id": "PROJECT-LIBRARY",
+  "sequence": 12,
+  "source_refs": [],
+  "writes": [
+    "win://WIN-00012",
+    "candidate://CAND-REJECTED"
+  ]
+}

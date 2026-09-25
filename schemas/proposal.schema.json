@@ -1,0 +1,147 @@
+{
+  "$id": "urn:aniukas-lossless-memory:format:1:proposal",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "created_in": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "extensions": {
+      "propertyNames": {
+        "pattern": "^[a-z0-9]+[.][a-z0-9_.-]+$"
+      },
+      "type": "object"
+    },
+    "format_version": {
+      "const": "1"
+    },
+    "id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "instance_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "kind": {
+      "const": "proposal"
+    },
+    "proposal_kind": {
+      "enum": [
+        "promotion",
+        "derivation-registration",
+        "rule-change",
+        "repair",
+        "other"
+      ]
+    },
+    "response_commit_id": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "response_history": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "commit_id": {
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+            "type": "string"
+          },
+          "reason": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "state": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "state",
+          "reason",
+          "commit_id"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "response_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "scope_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "sender_principal_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "source_refs": {
+      "items": {
+        "pattern": "^(mem|rev|win|log|map|proposal|candidate|conflict|commit|review|outbox|audit)://[A-Za-z][A-Za-z0-9_.:-]{1,127}(?:/m[1-9][0-9]*(?:-[1-9][0-9]*)?)?$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "state": {
+      "enum": [
+        "open",
+        "accepted",
+        "rejected",
+        "deferred"
+      ]
+    },
+    "subject_refs": {
+      "items": {
+        "pattern": "^(mem|rev|win|log|map|proposal|candidate|conflict|commit|review|outbox|audit)://[A-Za-z][A-Za-z0-9_.:-]{1,127}(?:/m[1-9][0-9]*(?:-[1-9][0-9]*)?)?$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "suggestion": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "target_scope_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "format_version",
+    "instance_id",
+    "kind",
+    "id",
+    "scope_id",
+    "sender_principal_id",
+    "target_scope_id",
+    "proposal_kind",
+    "subject_refs",
+    "suggestion",
+    "source_refs",
+    "state",
+    "response_history",
+    "response_reason",
+    "response_commit_id",
+    "created_in"
+  ],
+  "title": "Aniukas Lossless Memory profile 1: proposal",
+  "type": "object"
+}

@@ -1,0 +1,31 @@
+{
+  "caused_by": [],
+  "created_at": "2026-09-23T12:09:00Z",
+  "expected_revisions": [
+    {
+      "record_id": "SYS-RULE-0011",
+      "revision_id": "SYS-RULE-0011.r3"
+    }
+  ],
+  "format_version": "1",
+  "grant_id": "GRANT-GLOBAL",
+  "high_impact": true,
+  "id": "TXN-000009",
+  "idempotency_key": "synthetic-event-9",
+  "instance_id": "alm.synthetic.example",
+  "kind": "commit",
+  "payload_sha256": "e964741601a4eec5622bf5877f1d35b1847b0e7f715297a6a01da9b2c3650ec0",
+  "principal_id": "principal:governor",
+  "review_receipt_ids": [
+    "REVIEW-0009"
+  ],
+  "scope_id": "GLOBAL",
+  "sequence": 9,
+  "source_refs": [],
+  "writes": [
+    "win://WIN-00009",
+    "rev://SYS-RULE-0011.r4",
+    "mem://SYS-RULE-0011",
+    "outbox://OUTBOX-PARENT-UPDATE"
+  ]
+}

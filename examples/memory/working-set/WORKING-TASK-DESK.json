@@ -1,0 +1,18 @@
+{
+  "actual_bytes": 22,
+  "budget_bytes": 20480,
+  "counting_method": "UTF-8 bytes of the named rendered file",
+  "entries": [],
+  "format_version": "1",
+  "id": "WORKING-TASK-DESK",
+  "instance_id": "alm.synthetic.example",
+  "kind": "working-set",
+  "omitted_record_ids": [],
+  "overflow": false,
+  "rendered_file": "primary/TASK-DESK.md",
+  "rendered_sha256": "221aa2a7601aba0b9847f28c90581d66908915677711899b12362ddfb973fa3d",
+  "scope_id": "TASK-DESK",
+  "snapshot_sequence": 21,
+  "token_count": null,
+  "tokenizer": null
+}

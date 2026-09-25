@@ -1,0 +1,11 @@
+{
+  "display_name": "USER",
+  "format_version": "1",
+  "grant_authorizer_id": "principal:human-admin",
+  "id": "USER",
+  "instance_id": "alm.synthetic.example",
+  "kind": "scope",
+  "owner_principal_id": "principal:user-owner",
+  "parent_scope_id": "GLOBAL",
+  "scope_type": "USER"
+}

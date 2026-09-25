@@ -1,0 +1,70 @@
+{
+  "alternatives": [
+    "Keep the previous interpretation unchanged."
+  ],
+  "change": "Riverside uses the shared queue and pickup checklist, with optional phone confirmations.",
+  "commit_id": "TXN-000021",
+  "created_at": "2026-09-23T12:21:00Z",
+  "evidence_gap": null,
+  "format_version": "1",
+  "id": "LIB-RULE-0006.r1",
+  "instance_id": "alm.synthetic.example",
+  "kind": "revision",
+  "number": 1,
+  "predecessor_id": null,
+  "reason": "Combine two pinned shared rules; register with each parent separately.",
+  "record_id": "LIB-RULE-0006",
+  "scope_id": "PROJECT-LIBRARY",
+  "snapshot": {
+    "assertion": {
+      "adoption_evidence": [],
+      "asserted_by": "principal:synthetic-user",
+      "kind": "user-stated",
+      "reliability_note": "Fictional teaching scenario; these people and documents do not exist."
+    },
+    "conditions": [],
+    "confidence": 1.0,
+    "confidence_basis": "Clear fictional speaker statement; this score describes interpretation, not factual truth.",
+    "consequences": [],
+    "edges": {},
+    "importance": "high",
+    "parent_bases": [
+      {
+        "derivative_kind": "combination",
+        "differences": [
+          "Riverside may confirm pickups by phone."
+        ],
+        "inherited_portion": "Every request enters the shared queue and follows the pickup checklist.",
+        "reason": "Combine the current shared checklist with Riverside contact access.",
+        "record_id": "SYS-RULE-0011",
+        "registration_state": "pending",
+        "revision_id": "SYS-RULE-0011.r4"
+      },
+      {
+        "derivative_kind": "combination",
+        "differences": [
+          "Riverside commits to this option for its own volunteers."
+        ],
+        "inherited_portion": "Branches may confirm pickups by phone while retaining the shared queue.",
+        "reason": "Members without email need a dependable confirmation path.",
+        "record_id": "SYS-RULE-0020",
+        "registration_state": "pending",
+        "revision_id": "SYS-RULE-0020.r1"
+      }
+    ],
+    "statement": "Riverside uses the shared queue and pickup checklist, with optional phone confirmations.",
+    "status": "active",
+    "title": "Combined Riverside variation",
+    "triggers": [],
+    "type": "rule",
+    "valid_from": "2026-09-23T11:22:00Z",
+    "valid_time_note": null,
+    "valid_until": null,
+    "why": "Both exact shared rules apply; neither independently specifies the full Riverside handoff."
+  },
+  "snapshot_sha256": "d7caef81b00bbf2d9fec5b9f77ee8fdde889d763a7084befdef4a554f2dfe365",
+  "source_refs": [
+    "win://WIN-00022"
+  ],
+  "time_note": null
+}

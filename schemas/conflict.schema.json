@@ -1,0 +1,139 @@
+{
+  "$id": "urn:aniukas-lossless-memory:format:1:conflict",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "created_in": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "extensions": {
+      "propertyNames": {
+        "pattern": "^[a-z0-9]+[.][a-z0-9_.-]+$"
+      },
+      "type": "object"
+    },
+    "format_version": {
+      "const": "1"
+    },
+    "id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "instance_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "kind": {
+      "const": "conflict"
+    },
+    "resolution": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resolved_in": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "scope_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "sides": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "record_id": {
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+            "type": "string"
+          },
+          "revision_id": {
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+            "type": "string"
+          },
+          "source_refs": {
+            "items": {
+              "pattern": "^(mem|rev|win|log|map|proposal|candidate|conflict|commit|review|outbox|audit)://[A-Za-z][A-Za-z0-9_.:-]{1,127}(?:/m[1-9][0-9]*(?:-[1-9][0-9]*)?)?$",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "record_id",
+          "revision_id",
+          "source_refs"
+        ],
+        "type": "object"
+      },
+      "minItems": 2,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "state": {
+      "enum": [
+        "unresolved",
+        "resolved"
+      ]
+    },
+    "state_history": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "commit_id": {
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+            "type": "string"
+          },
+          "reason": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "state": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "state",
+          "reason",
+          "commit_id"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "subject": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "format_version",
+    "instance_id",
+    "kind",
+    "id",
+    "scope_id",
+    "subject",
+    "sides",
+    "state",
+    "state_history",
+    "resolution",
+    "resolved_in",
+    "created_in"
+  ],
+  "title": "Aniukas Lossless Memory profile 1: conflict",
+  "type": "object"
+}

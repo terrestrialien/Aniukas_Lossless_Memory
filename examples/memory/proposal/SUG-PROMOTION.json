@@ -1,0 +1,28 @@
+{
+  "created_in": "TXN-000014",
+  "format_version": "1",
+  "id": "SUG-PROMOTION",
+  "instance_id": "alm.synthetic.example",
+  "kind": "proposal",
+  "proposal_kind": "promotion",
+  "response_commit_id": "TXN-000015",
+  "response_history": [
+    {
+      "commit_id": "TXN-000015",
+      "reason": "Shared-rule owner accepted an optional branch rule; Riverside's own adoption remains independent.",
+      "state": "accepted"
+    }
+  ],
+  "response_reason": "Shared-rule owner accepted an optional branch rule; Riverside's own adoption remains independent.",
+  "scope_id": "PROJECT-LIBRARY",
+  "sender_principal_id": "principal:library-owner",
+  "source_refs": [
+    "win://WIN-00014"
+  ],
+  "state": "accepted",
+  "subject_refs": [
+    "rev://LIB-RULE-0005.r2"
+  ],
+  "suggestion": "Offer phone pickup confirmations to every branch that needs them, while keeping the shared queue.",
+  "target_scope_id": "GLOBAL"
+}

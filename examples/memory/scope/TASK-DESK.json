@@ -1,0 +1,11 @@
+{
+  "display_name": "TASK-DESK",
+  "format_version": "1",
+  "grant_authorizer_id": "principal:human-admin",
+  "id": "TASK-DESK",
+  "instance_id": "alm.synthetic.example",
+  "kind": "scope",
+  "owner_principal_id": "principal:task-owner",
+  "parent_scope_id": "PROJECT-LIBRARY",
+  "scope_type": "TASK"
+}

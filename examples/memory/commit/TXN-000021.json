@@ -1,0 +1,31 @@
+{
+  "caused_by": [],
+  "created_at": "2026-09-23T12:21:00Z",
+  "expected_revisions": [
+    {
+      "record_id": "LIB-RULE-0006",
+      "revision_id": null
+    }
+  ],
+  "format_version": "1",
+  "grant_id": "GRANT-LIBRARY",
+  "high_impact": true,
+  "id": "TXN-000021",
+  "idempotency_key": "synthetic-event-21",
+  "instance_id": "alm.synthetic.example",
+  "kind": "commit",
+  "payload_sha256": "4e0b07d26c4189838a5b17f5dd3abbca1c8530a42e5704ce5b58a756b3bcdb52",
+  "principal_id": "principal:library-owner",
+  "review_receipt_ids": [
+    "REVIEW-0021"
+  ],
+  "scope_id": "PROJECT-LIBRARY",
+  "sequence": 21,
+  "source_refs": [],
+  "writes": [
+    "win://WIN-00022",
+    "rev://LIB-RULE-0006.r1",
+    "mem://LIB-RULE-0006",
+    "outbox://OUTBOX-COMBINATION"
+  ]
+}

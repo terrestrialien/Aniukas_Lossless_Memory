@@ -1,0 +1,13 @@
+# Deterministic text in the specification kit.
+* text=auto eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.txt text eol=lf
+# Captured originals are bytes. Never normalize source payloads.
+examples/memory/logs/original.txt -text
+*.bin -text
+*.zip -text

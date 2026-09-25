@@ -1,0 +1,34 @@
+{
+  "actual_bytes": 710,
+  "budget_bytes": 20480,
+  "counting_method": "UTF-8 bytes of the named rendered file",
+  "entries": [
+    {
+      "pinned": false,
+      "record_id": "SYS-RULE-0010",
+      "revision_id": "SYS-RULE-0010.r2"
+    },
+    {
+      "pinned": false,
+      "record_id": "SYS-RULE-0011",
+      "revision_id": "SYS-RULE-0011.r4"
+    },
+    {
+      "pinned": false,
+      "record_id": "SYS-RULE-0020",
+      "revision_id": "SYS-RULE-0020.r1"
+    }
+  ],
+  "format_version": "1",
+  "id": "WORKING-GLOBAL",
+  "instance_id": "alm.synthetic.example",
+  "kind": "working-set",
+  "omitted_record_ids": [],
+  "overflow": false,
+  "rendered_file": "primary/GLOBAL.md",
+  "rendered_sha256": "0212e15f26106c3676dfd2f6edc8284f75455a4611c4c97069a883ade57d4751",
+  "scope_id": "GLOBAL",
+  "snapshot_sequence": 21,
+  "token_count": null,
+  "tokenizer": null
+}

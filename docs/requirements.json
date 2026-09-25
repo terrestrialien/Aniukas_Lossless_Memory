@@ -1,0 +1,3452 @@
+{
+  "schema_version": "2.0.0",
+  "requirements": [
+    {
+      "id": "ALM-001",
+      "title": "Preserve the complete captured conversation, not just a compressed recollection",
+      "statement": "Preserve the complete captured conversation, not just a compressed recollection.",
+      "clauses": [
+        "Preserve the complete original conversation/event log. Chunking and archival are permitted; destructive summarization must not replace the source. Source history is immutable/append-only. Chunking and lossless compression do not permit destructive replacement of source material.",
+        "Never rewrite an original captured log because a later interpretation changes. Allow current memory, history, interpretations, rules, importance, and relationships to evolve above that frozen source. Owner-directed erasure, when offered, follows an explicit governed exception and is never ordinary summary compaction."
+      ],
+      "spec_sections": [
+        "4.1"
+      ],
+      "contract_refs": [
+        "Source"
+      ],
+      "acceptance_ids": [
+        "A01",
+        "A03"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-002",
+      "title": "Summaries and useful state accompany the source; recursive summarization must not replace it",
+      "statement": "Summaries and useful state accompany the source; recursive summarization must not replace it.",
+      "clauses": [
+        "Separate persistent storage from active model context. Extract useful operational state into a small memory/index; each extracted claim has a direct pointer to the exact historical evidence and can be revisited if its assumptions change. Operational state remains a derived view with recoverable evidence."
+      ],
+      "spec_sections": [
+        "3.2"
+      ],
+      "contract_refs": [
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A14"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-003",
+      "title": "The small memory is an index/control panel into durable memory, not the whole memory",
+      "statement": "The small memory is an index/control panel into durable memory, not the whole memory.",
+      "clauses": [
+        "Grow from a small working-memory map into category/project files and a hierarchical graph, rather than an endlessly growing in-context RAM file. Category files are maps, not copies of all evidence. Category files are indexes or views; they do not embed all supporting evidence.",
+        "Keep immediate operational entries small, fast, and useful. Expose identity/topic, current state, importance, status, reason and history pointers, revision count, and related-record links; capacity is configured rather than fixed by a sample count.",
+        "Keep concise current system, user, project, and task memory as the starting interface to a large retained archive. Expand into history when reasons, earlier events, certainty, or contradictions matter. No example byte size is a mandatory limit or hardware requirement.",
+        "Store only the current record's necessary meaning and small pointers to deeper material. Support navigation through maps, project rules, reasoning and change history, source windows, and immutable originals. Each layer stays compact relative to its responsibility; deep evidence remains separately retrievable."
+      ],
+      "spec_sections": [
+        "3.2"
+      ],
+      "contract_refs": [
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A14"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-004",
+      "title": "Each memory points to the exact log and precise relevant location",
+      "statement": "Each memory points to the exact log and precise relevant location.",
+      "clauses": [
+        "Each memory link identifies the exact log file and exact portion containing the originating discussion. Overrules/expansions retain links to multiple reasoning locations. A change or extension may have multiple evidence locations.",
+        "A decision record must represent identity, topic, status, current meaning, source references, rationale, and superseding relationships. A source locator must identify its log, chunk, and exact message range. Field names and alias formats may vary if these concepts remain interoperable through the declared format."
+      ],
+      "spec_sections": [
+        "4.2"
+      ],
+      "contract_refs": [
+        "EvidenceWindow"
+      ],
+      "acceptance_ids": [
+        "A03",
+        "A14",
+        "A18"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-005",
+      "title": "Full logs may be split into archival chunks without losing their content",
+      "statement": "Full logs may be split into archival chunks without losing their content.",
+      "clauses": [],
+      "spec_sections": [
+        "4.1"
+      ],
+      "contract_refs": [
+        "Source"
+      ],
+      "acceptance_ids": [
+        "A01",
+        "A03"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-006",
+      "title": "Every change has its own source; expansion/reversal accumulates evidence, retaining earlier origins",
+      "statement": "Every change has its own source; expansion/reversal accumulates evidence, retaining earlier origins.",
+      "clauses": [
+        "A later changed/expanded decision can contain multiple sources and `extends[]` references. Retain the original record unchanged and express its changed operational meaning through relationships/revisions. New revisions or relationships must not rewrite the original historical record."
+      ],
+      "spec_sections": [
+        "4.3"
+      ],
+      "contract_refs": [
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A02"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-007",
+      "title": "History records what changed, why, and when; current state alone is insufficient",
+      "statement": "History records what changed, why, and when; current state alone is insufficient.",
+      "clauses": [
+        "Decision/reasoning records show a current state and compact revision chronology. Each revision contains when, what changed, why, and its exact source. Preserve evolution of thought rather than only the latest conclusion. Every revision preserves when, what, why, and exact evidence."
+      ],
+      "spec_sections": [
+        "4.3"
+      ],
+      "contract_refs": [
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A02"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-008",
+      "title": "Later interpretation does not rewrite original events or erase past versions",
+      "statement": "Preserve immutable source events and prior revisions. Express changed operational state through new authorized revisions or relationships, never by rewriting earlier events.",
+      "clauses": [],
+      "spec_sections": [
+        "4.1"
+      ],
+      "contract_refs": [
+        "Source"
+      ],
+      "acceptance_ids": [
+        "A01",
+        "A03"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-009",
+      "title": "Navigate adjacent depths in both directions with exact links",
+      "statement": "Navigate adjacent depths in both directions with exact links.",
+      "clauses": [
+        "Adjacent memory depths must have direct, easy, exact links in both directions. A pointer specifies an exact file/location via resolution, and every revision maps to its own originating conversation. Stable resolution may replace literal file paths while preserving exact locations and reverse navigation."
+      ],
+      "spec_sections": [
+        "4.2"
+      ],
+      "contract_refs": [
+        "EvidenceWindow"
+      ],
+      "acceptance_ids": [
+        "A03",
+        "A14",
+        "A18"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-010",
+      "title": "Stable identifiers, rather than physical paths, are the fundamental identity",
+      "statement": "Stable identifiers, rather than physical paths, are the fundamental identity.",
+      "clauses": [
+        "Use stable IDs, not physical paths, as fundamental links. Resolve memory IDs, decision revision IDs, and exact log-message range IDs to storage. Moving, splitting, compressing, archiving, or renaming files must preserve historical references. URI syntax is an implementation choice; resolution must remain exact.",
+        "Assign persistent identity to every meaningful memory item, including rules, decisions, observations, and hypotheses, so higher views and histories can refer to it reliably. Human-readable prefixes are aliases, not a mandatory ID format."
+      ],
+      "spec_sections": [
+        "4.2"
+      ],
+      "contract_refs": [
+        "EvidenceWindow"
+      ],
+      "acceptance_ids": [
+        "A03",
+        "A14",
+        "A18"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-011",
+      "title": "An index/resolver maps identity to location; filenames are not the authoritative identity",
+      "statement": "An index/resolver maps identity to location; filenames are not the authoritative identity.",
+      "clauses": [
+        "Treat filenames as human/agent routing hints, not the authoritative identity index. Maintain an index mapping stable identity to scope, type, status, importance and backend location so renames do not break history. File and offset are example location fields; a backend may use equivalent addresses."
+      ],
+      "spec_sections": [
+        "4.2"
+      ],
+      "contract_refs": [
+        "EvidenceWindow"
+      ],
+      "acceptance_ids": [
+        "A03",
+        "A14",
+        "A18"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-012",
+      "title": "Renaming, moving, splitting, compressing, or reorganizing storage must preserve references",
+      "statement": "Renaming, moving, splitting, compressing, or reorganizing storage must preserve references.",
+      "clauses": [
+        "Permit physical storage to be reorganized without breaking graph references; keep identifiers stable and defer exact physical layout. Storage layout is open; stable identity and resolvability are required."
+      ],
+      "spec_sections": [
+        "4.2"
+      ],
+      "contract_refs": [
+        "EvidenceWindow"
+      ],
+      "acceptance_ids": [
+        "A03",
+        "A14",
+        "A18"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-013",
+      "title": "Preserve current meaning, change/reasoning history, exact evidence, and full logs as resolutions of the same memory",
+      "statement": "Preserve current meaning, change/reasoning history, exact evidence, and full logs as resolutions of the same memory.",
+      "clauses": [
+        "Represent current meaning, change and reasoning history, exact evidence windows, and complete sources as increasing resolutions of one memory. The API uses depths 0–3 for current, history, evidence, and reconstruction.",
+        "Keep working-set views separate from canonical current records, revision history, evidence windows, and complete logs. Retrieval must support current, history, evidence, and reconstruction while retaining every conceptual component.",
+        "Allow each scope to have current memory, change and decision history, exact supporting records, and complete immutable logs. Ownership scope is independent of evidence depth: 0=current, 1=history, 2=evidence, 3=full reconstruction.",
+        "Provide global and project primary/secondary views, rules, decisions and indexes, plus scoped histories, exact supporting-source references/windows and immutable original logs. The logical structure is required; literal folders, filenames and the .mem extension are not."
+      ],
+      "spec_sections": [
+        "3.2"
+      ],
+      "contract_refs": [
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A14"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-014",
+      "title": "Fetch exact evidence windows with surrounding context, expanding or following references when necessary",
+      "statement": "Fetch exact evidence windows with surrounding context, expanding or following references when necessary.",
+      "clauses": [
+        "Source retrieval returns precisely the cited message range and can include surrounding messages for context; it must return the actual user/assistant exchange rather than reconstructing it. Evidence excerpts must be source slices, never model reconstructions.",
+        "Evidence windows are separate from full conversations. Retrieve a referenced exact range, then expand outward or follow cited earlier context when needed. Evidence windows represent progressive disclosure of source, not invented summaries. Windows expand to adjacent messages or referenced context when needed."
+      ],
+      "spec_sections": [
+        "4.2"
+      ],
+      "contract_refs": [
+        "EvidenceWindow"
+      ],
+      "acceptance_ids": [
+        "A03",
+        "A14",
+        "A18"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-015",
+      "title": "Separate facts, decisions, observations, preferences, goals, constraints, hypotheses, inferences, questions, procedures, and asserted beliefs",
+      "statement": "Separate facts, decisions, observations, preferences, goals, constraints, hypotheses, inferences, questions, procedures, and asserted beliefs.",
+      "clauses": [
+        "Represent facts, decisions, beliefs, preferences, observations, hypotheses, goals, constraints, inferences, questions and procedures as distinct concepts. Keep belief explicit or document its mapping without turning it into a verified fact.",
+        "Distinguish facts, rules, decisions, observations, preferences, constraints, hypotheses, inferences, questions, and procedures as record types. Additional types may be added without collapsing these distinctions."
+      ],
+      "spec_sections": [
+        "3.1",
+        "4.3",
+        "5.2"
+      ],
+      "contract_refs": [
+        "MemoryRecord"
+      ],
+      "acceptance_ids": [
+        "A06",
+        "A37"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-016",
+      "title": "Track type, confidence, source authority, and lifecycle separately",
+      "statement": "Track type, confidence, source authority, and lifecycle separately.",
+      "clauses": [
+        "Track memory `type`, `confidence`, `authority`, and `status` separately. Distinguish observations, inferences, and unknowns; model speculation must not silently become fact. Numerical confidence values require a declared calibration method or must be labelled uncalibrated.",
+        "Track authority independently: user-stated, AI-inferred, document, external source and system-observed. Preserve modality: user wondering whether X must not become “user believes X.” Source categories include user statements, model inference, documents, external sources, and system observations. A question must not become an asserted belief.",
+        "Distinguish human/user statements, authorized governor actions, project-agent actions, external sources and AI/model inferences in provenance and authority metadata. Keep original source attribution separate from the actor who later authorizes adoption. Provenance does not guarantee correctness."
+      ],
+      "spec_sections": [
+        "3.1",
+        "4.3",
+        "5.2"
+      ],
+      "contract_refs": [
+        "MemoryRecord"
+      ],
+      "acceptance_ids": [
+        "A06",
+        "A37"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-017",
+      "title": "AI speculation must not harden into a user statement or verified fact",
+      "statement": "AI speculation must not harden into a user statement or verified fact.",
+      "clauses": [],
+      "spec_sections": [
+        "3.1",
+        "4.3",
+        "5.2"
+      ],
+      "contract_refs": [
+        "MemoryRecord"
+      ],
+      "acceptance_ids": [
+        "A06",
+        "A37"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-018",
+      "title": "Use explicit typed relationships: support, contradiction, supersession, extension, cause, and evidence",
+      "statement": "Use explicit typed relationships: support, contradiction, supersession, extension, cause, and evidence.",
+      "clauses": [
+        "Add typed graph relationships: `supports`, `supersedes`, `contradicts`, `caused_by`, and `evidence`, in addition to extension links. Treat the structure as a temporal knowledge graph grounded in immutable evidence. The graph remains grounded in source evidence and revision history."
+      ],
+      "spec_sections": [
+        "4.4"
+      ],
+      "contract_refs": [
+        "Relationship"
+      ],
+      "acceptance_ids": [
+        "A02",
+        "A07"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-019",
+      "title": "Remember rejected alternatives and reasons, deferred options, experiments, conditions, superseded states, and unknowns",
+      "statement": "Remember rejected alternatives and reasons, deferred options, experiments, conditions, superseded states, and unknowns.",
+      "clauses": [
+        "Store negative memory: alternatives considered and explicitly rejected, together with reasons; avoid repeatedly proposing previously rejected ideas without context. Changed conditions may justify reconsideration; retaining rejection history prevents uninformed repetition.",
+        "Revision history must distinguish current, past, rejected, deferred, experimental, superseded, conditional, and unknown states. These are semantic concepts; whether they map to one enum or to separate fields is a schema design choice.",
+        "Represent active, superseded, deferred, rejected, conditional, conflicted and historical states so stored statements do not all receive equal operational or epistemic weight. Historical origin is represented without losing the original record. Confidence, lifecycle and authority remain separate dimensions."
+      ],
+      "spec_sections": [
+        "5.4"
+      ],
+      "contract_refs": [
+        "MemoryRecord",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A08"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-020",
+      "title": "Contradictions remain visible with both sources until resolved; newness alone is not a winner",
+      "statement": "Contradictions remain visible with both sources until resolved; newness alone is not a winner.",
+      "clauses": [
+        "New contradictory claims do not automatically supersede old claims. Create an unresolved conflict with both source pointers; retain both claims as active/unresolved until evidence resolves them. Recency alone cannot establish supersession or resolve a contradiction."
+      ],
+      "spec_sections": [
+        "5.4"
+      ],
+      "contract_refs": [
+        "Conflict"
+      ],
+      "acceptance_ids": [
+        "A07"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-021",
+      "title": "Track when a fact or decision was valid; something historically true is not retroactively wrong",
+      "statement": "Track when a fact or decision was valid; something historically true is not retroactively wrong.",
+      "clauses": [
+        "Track `valid_from`, `valid_until` (including unknown or open-ended), and source. Historical facts remain valid for their interval; retrospective reasoning uses circumstances valid at the time. Unknown intervals stay explicit."
+      ],
+      "spec_sections": [
+        "4.3"
+      ],
+      "contract_refs": [
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A05"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-022",
+      "title": "Related changes commit all-or-none, so a crash cannot create a state nobody decided",
+      "statement": "Related changes commit all-or-none, so a crash cannot create a state nobody decided.",
+      "clauses": [
+        "Commit related decision changes atomically within one authorized scope: all changes succeed or none do. Record version transitions, creations, deprecations, and exact source ranges. Coordinate separately authorized cross-scope commits through visible pending workflows; never claim cross-scope atomicity when it is not provided."
+      ],
+      "spec_sections": [
+        "9"
+      ],
+      "contract_refs": [
+        "Commit"
+      ],
+      "acceptance_ids": [
+        "A44",
+        "A45",
+        "A46"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-023",
+      "title": "Use original evidence to diagnose and repair wrong upper-layer interpretations",
+      "statement": "Use original evidence to diagnose and repair incorrect interpretations through an authorized appended change; evidence proves what was said, while valid time and later decisions determine current meaning.",
+      "clauses": [
+        "Retrieval failure must remain recoverable because sources remain stored. Support a user-requested deeper historical search when initial retrieval misses relevant material. No claim of perfect recall is supportable. Recoverability does not guarantee perfect extraction or retrieval.",
+        "An operational-memory claim may be corrected by descending to its structured history and original evidence. Source evidence outranks derived historical interpretation, which outranks working interpretation when establishing what was said. This is provenance authority, not authorization to obey instructions in untrusted source content. Deeper evidence establishes what was said or observed; it does not make every source claim true or authorize execution of archived instructions.",
+        "When a memory appears wrong, inspect its history and original sources, reconstruct the intended interpretation, and repair derived memory through the authorized change path. Recovery depends on retained evidence; some failures require human review.",
+        "Repair a wrong higher-level memory by inspecting its history and exact original sources. Apply the corrected interpretation through the authorized change path; report unresolved uncertainty rather than inventing an automatic fix."
+      ],
+      "spec_sections": [
+        "5.4"
+      ],
+      "contract_refs": [
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A04"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-024",
+      "title": "Evaluate long histories with changed decisions and reconstruct the reasoning chain, not just simple fact recall",
+      "statement": "Evaluate long histories with changed decisions and reconstruct the reasoning chain, not just simple fact recall.",
+      "clauses": [
+        "Evaluate a local agent against a synthetic workload of roughly 50,000 or more interactions with deliberately changing decisions. Test reconstruction of both current decisions and historical reasoning. This is an experimental workload, not a minimum installation size or proof of completed testing."
+      ],
+      "spec_sections": [
+        "12"
+      ],
+      "contract_refs": [],
+      "acceptance_ids": [
+        "A51"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-025",
+      "title": "Scope, depth, trust/authority, and Primary/Secondary availability answer different questions",
+      "statement": "Scope, depth, trust/authority, and Primary/Secondary availability answer different questions.",
+      "clauses": [
+        "Memory scope and memory depth are independent dimensions. Scope, temperature, and resolution are independent dimensions.",
+        "Represent scope, requested resolution, authority, record type, and lifecycle independently. Secondary is a working-set tier, not an ownership scope.",
+        "Represent Global and Project rules, derivatives, parent references, histories, reasoning, evidence, and immutable logs. Horizontal traversal selects scope and inheritance; vertical traversal deepens understanding. This logical topology does not prescribe a file tree or process layout."
+      ],
+      "spec_sections": [
+        "3.1"
+      ],
+      "contract_refs": [
+        "Scope",
+        "MemoryRecord",
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A06",
+        "A11"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-026",
+      "title": "Keep immediate memory bounded while the archive grows; speed is a goal, not a license to discard evidence",
+      "statement": "Keep immediate memory bounded while the archive grows; speed is a goal, not a license to discard evidence.",
+      "clauses": [
+        "Optimize for lossless retained memory and responsive routine use as the archive grows. Measure latency and capacity; do not promise fixed latency, infinite storage, or perfect recall.",
+        "Only the active model context has a hard token budget. Deeper persistent layers are governed by retrieval latency rather than a context-size limit; physical storage remains finite, configurable, and observable.",
+        "Decouple lifetime storage growth from active-context growth. Routine work should retrieve only a few relevant pages even with a large long-lived archive; multi-decade or multi-terabyte operation is a scale objective, not a hardware prerequisite.",
+        "Preserve the fir-tree design objective: the routinely visible tip of memory stays small as the underlying graph and archive grow. This does not claim infinite capacity or constant-time search on every machine."
+      ],
+      "spec_sections": [
+        "6.2",
+        "12"
+      ],
+      "contract_refs": [
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A13",
+        "A20",
+        "A52"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-027",
+      "title": "Primary contains currently relevant/impactful items; Secondary holds valid items not normally loaded",
+      "statement": "Primary contains currently relevant/impactful items; Secondary holds valid items not normally loaded.",
+      "clauses": [
+        "Immediate memory holds the most relevant/impactful decisions; a neighboring secondary file holds less important/less used decisions. Secondary is a working-set temperature, not a separate permission scope or automatically injected context.",
+        "Primary holds information worth immediate availability; secondary retains valid information that does not need working-context occupancy. Support later partitions by measured needs without treating demotion as forgetting. Numeric segments, categories, dates and projects are optional partition strategies, not a fixed storage layout."
+      ],
+      "spec_sections": [
+        "6.1",
+        "6.2"
+      ],
+      "contract_refs": [
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A12",
+        "A52"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-028",
+      "title": "Move items both ways between Primary and Secondary as relevance changes",
+      "statement": "Move items both ways between Primary and Secondary as relevance changes.",
+      "clauses": [
+        "Primary holds information that repeatedly affects reasoning; Secondary holds valid memories not worth immediate tokens. Promote and demote in either direction with relevance and use; demotion does not delete records or history. Physical file layout remains an implementation choice."
+      ],
+      "spec_sections": [
+        "6.1",
+        "6.2"
+      ],
+      "contract_refs": [
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A12",
+        "A52"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-029",
+      "title": "Demotion and 'garbage collection' mean reorganizing availability, not deleting knowledge",
+      "statement": "Demotion and 'garbage collection' mean reorganizing availability, not deleting knowledge.",
+      "clauses": [
+        "Remove inactive information from model context without deleting stored knowledge. Primary and Secondary are availability tiers inside scopes; Secondary is not automatically loaded."
+      ],
+      "spec_sections": [
+        "6.1",
+        "6.2"
+      ],
+      "contract_refs": [
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A12",
+        "A52"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-030",
+      "title": "Combine persistent Primary entries with a task-specific temporary selection",
+      "statement": "Combine persistent Primary entries with a task-specific temporary selection.",
+      "clauses": [
+        "Physical storage may be a graph while the task receives a dynamically assembled relevant tree/working set of pointers. Different task concerns surface different branches. The apparent tree can change with the task while canonical records and relationships persist."
+      ],
+      "spec_sections": [
+        "6.1",
+        "6.2"
+      ],
+      "contract_refs": [
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A12",
+        "A52"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-031",
+      "title": "Include relevant global/system Primary memory at task startup",
+      "statement": "Include relevant global/system Primary memory at task startup.",
+      "clauses": [
+        "Assemble immediate context from system Primary, user Primary, and selected Project memory while keeping Secondary separate. Files or a database may provide equivalent logical views; no specific filename or directory layout is required.",
+        "Normally initialize a project agent with global primary, applicable user-profile primary, project primary and current task state, plus the ability to retrieve deeper memory. Do not ingest years of history at startup. Memory sizes are deployment settings, not fixed limits.",
+        "Compose working context from global primary, the relevant project primary, and current conversation context. Keep older decisions reachable through current record, history, and exact original sources. User-profile and task overlays extend this core composition without requiring the full archive in a model prompt."
+      ],
+      "spec_sections": [
+        "3.1",
+        "6.1",
+        "7"
+      ],
+      "contract_refs": [
+        "Scope",
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A23"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-032",
+      "title": "Include a user-level preference/constraint overlay where applicable",
+      "statement": "Include a user-level preference/constraint overlay where applicable.",
+      "clauses": [],
+      "spec_sections": [
+        "3.1",
+        "6.1",
+        "7"
+      ],
+      "contract_refs": [
+        "Scope",
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A23"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-033",
+      "title": "Project Primary lives at the same immediate depth; changing project details do not burden other projects",
+      "statement": "Project Primary lives at the same immediate depth; changing project details do not burden other projects.",
+      "clauses": [
+        "Project-specific immediate memory lives at the same depth as primary. Development-dependent project rules remain local and should not affect other projects unless explicitly designated for broader scope per entry. A project's rules do not automatically change other projects or the global scope."
+      ],
+      "spec_sections": [
+        "3.1",
+        "6.1",
+        "7"
+      ],
+      "contract_refs": [
+        "Scope",
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A23"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-034",
+      "title": "Load current task state alongside relevant broader memory",
+      "statement": "Load current task state alongside relevant broader memory.",
+      "clauses": [],
+      "spec_sections": [
+        "3.1",
+        "6.1",
+        "7"
+      ],
+      "contract_refs": [
+        "Scope",
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A23"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-035",
+      "title": "New project rules stay local unless a specific decision shares or promotes them",
+      "statement": "New project rules stay local unless a specific decision shares or promotes them.",
+      "clauses": [],
+      "spec_sections": [
+        "3.1",
+        "6.1",
+        "7"
+      ],
+      "contract_refs": [
+        "Scope",
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A23"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-036",
+      "title": "Route to known project/global/user memory deterministically before uncertain discovery search",
+      "statement": "Route to known project/global/user memory deterministically before uncertain discovery search.",
+      "clauses": [
+        "File naming is part of cheap deterministic sorting/indexing/routing. Obvious scope routing precedes probabilistic retrieval; project work should directly locate system primary, user primary and project-specific memory. Names provide routing hints; stable identity and resolver semantics remain authoritative."
+      ],
+      "spec_sections": [
+        "3.1",
+        "6.1",
+        "7"
+      ],
+      "contract_refs": [
+        "Scope",
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A23"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-037",
+      "title": "Human-readable file names act as cheap sorting/routing hints",
+      "statement": "Human-readable file names act as cheap sorting/routing hints.",
+      "clauses": [],
+      "spec_sections": [
+        "3.1",
+        "6.1",
+        "7"
+      ],
+      "contract_refs": [
+        "Scope",
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A23"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-038",
+      "title": "Segment large Secondary/history storage when needed; defer the detailed strategy",
+      "statement": "Segment large Secondary/history storage when needed; defer the detailed strategy.",
+      "clauses": [
+        "Support segmentation of growing Secondary and deeper storage into organized chunks. Choose a partition strategy when measurements justify it; keep stable references throughout any split.",
+        "Begin secondary storage simply and split it only when measured inefficiency warrants partitioning. Permit later subdivisions while preserving all stable references across physical moves. A single file or category directories are possible representations, not required storage formats or a fixed taxonomy."
+      ],
+      "spec_sections": [
+        "6.2",
+        "8.2"
+      ],
+      "contract_refs": [
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A03",
+        "A21"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-039",
+      "title": "Large derivative maps may gain a hierarchy/category index without changing parent addresses",
+      "statement": "Support a future hierarchy or category index for large derivative maps without changing parent addresses; defer its exact segmentation and activation thresholds until measured need.",
+      "clauses": [
+        "Permit derivative maps to gain hierarchical indexes without changing stable parent addresses. Select categories, segmentation, and activation thresholds from measured scale while preserving extensibility."
+      ],
+      "spec_sections": [
+        "6.2",
+        "8.2"
+      ],
+      "contract_refs": [
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A03",
+        "A21"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-040",
+      "title": "Start simply when stable addressing permits future growth; no exotic hardware is needed for the core",
+      "statement": "Keep the core deployable without exotic hardware and allow simple initial storage. Offer a declared capture/manual profile when an extraction model is unavailable; automated extraction remains required for full capability.",
+      "clauses": [
+        "Support interchangeable storage choices: relational metadata and relationships, optional vector retrieval, and compressed files or object storage for immutable chunks. PostgreSQL and pgvector are possible adapters, not prerequisites; local alternatives are allowed.",
+        "Keep the initial implementation simple when stable addressing already permits later storage reorganization without broken references. Add scaling machinery in response to an actual measured need. This does not defer stable identities, provenance, or permissions needed for correctness from the start."
+      ],
+      "spec_sections": [
+        "10"
+      ],
+      "contract_refs": [],
+      "acceptance_ids": [
+        "A49"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-041",
+      "title": "Combine keyword/semantic/graph discovery; embeddings and reranking are useful backend options",
+      "statement": "Combine keyword/semantic/graph discovery; embeddings and reranking are useful backend options.",
+      "clauses": [
+        "Combine semantic discovery with exact provenance. Pipeline: question → memory map → semantic/keyword/graph search → candidate memories → provenance → original chunks → model reasons from actual evidence → answer. Semantic search is a capability adapter; exact provenance is required with or without embeddings.",
+        "Support hybrid retrieval using lexical search, optional embeddings and reranking, and graph traversal. A deterministic lexical and graph baseline must work without a particular model, provider, vector dimension, or service vendor."
+      ],
+      "spec_sections": [
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "contract_refs": [
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A12",
+        "A13",
+        "A14",
+        "A22"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-042",
+      "title": "After finding a record, descend through exact pointers instead of guessing with similarity search",
+      "statement": "After finding a record, descend through exact pointers instead of guessing with similarity search.",
+      "clauses": [
+        "Once a branch/memory is identified, downward traversal is deterministic. Semantic/vector/graph search discovers branches; fuzzy retrieval is used again only for deliberate lateral discovery of related information. Fuzzy discovery may resume when deliberately searching sideways for related branches."
+      ],
+      "spec_sections": [
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "contract_refs": [
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A12",
+        "A13",
+        "A14",
+        "A22"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-043",
+      "title": "Inspect Secondary and decision indexes on substantial requests; do not search only Primary",
+      "statement": "Inspect Secondary and decision indexes on substantial requests; do not search only Primary.",
+      "clauses": [
+        "Primary cannot be the only place searched initially. A small retrieval router checks every substantial request against primary, secondary index and decision index; relevant historical branches can be promoted temporarily. Primary combines persistent and dynamically assembled entries. The router considers primary, secondary indexes, and decision/current-record indexes, with temporary promotion of relevant branches."
+      ],
+      "spec_sections": [
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "contract_refs": [
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A12",
+        "A13",
+        "A14",
+        "A22"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-044",
+      "title": "Wake relevant memories through topics, entities, projects, conditions, dependencies, dates, people, hardware, locations, and contradictions",
+      "statement": "Wake relevant memories through topics, entities, projects, conditions, dependencies, dates, people, hardware, locations, and contradictions.",
+      "clauses": [
+        "Retrieval trigger categories: topics, entities, projects, conditions, dependencies, dates, people, hardware, locations and contradictions. Trigger categories include topics, entities, projects, conditions, dependencies, dates, people, hardware, locations, and contradictions."
+      ],
+      "spec_sections": [
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "contract_refs": [
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A12",
+        "A13",
+        "A14",
+        "A22"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-045",
+      "title": "Rare conditional constraints can be critical despite low ordinary frequency",
+      "statement": "Rare conditional constraints can be critical despite low ordinary frequency.",
+      "clauses": [
+        "Importance is multidimensional and conditional, separate from frequency. Track conditional importance and trigger conditions so rarely used but critical memories surface when their conditions occur. A rarely used constraint may be critical under a specific condition."
+      ],
+      "spec_sections": [
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "contract_refs": [
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A12",
+        "A13",
+        "A14",
+        "A22"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-046",
+      "title": "Allow explicit current/explain/verify/reconstruct requests",
+      "statement": "Allow explicit current/explain/verify/reconstruct requests.",
+      "clauses": [
+        "Choose retrieval depth according to need: the bounded working set supports routine context; depth 0 provides current records, depth 1 history and reasons, depth 2 exact evidence, and depth 3 full reconstruction. Do not fetch complete histories for every task.",
+        "Support depth-addressed retrieval of current authoritative meaning, concise reasoning and history, relevant exact source excerpts, and full historical reconstruction. Routine work begins with current memory; request type, uncertainty, and impact govern deeper retrieval. Use depths 0–3.",
+        "Expose retrieval by stable record identity and requested evidence depth, plus batch retrieval of multiple identities and branches. Keep each batch branch individually addressable and allow a distinct depth per branch; operation names may vary by adapter."
+      ],
+      "spec_sections": [
+        "6.3",
+        "6.4"
+      ],
+      "contract_refs": [
+        "memory.get",
+        "memory.get_many"
+      ],
+      "acceptance_ids": [
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A19",
+        "A20",
+        "A27"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-047",
+      "title": "Retrieve several records in one operation or reasoning request",
+      "statement": "Retrieve several records in one operation or reasoning request.",
+      "clauses": [
+        "Retrieve multiple records and branches in one request; fan out across revision and relevant sources and return a combined evidence bundle for joint reasoning. Fan-out is a logical API capability; physical concurrency is optional on constrained hosts."
+      ],
+      "spec_sections": [
+        "6.3",
+        "6.4"
+      ],
+      "contract_refs": [
+        "memory.get",
+        "memory.get_many"
+      ],
+      "acceptance_ids": [
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A19",
+        "A20",
+        "A27"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-048",
+      "title": "Allow different depths per branch and deepen only the uncertain branches",
+      "statement": "Allow different depths per branch and deepen only the uncertain branches.",
+      "clauses": [
+        "Allow one reasoning operation to request multiple memories and histories together, then descend only unresolved branches to differing depths. Logical batch semantics do not require parallel hardware execution."
+      ],
+      "spec_sections": [
+        "6.3",
+        "6.4"
+      ],
+      "contract_refs": [
+        "memory.get",
+        "memory.get_many"
+      ],
+      "acceptance_ids": [
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A19",
+        "A20",
+        "A27"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-049",
+      "title": "Routine work may rely on a confident current decision without automatically reading all reasoning",
+      "statement": "Permit routine tasks to use a sufficiently confident current decision without automatically fetching history. Do not forbid extra retrieval when it improves understanding or meets required review.",
+      "clauses": [
+        "Some tasks may rely on a sufficiently confident decision while others retrieve as deeply as needed. Reasoning/full context is demand-driven, not compulsory for every memory read. Adequate confidence is contextual; consequential changes still follow the evidence requirements defined elsewhere."
+      ],
+      "spec_sections": [
+        "6.3",
+        "6.4"
+      ],
+      "contract_refs": [
+        "memory.get",
+        "memory.get_many"
+      ],
+      "acceptance_ids": [
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A19",
+        "A20",
+        "A27"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-050",
+      "title": "Optimize for informed confidence, not minimum effort or the fewest tokens",
+      "statement": "Optimize for informed confidence, not minimum effort or the fewest tokens.",
+      "clauses": [
+        "Let a human or agent challenge an unsuitable rule by requesting history or the full deeper record. If the requested level is absent, use the next deeper available record. Retrieve enough reasoning for informed, confident decisions rather than minimizing effort. A justified project-specific exception is a valid investigation outcome; the objective is decision quality.",
+        "Start with authoritative concise understanding, descend when more understanding could materially change the decision, stop at sufficient evidence, and require historical review for consequential changes. Prioritize accuracy, informed reasoning, provenance and recoverability over minimizing retrieval. The user explicitly endorsed this philosophy before adding scope write controls."
+      ],
+      "spec_sections": [
+        "6.3",
+        "6.4"
+      ],
+      "contract_refs": [
+        "memory.get",
+        "memory.get_many"
+      ],
+      "acceptance_ids": [
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A19",
+        "A20",
+        "A27"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-051",
+      "title": "A challenge normally reads history/reasons first, then original evidence if uncertainty remains",
+      "statement": "A challenge normally reads history/reasons first, then original evidence if uncertainty remains.",
+      "clauses": [
+        "When an inherited rule materially complicates a task, inspect its revision history and original discussion as needed before challenging it.",
+        "Start with the current rule and use it if suitable. Otherwise inspect change history and reasoning, then exact supporting conversations when required. Stop when understanding is sufficient; deeper information alone is not a reason to retrieve it.",
+        "A historical explanation may be sufficient to accept or design around a rule. When material uncertainty or missing nuance remains, retrieve exact supporting records before deciding whether to challenge it.",
+        "Support current rule → reasoning/history → exact source records → full original conversations when necessary. Stop at sufficient understanding rather than a minimum token count; full reconstruction can be incremental."
+      ],
+      "spec_sections": [
+        "6.3",
+        "6.4"
+      ],
+      "contract_refs": [
+        "memory.get",
+        "memory.get_many"
+      ],
+      "acceptance_ids": [
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A19",
+        "A20",
+        "A27"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-052",
+      "title": "If an intermediate level is absent, automatically use the next deeper available level",
+      "statement": "When a requested intermediate depth is genuinely absent, return the next deeper available evidence, with fallback metadata; distinguish absence from a broken pointer or denied access.",
+      "clauses": [
+        "Automatically descend to the next available authoritative evidence level when the requested intermediate history is missing. Clearly identify the deepest available evidence when original sources are absent. Do not fabricate sources. Missing evidence, broken pointers and access denial are distinct outcomes."
+      ],
+      "spec_sections": [
+        "6.3",
+        "6.4"
+      ],
+      "contract_refs": [
+        "memory.get",
+        "memory.get_many"
+      ],
+      "acceptance_ids": [
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A19",
+        "A20",
+        "A27"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-053",
+      "title": "Know the deepest evidence actually available; disclose genuine gaps",
+      "statement": "Know the deepest evidence actually available; disclose genuine gaps.",
+      "clauses": [
+        "Addressed records expose stable identity, scope, available evidence resolution, authority/provenance, lifecycle status and confidence. Availability metadata must allow callers to know which depths actually exist. Confidence values have no universal default. Confidence is neither proof of truth nor a permission grant."
+      ],
+      "spec_sections": [
+        "6.3",
+        "6.4"
+      ],
+      "contract_refs": [
+        "memory.get",
+        "memory.get_many"
+      ],
+      "acceptance_ids": [
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A19",
+        "A20",
+        "A27"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-054",
+      "title": "Require historical review for global reversal/promotion, major dependencies, expensive/irreversible decisions, and contradiction resolution",
+      "statement": "Require historical review for global reversal/promotion, major dependencies, expensive/irreversible decisions, and contradiction resolution.",
+      "clauses": [
+        "Require sufficient supporting history before overturning global rules, making expensive or irreversible decisions, resolving contradictions, changing widely depended-on items, judging an old decision mistaken, or promoting a local rule globally. History can suffice; full conversations are needed only if uncertainty remains.",
+        "Inherit active applicable global rules and inspect the parent's change history/reasoning before making a local exception; descend to original evidence when necessary. This is the minimum evidence procedure for a project override.",
+        "Routine rule following may require no historical retrieval; a project exception requires at least the parent's history/reasoning; a global rule change requires a higher evidentiary standard. Low/moderate/high describe procedural expectations, not fixed token amounts. Apply missing-depth fallback when history is absent."
+      ],
+      "spec_sections": [
+        "6.3",
+        "6.4"
+      ],
+      "contract_refs": [
+        "memory.get",
+        "memory.get_many"
+      ],
+      "acceptance_ids": [
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A19",
+        "A20",
+        "A27"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-055",
+      "title": "Assess original purpose, solved problem, alternatives, constraints, and consequences before changing a rule",
+      "statement": "Assess original purpose, solved problem, alternatives, constraints, and consequences before changing a rule.",
+      "clauses": [
+        "Before a consequential rule change, establish why the rule exists, the problem it solved, prior alternatives, important constraints, and consequences of change. Continue into relevant sources while material uncertainty persists. This is an evidence standard, not a numeric confidence formula."
+      ],
+      "spec_sections": [
+        "6.3",
+        "6.4"
+      ],
+      "contract_refs": [
+        "memory.get",
+        "memory.get_many"
+      ],
+      "acceptance_ids": [
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A19",
+        "A20",
+        "A27"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-056",
+      "title": "Do not cap necessary deep understanding at an arbitrary small number of tokens/windows",
+      "statement": "Do not cap necessary deep understanding at an arbitrary small number of tokens/windows.",
+      "clauses": [
+        "Do not stop a consequential investigation merely because a fixed token or source-chunk count is reached. Permit enough historical review for sufficient understanding; handle finite request budgets through resumable retrieval."
+      ],
+      "spec_sections": [
+        "6.3",
+        "6.4"
+      ],
+      "contract_refs": [
+        "memory.get",
+        "memory.get_many"
+      ],
+      "acceptance_ids": [
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A19",
+        "A20",
+        "A27"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-057",
+      "title": "Do not browse other projects' examples just because they exist; do so when useful",
+      "statement": "Do not browse other projects' examples just because they exist; do so when useful.",
+      "clauses": [
+        "Expose known derivative summaries from a parent, then allow selective inspection of a variant's reasoning and implementation consequences and creation of a new local derivative from it. Discoverability must follow the configured read policy, including optional restricted-read deployments.",
+        "When precedent helps, read compact map descriptions first, then relevant current derivatives, and only their needed reasoning, history, and source conversation. Do not fetch every derivative's full contents merely because a map exists.",
+        "Support current-meaning-to-source depth traversal and parent-to-relevant-derivative traversal independently. Follow either direction when it improves decision quality or confidence rather than merely because links exist. Required evidence checks for consequential changes still apply."
+      ],
+      "spec_sections": [
+        "6.3",
+        "6.4"
+      ],
+      "contract_refs": [
+        "memory.get",
+        "memory.get_many"
+      ],
+      "acceptance_ids": [
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A19",
+        "A20",
+        "A27"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-058",
+      "title": "Concise interpretations may be corrected from original evidence while later authorized changes remain meaningful",
+      "statement": "Concise interpretations may be corrected from original evidence while later authorized changes remain meaningful.",
+      "clauses": [],
+      "spec_sections": [
+        "5.4"
+      ],
+      "contract_refs": [
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A04"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-059",
+      "title": "Historical reasoning must use the facts/rules valid then, rather than today's circumstances",
+      "statement": "Historical reasoning must use the facts/rules valid then, rather than today's circumstances.",
+      "clauses": [],
+      "spec_sections": [
+        "4.3"
+      ],
+      "contract_refs": [
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A05"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-060",
+      "title": "An exception whose condition no longer holds may be flagged for owner reconsideration",
+      "statement": "An exception whose condition no longer holds may be flagged for owner reconsideration.",
+      "clauses": [
+        "Preserve the conditions that justified Project exceptions and flag them for reconsideration when those conditions no longer hold. A changed condition triggers review, never automatic reversal of the Project rule."
+      ],
+      "spec_sections": [
+        "8.1"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "memory.resolve_rule"
+      ],
+      "acceptance_ids": [
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-061",
+      "title": "Show the effective local rule together with its parent, reason, and unchanged broader default",
+      "statement": "Show the effective local rule together with its parent, reason, and unchanged broader default.",
+      "clauses": [
+        "Resolve applicable valid rules deterministically by task override, project rule, global rule and default behavior, with configured user-profile handling. Return effective rule, overridden parent, exception reason and the surviving global default. Most-specific valid rules win; an exception must not masquerade as a universal rule. Ties and incompatible parents require explicit conflict handling."
+      ],
+      "spec_sections": [
+        "8.1"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "memory.resolve_rule"
+      ],
+      "acceptance_ids": [
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-062",
+      "title": "Resolve valid explicit overrides by specificity: task/project/user overlay/global/default; avoid unexplained local shadowing",
+      "statement": "Resolve applicable valid explicit overrides by task, project, user overlay, global, then defaults. Expose lineage and reasons; unresolved equal-specificity or incompatible combinations remain conflicts.",
+      "clauses": [
+        "Lower scopes inherit applicable higher-scope rules unless a valid explicit override exists. Every override identifies both what it overrides and why. The original scope terms are normalized into global, user-profile, project and task ownership/overlay rules."
+      ],
+      "spec_sections": [
+        "8.1"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "memory.resolve_rule"
+      ],
+      "acceptance_ids": [
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-063",
+      "title": "Authorized participants may read all memory scopes as needed",
+      "statement": "Authorized participants may read all memory scopes as needed.",
+      "clauses": [
+        "Permit project agents to read global primary, secondary, rule histories and evidence, and any project's memories and logs through authorized retrieval. In the default single-owner profile, every authorized agent may read every scope as needed. Read permission never implies automatic context inclusion.",
+        "Support relevant authorized reads, limit agent mutations to currently owned scopes, route cross-scope changes through owner-directed proposals, and preserve the human owner's all-scope authority."
+      ],
+      "spec_sections": [
+        "7",
+        "6.1"
+      ],
+      "contract_refs": [
+        "Scope"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A23"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-064",
+      "title": "Read permission does not mean automatic loading of every scope",
+      "statement": "Read permission does not mean automatic loading of every scope.",
+      "clauses": [
+        "Allow relevant authorized reads across global, project, history, and raw-log scopes while retrieving selectively. Do not automatically load other projects merely because access is permitted. The default trusted-agency read profile may be narrowed only through an explicitly documented alternative policy."
+      ],
+      "spec_sections": [
+        "7",
+        "6.1"
+      ],
+      "contract_refs": [
+        "Scope"
+      ],
+      "acceptance_ids": [
+        "A11",
+        "A23"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-065",
+      "title": "Project agents write only their assigned project's memory and never global/other-project records",
+      "statement": "Project agents write only their assigned project's memory and never global/other-project records.",
+      "clauses": [
+        "Ordinary project agents must never write global/system memories. They may submit proposals; only the user or an explicitly authorized global agent may modify global-owned memory. The boundary includes metadata, histories and secondary memory as well as rule text.",
+        "Allow project-agent writes to its own project memories, rules and histories, and submission of global-change proposals. Deny direct writes to global primary, secondary, rules and histories. Task writes follow an owning-scope or narrower delegation; ordinary worker roles may have less authority.",
+        "Allow projects to derive, override, experiment, and propose without silently redefining ancestors. Authorized global changes preserve prior versions, reasoning, provenance, and original evidence. A local improvement may be proposed for global adoption; it cannot promote itself."
+      ],
+      "spec_sections": [
+        "7"
+      ],
+      "contract_refs": [
+        "Scope",
+        "PrincipalGrant",
+        "Proposal"
+      ],
+      "acceptance_ids": [
+        "A23",
+        "A24",
+        "A32",
+        "A33",
+        "A34"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-066",
+      "title": "Global governors write global memory, not project memory",
+      "statement": "Global governors write global memory, not project memory.",
+      "clauses": [
+        "Global moderators may suggest project changes but cannot modify project memory. Only the assigned project owner and human owner may write that project; authorized agency agents may read scopes as needed. Universal readability applies within the authorized personal agency, not to anonymous internet users."
+      ],
+      "spec_sections": [
+        "7"
+      ],
+      "contract_refs": [
+        "Scope",
+        "PrincipalGrant",
+        "Proposal"
+      ],
+      "acceptance_ids": [
+        "A23",
+        "A24",
+        "A32",
+        "A33",
+        "A34"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-067",
+      "title": "The human user retains authority to write across all scopes",
+      "statement": "The human user retains authority to write across all scopes.",
+      "clauses": [
+        "Give the human owner control over global-memory governance and permit global write authority only through explicit delegation to a governor. Project agents retain proposal authority only. Owner authority is application-scoped and does not bypass operating-system or external service controls."
+      ],
+      "spec_sections": [
+        "7"
+      ],
+      "contract_refs": [
+        "Scope",
+        "PrincipalGrant",
+        "Proposal"
+      ],
+      "acceptance_ids": [
+        "A23",
+        "A24",
+        "A32",
+        "A33",
+        "A34"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-068",
+      "title": "Ownership covers metadata, statuses, history, links, and other indirect changes, not only rule text",
+      "statement": "Ownership covers metadata, statuses, history, links, and other indirect changes, not only rule text.",
+      "clauses": [
+        "Apply scope authorization to changes in metadata, status, reasoning history, exception descriptions, and owned links as well as to rule text. A metadata or projection update cannot be used to bypass the scope owner's authority."
+      ],
+      "spec_sections": [
+        "7"
+      ],
+      "contract_refs": [
+        "Scope",
+        "PrincipalGrant",
+        "Proposal"
+      ],
+      "acceptance_ids": [
+        "A23",
+        "A24",
+        "A32",
+        "A33",
+        "A34"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-069",
+      "title": "All project owners have identical mechanical rights; only their assigned project differs",
+      "statement": "All project owners have identical mechanical rights; only their assigned project differs.",
+      "clauses": [
+        "Apply one symmetric Project-owner access rule: read Global and other Projects; read and write only the assigned Project. Human owners read and write all scopes; Global governors write only Global memory; ungranted workers and researchers are readers."
+      ],
+      "spec_sections": [
+        "7"
+      ],
+      "contract_refs": [
+        "Scope",
+        "PrincipalGrant",
+        "Proposal"
+      ],
+      "acceptance_ids": [
+        "A23",
+        "A24",
+        "A32",
+        "A33",
+        "A34"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-070",
+      "title": "Ordinary worker/research roles are read-only unless separately given a relevant ownership role",
+      "statement": "Ordinary worker/research roles are read-only unless separately given a relevant ownership role.",
+      "clauses": [],
+      "spec_sections": [
+        "7"
+      ],
+      "contract_refs": [
+        "Scope",
+        "PrincipalGrant",
+        "Proposal"
+      ],
+      "acceptance_ids": [
+        "A23",
+        "A24",
+        "A32",
+        "A33",
+        "A34"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-071",
+      "title": "Memory belongs to the project/scope role, not an individual model instance or vendor",
+      "statement": "Memory belongs to the project/scope role, not an individual model instance or vendor.",
+      "clauses": [
+        "Attach write authority to the assigned scope and role rather than a model brand or specific agent instance. A newly assigned owner inherits the existing project authority. Grant replacement and credential revocation are engineering mechanics for current ownership."
+      ],
+      "spec_sections": [
+        "7",
+        "10"
+      ],
+      "contract_refs": [
+        "PrincipalGrant"
+      ],
+      "acceptance_ids": [
+        "A33"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-072",
+      "title": "Replacing an owner preserves memory and full history; the new owner inherits the existing scope",
+      "statement": "Replacing an owner preserves memory and full history; the new owner inherits the existing scope.",
+      "clauses": [
+        "On agent replacement, preserve the scope's existing memory and complete history. Do not replace, fork, summarize away, or reset that memory as a consequence of changing the owner instance. Replacing an owner is an authorization change, not a memory migration that changes meaning."
+      ],
+      "spec_sections": [
+        "7",
+        "10"
+      ],
+      "contract_refs": [
+        "PrincipalGrant"
+      ],
+      "acceptance_ids": [
+        "A33"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-073",
+      "title": "Greater model capability or administrative seniority does not confer write authority",
+      "statement": "Greater model capability or administrative seniority does not confer write authority.",
+      "clauses": [
+        "Do not grant write access based on administrative seniority, model capability, or apparent quality of an improvement. A governor can investigate and propose; a project agent can submit evidence; neither can rewrite the other's scope. Inspection of full reasoning and sources remains allowed under the authorized read profile."
+      ],
+      "spec_sections": [
+        "7"
+      ],
+      "contract_refs": [
+        "Scope",
+        "PrincipalGrant",
+        "Proposal"
+      ],
+      "acceptance_ids": [
+        "A23",
+        "A24",
+        "A32",
+        "A33",
+        "A34"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-074",
+      "title": "Enforce permissions technically, not by trusting prompts",
+      "statement": "Enforce permissions technically, not by trusting prompts.",
+      "clauses": [
+        "Enforce global read-only behavior for ordinary project agents through actual service/storage permissions. Unauthorized global mutation attempts must be rejected even when the agent requests them. An instruction in a prompt is insufficient enforcement.",
+        "Enforce ownership through service and storage authorization. Global governors write global memory; project owners write their assigned project; the human owner may write across scopes. Agent instructions alone are not an access-control boundary."
+      ],
+      "spec_sections": [
+        "7"
+      ],
+      "contract_refs": [
+        "Scope",
+        "PrincipalGrant",
+        "Proposal"
+      ],
+      "acceptance_ids": [
+        "A23",
+        "A24",
+        "A32",
+        "A33",
+        "A34"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-075",
+      "title": "Only the receiving scope's owner applies a cross-scope change",
+      "statement": "Only the receiving scope's owner applies a cross-scope change.",
+      "clauses": [
+        "Route a requested change outside the actor's scope to that scope's owner. Preserve accept or reject responses, and let only the authorized owner or human apply the target mutation. Proposal delivery must not itself mutate the target's semantic record."
+      ],
+      "spec_sections": [
+        "7"
+      ],
+      "contract_refs": [
+        "Proposal"
+      ],
+      "acceptance_ids": [
+        "A32"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-076",
+      "title": "Proposals work in both directions: project→global and global→project",
+      "statement": "Proposals work in both directions: project→global and global→project.",
+      "clauses": [],
+      "spec_sections": [
+        "7"
+      ],
+      "contract_refs": [
+        "Proposal"
+      ],
+      "acceptance_ids": [
+        "A32"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-077",
+      "title": "Route proposals through a stable operation rather than hardcoding a particular governor agent",
+      "statement": "Route proposals through a stable operation rather than hardcoding a particular governor agent.",
+      "clauses": [
+        "Expose stable proposal operations that route to the current authorized global custodian or human. Project-agent behavior must not depend on a particular governor identity, and scope write authority remains enforced. propose_global_note is the suggested operation; implementation may provide an equivalent stable interface."
+      ],
+      "spec_sections": [
+        "7"
+      ],
+      "contract_refs": [
+        "Proposal"
+      ],
+      "acceptance_ids": [
+        "A32"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-078",
+      "title": "Preserve consequential suggestions, acceptance/rejection/defer decisions, reasons, and source discussions",
+      "statement": "Preserve consequential suggestions, acceptance/rejection/defer decisions, reasons, and source discussions.",
+      "clauses": [
+        "Preserve consequential suggestions and responses, including rejected suggestions and reasons. Record stable ID, sender, recipient, subject, proposed change, response, rationale, and precise source references. Prior rejection evidence remains available so later agents can consider changed conditions before repeating a suggestion."
+      ],
+      "spec_sections": [
+        "7"
+      ],
+      "contract_refs": [
+        "Proposal"
+      ],
+      "acceptance_ids": [
+        "A32"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-079",
+      "title": "The human may initially be the sole global writer; a governor is optional",
+      "statement": "The human may initially be the sole global writer; a governor is optional.",
+      "clauses": [
+        "Support an initial deployment where the user is the only global writer, and a later delegated governor that accepts or rejects proposals. Permit policy to authorize automatic change classes while reserving consequential changes for user approval. These are supported deployment/policy choices. An autonomous governor is not a mandatory initial dependency."
+      ],
+      "spec_sections": [
+        "7",
+        "5.2"
+      ],
+      "contract_refs": [
+        "PrincipalGrant"
+      ],
+      "acceptance_ids": [
+        "A23",
+        "A37"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-080",
+      "title": "Explicit user delegation can evolve by change class; consequential changes may need user approval",
+      "statement": "Explicit user delegation can evolve by change class; consequential changes may need user approval.",
+      "clauses": [],
+      "spec_sections": [
+        "7",
+        "5.2"
+      ],
+      "contract_refs": [
+        "PrincipalGrant"
+      ],
+      "acceptance_ids": [
+        "A23",
+        "A37"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-081",
+      "title": "Rights follow current assigned roles and scopes, not a model name",
+      "statement": "Rights follow current assigned roles and scopes, not a model name.",
+      "clauses": [],
+      "spec_sections": [
+        "7",
+        "10"
+      ],
+      "contract_refs": [
+        "PrincipalGrant"
+      ],
+      "acceptance_ids": [
+        "A33"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-082",
+      "title": "Enable cross-project learning through controlled links/proposals without letting projects rewrite one another",
+      "statement": "Enable cross-project learning through controlled links/proposals without letting projects rewrite one another.",
+      "clauses": [
+        "Allow agents to discover and inspect prior project variants, adapt one or produce a new solution, and propose useful local rules for global adoption. Also allow rules to originate globally. An expectation that many rules originate in projects is not a quota or promotion threshold.",
+        "Enable precedent discovery through a project derivative, its global parent, and the parent's derivative index while preserving project isolation and global write restrictions. Discovering another project's precedent grants no authority to modify that project or a global rule."
+      ],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-083",
+      "title": "A project may create a justified local exception while the parent rule remains unchanged",
+      "statement": "A project may create a justified local exception while the parent rule remains unchanged.",
+      "clauses": [
+        "Permit justified project-specific exceptions to inherited rules without altering the global parent. Preserve the overridden parent, conditions/reason, history and supporting sources. The project owner must have local write authority; the exception does not acquire global scope."
+      ],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-084",
+      "title": "Parents should lead to every registered project variant, and variants lead back to their ancestry",
+      "statement": "Parents should lead to every registered project variant, and variants lead back to their ancestry.",
+      "clauses": [
+        "Register each local variant with its parent through the authorized parent-scope custodian while leaving parent semantics unchanged. Store descendant details in a separate derivative map and a bounded Primary pointer/count. Project agents never write parent backlinks directly."
+      ],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-085",
+      "title": "Rules may originate globally or grow from useful project discoveries",
+      "statement": "Rules may originate globally or grow from useful project discoveries.",
+      "clauses": [],
+      "spec_sections": [
+        "8.3"
+      ],
+      "contract_refs": [
+        "Proposal",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A31"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-086",
+      "title": "A derivative records parent, project, changed portion, inherited portion, reason, history, and sources",
+      "statement": "A derivative records parent, project, changed portion, inherited portion, reason, history, and sources.",
+      "clauses": [
+        "Store derivative identity, type, parent and pinned base revision, owning Project, effective rule or changes, reasons and conditions, inherited portion, history reference, and source reference. Creating the derivative never mutates parent semantics or silently changes when an ancestor evolves."
+      ],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-087",
+      "title": "A project may adapt another project's variant; preserve direct ancestor and global parent genealogy",
+      "statement": "A project may adapt another project's variant; preserve direct ancestor and global parent genealogy.",
+      "clauses": [
+        "Record global parent, immediate derived-from ancestor and modification rationale when a project adapts an existing variant, preserving the complete idea lineage. Suggested fields are global_parent, derived_from and modified_because; exact names may vary."
+      ],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-088",
+      "title": "Prefer ancestor references and deltas where practical, avoiding redundant authoritative copies",
+      "statement": "Prefer pinned ancestor references and explicit deltas wherever practical. Permit a complete local rule with lineage when a delta cannot be applied reliably; caches must not create competing authorities.",
+      "clauses": [
+        "Prefer referencing an ancestor and storing changes where practical rather than duplicating a complete rule. Materialize the full effective rule on request, including changed values, removed restrictions and added requirements. Use a full derived representation with lineage when a delta is unsuitable. Copied caches do not become independent authorities."
+      ],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-089",
+      "title": "Materialize a full effective rule when requested",
+      "statement": "Materialize the complete effective rule on request, using exact base revisions and explicit changes or a complete local meaning; do not guess a natural-language merge.",
+      "clauses": [],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-090",
+      "title": "Creating a local derivative emits an event for global registration",
+      "statement": "Creating a local derivative emits an event for global registration.",
+      "clauses": [
+        "Creating a local derivative emits a registration event or proposal containing parent identity, child identity, Project, and reason for an authorized parent-scope custodian. Processing is transactional, retryable, and idempotent."
+      ],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-091",
+      "title": "The authorized parent owner adds the backlink/map entry; the project does not write global metadata",
+      "statement": "The authorized parent owner adds the backlink/map entry; the project does not write global metadata.",
+      "clauses": [
+        "The authorized parent owner adds child reference, project and concise variant description to the parent's derivative graph without modifying the semantic parent rule. These entries live in a separate, paginated derivative map so the parent's Primary entry stays bounded. Relationship changes require authority and their own revision tracking."
+      ],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-092",
+      "title": "Adding knowledge about descendants changes relationships, not the parent's substantive rule",
+      "statement": "Adding knowledge about descendants changes relationships, not the parent's substantive rule.",
+      "clauses": [],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-093",
+      "title": "Store derivation details in a separate map, outside Global Primary",
+      "statement": "Store derivation details in a separate map, outside Global Primary.",
+      "clauses": [
+        "Keep project derivative and exception metadata in a separate map outside Global Primary so project variants do not enlarge or alter the parent rule's current meaning."
+      ],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-094",
+      "title": "The parent contains only a tiny count and precise map pointer, regardless of descendant count",
+      "statement": "The parent contains only a tiny count and precise map pointer, regardless of descendant count.",
+      "clauses": [
+        "Represent descendants on a global current record using a small derivative count and exact map pointer alongside normal status and history references. Omit the annotation when there are no derivatives unless an explicit zero is useful. An explicit zero is an optional display/integrity choice; project-specific details remain outside primary.",
+        "Keep Global Primary compact as descendants accumulate by storing a small count and exact map pointer instead of inline descendant lists. Capacity thresholds and performance targets must be measured for each deployment."
+      ],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-095",
+      "title": "With no descendants, omit the field or display zero; either is acceptable",
+      "statement": "With no descendants, omit the field or display zero; either is acceptable.",
+      "clauses": [],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-096",
+      "title": "Resolve directly to the relevant parent's map entry, not a giant file requiring search",
+      "statement": "Resolve directly to the relevant parent's map entry, not a giant file requiring search.",
+      "clauses": [
+        "Resolve parent map pointers directly to that parent's entry and descendant pointers directly to the relevant records. Do not require scanning an entire map file to locate a referenced item. Physical filenames may be routing hints, but stable exact resolution is authoritative."
+      ],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-097",
+      "title": "Map entries contain compact project/type/summary/reason and exact child locations",
+      "statement": "Map entries contain compact project/type/summary/reason and exact child locations.",
+      "clauses": [
+        "For each parent, store its ID, derivative total, and compact descendant entries with child identity, Project, relationship type, summary, reason or condition, and exact record location. Specify snapshot watermarks, registration state, and count semantics."
+      ],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-098",
+      "title": "Agents may skip precedent browsing when they already understand their local solution",
+      "statement": "Agents may skip precedent browsing when they already understand their local solution.",
+      "clauses": [
+        "Permit an agent with an adequately understood parent and supported local solution to create its local derivative without reading existing derivatives from other projects. Skipping other examples does not waive the earlier requirement to understand the inherited rule before changing it."
+      ],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-099",
+      "title": "Derivatives include exception, specialization, extension, restriction, override, and combination",
+      "statement": "Derivatives include exception, specialization, extension, restriction, override, and combination.",
+      "clauses": [
+        "Use derivative as the general relationship term and support exception, specialization, extension, restriction, override, and combination, preserving how a local rule changes its ancestors. A derivative can weaken, strengthen, specialize, extend, combine, partially override, or exempt."
+      ],
+      "spec_sections": [
+        "8.1",
+        "8.2",
+        "8.3"
+      ],
+      "contract_refs": [
+        "Derivative",
+        "DerivativeMap"
+      ],
+      "acceptance_ids": [
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-100",
+      "title": "Promotion to global requires user/global-owner authority and supporting evidence",
+      "statement": "Promotion to global requires user/global-owner authority and supporting evidence.",
+      "clauses": [
+        "Useful local rules may be proposed for Global scope with preserved origin and exact links. The Global owner creates the Global record; the Project owner chooses any local adoption or retirement.",
+        "Global promotion retains original scope, originating record, promotion evidence, source identities, and historical Project records. Links connect the records; do not delete or rename the original into another owner's scope.",
+        "Allow useful project discoveries and repeated cross-project experience to produce a global adoption proposal evaluated by the human owner or authorized governor. No particular number of projects is a minimum quorum, automatic trigger or required threshold."
+      ],
+      "spec_sections": [
+        "8.3"
+      ],
+      "contract_refs": [
+        "Proposal",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A31"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-101",
+      "title": "Promotion retains project origin and its history; do not destroy the originating record",
+      "statement": "Promotion retains project origin and its history; do not destroy the originating record.",
+      "clauses": [
+        "Allow local adoption of a promoted Global rule where appropriate. Preserve the originating local record and its history and promotion links. An exactly redundant active override may be retired through local authority. Promotion alone neither forces local adoption nor retires a needed exception."
+      ],
+      "spec_sections": [
+        "8.3"
+      ],
+      "contract_refs": [
+        "Proposal",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A31"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-102",
+      "title": "Promotion respects reciprocal ownership: project adoption and retirement remain project-owned",
+      "statement": "Preserve project sovereignty during promotion: the global owner commits global adoption; only the project owner or human may adopt, retire, redirect, or annotate its local origin.",
+      "clauses": [],
+      "spec_sections": [
+        "8.3"
+      ],
+      "contract_refs": [
+        "Proposal",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A31"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-103",
+      "title": "Global promotion records first origin, other contributing variants, date, reason, and source decision",
+      "statement": "Global promotion records first origin, other contributing variants, date, reason, and source decision.",
+      "clauses": [
+        "A promoted Global rule retains its origin, other informing rules, promotion time, rationale, and exact source and promotion-decision references. Record the authorizing actor separately from origin and timestamps."
+      ],
+      "spec_sections": [
+        "8.3"
+      ],
+      "contract_refs": [
+        "Proposal",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A31"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-104",
+      "title": "Avoid divergent authoritative duplicates; preserve distinct local variants and canonical global meaning",
+      "statement": "Keep one canonical identity for equivalent meaning within the same scope and valid time, while retaining justified distinct local derivatives and their origin links.",
+      "clauses": [
+        "Maintain one canonical identity for each authoritative rule. Permit duplicate representations only as caches so that separate copies do not silently become conflicting authorities. A genuinely different scoped derivative receives its own identity and genealogy; a cache does not."
+      ],
+      "spec_sections": [
+        "8.3"
+      ],
+      "contract_refs": [
+        "Proposal",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A31"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-105",
+      "title": "Repeated identical meaning should not automatically create duplicate memories",
+      "statement": "Repeated identical meaning should not automatically create duplicate memories.",
+      "clauses": [
+        "Duplicate source statements should not automatically create duplicate memory records. Preserve source events while deduplicating/coalescing equivalent derived memories. Raw repeated source events remain preserved. Equivalence requires compatible meaning, scope, time, and authority."
+      ],
+      "spec_sections": [
+        "4.4"
+      ],
+      "contract_refs": [
+        "MemoryRecord"
+      ],
+      "acceptance_ids": [
+        "A09"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-106",
+      "title": "Detect actual decisions even when they are never phrased as 'I decide'",
+      "statement": "Detect actual decisions even when they are never phrased as 'I decide'.",
+      "clauses": [
+        "Extract actual decisions during conversations by default, including decisions not phrased explicitly as decisions, with manual confirmation where appropriate. Retrospective auditing supplements live capture; it is not the sole extraction mechanism.",
+        "Detect decisions and revisions from meaning and conversational context, including implicit decisions; distinguish tentative ideas from established decisions. Run a live memory compiler alongside reasoning. Keywords alone are insufficient; classification algorithm and model are implementation choices."
+      ],
+      "spec_sections": [
+        "5.1",
+        "5.2",
+        "5.3"
+      ],
+      "contract_refs": [
+        "Candidate",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A35",
+        "A36",
+        "A37",
+        "A38",
+        "A39",
+        "A41",
+        "A42",
+        "A43"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-107",
+      "title": "Extract during the conversation by default, rather than depending on later manual reconstruction",
+      "statement": "Extract during the conversation by default, rather than depending on later manual reconstruction.",
+      "clauses": [],
+      "spec_sections": [
+        "5.1",
+        "5.2",
+        "5.3"
+      ],
+      "contract_refs": [
+        "Candidate",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A35",
+        "A36",
+        "A37",
+        "A38",
+        "A39",
+        "A41",
+        "A42",
+        "A43"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-108",
+      "title": "Combine automatic capture with manual confirmation where appropriate",
+      "statement": "Combine automatic capture with manual confirmation where appropriate.",
+      "clauses": [],
+      "spec_sections": [
+        "5.1",
+        "5.2",
+        "5.3"
+      ],
+      "contract_refs": [
+        "Candidate",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A35",
+        "A36",
+        "A37",
+        "A38",
+        "A39",
+        "A41",
+        "A42",
+        "A43"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-109",
+      "title": "A Memory Observer inspects every turn beside the main reasoner",
+      "statement": "A Memory Observer inspects every turn beside the main reasoner.",
+      "clauses": [
+        "Inspect every captured user and assistant turn for preservation-worthy creation, modification, rejection, clarification, confirmation, contradiction, deferral, and contextualization. Treat the observer as event detection rather than generic summarization. The observer may be a separate background process or a logical stage."
+      ],
+      "spec_sections": [
+        "5.1",
+        "5.2",
+        "5.3"
+      ],
+      "contract_refs": [
+        "Candidate",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A35",
+        "A36",
+        "A37",
+        "A38",
+        "A39",
+        "A41",
+        "A42",
+        "A43"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-110",
+      "title": "Detect creation, modification, rejection, clarification, confirmation, contradiction, deferral, and contextualization, not general summaries",
+      "statement": "Detect creation, modification, rejection, clarification, confirmation, contradiction, deferral, and contextualization, not general summaries.",
+      "clauses": [],
+      "spec_sections": [
+        "5.1",
+        "5.2",
+        "5.3"
+      ],
+      "contract_refs": [
+        "Candidate",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A35",
+        "A36",
+        "A37",
+        "A38",
+        "A39",
+        "A41",
+        "A42",
+        "A43"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-111",
+      "title": "Candidate events include transition, scope, subject, proposed meaning, confidence, and exact source",
+      "statement": "Candidate events include transition, scope, subject, proposed meaning, confidence, and exact source.",
+      "clauses": [
+        "Candidate memory events include event type, scope, subject, proposed content, confidence with its basis, and precise source-message ranges. Identifier formats are implementation choices."
+      ],
+      "spec_sections": [
+        "5.1",
+        "5.2",
+        "5.3"
+      ],
+      "contract_refs": [
+        "Candidate",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A35",
+        "A36",
+        "A37",
+        "A38",
+        "A39",
+        "A41",
+        "A42",
+        "A43"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-112",
+      "title": "Assistant suggestions stay unconfirmed unless adopted; they are not automatically user decisions",
+      "statement": "Assistant-originated suggestions remain unconfirmed until authorized adoption evidence or an explicit scoped policy activates them. Record the original author separately from the adopting authority; silence alone is not consent.",
+      "clauses": [
+        "An authorized, explicit scoped bulk-adoption instruction may accept otherwise unconfirmed suggestions in an imported conversation. Record the adoption event separately from original authorship; do not infer retrospective approval from silence. Adoption applies to proposed decisions; illustrative examples, compliments, background claims, and hypothetical scenarios in an imported conversation do not become requirements merely because they appear there.",
+        "Keep assistant-originated suggestions unconfirmed until authorized adoption evidence or an explicitly preauthorized scoped policy supports activation. Preserve original authorship separately from adopting authority; silence is not universal consent."
+      ],
+      "spec_sections": [
+        "5.1",
+        "5.2",
+        "5.3"
+      ],
+      "contract_refs": [
+        "Candidate",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A35",
+        "A36",
+        "A37",
+        "A38",
+        "A39",
+        "A41",
+        "A42",
+        "A43"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-113",
+      "title": "Clear authorized decisions may auto-commit; ambiguous suggestions remain candidates; exploratory alternatives normally stay exploratory",
+      "statement": "Clear authorized decisions may auto-commit; ambiguous suggestions remain candidates; exploratory alternatives normally stay exploratory.",
+      "clauses": [
+        "Allow clear authorized directives and confirmations to commit without repeated save prompts. Evaluate confidence from conversational behavior and evidence rather than a fixed phrase list. Confidence does not itself grant scope authority.",
+        "Keep medium-confidence or ambiguous proposals as candidates or provisional memories until context or confirmation resolves them. Declare any numerical thresholds in policy rather than treating a sample value as a default.",
+        "Treat low-confidence exploratory questions and alternatives as exploration rather than automatically creating active decisions. Raw conversation capture still preserves exploratory material."
+      ],
+      "spec_sections": [
+        "5.1",
+        "5.2",
+        "5.3"
+      ],
+      "contract_refs": [
+        "Candidate",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A35",
+        "A36",
+        "A37",
+        "A38",
+        "A39",
+        "A41",
+        "A42",
+        "A43"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-114",
+      "title": "Avoid interrupting the user to approve every obvious memory event",
+      "statement": "Avoid interrupting the user to approve every obvious memory event.",
+      "clauses": [],
+      "spec_sections": [
+        "5.1",
+        "5.2",
+        "5.3"
+      ],
+      "contract_refs": [
+        "Candidate",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A35",
+        "A36",
+        "A37",
+        "A38",
+        "A39",
+        "A41",
+        "A42",
+        "A43"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-115",
+      "title": "Maintain a live decision buffer while tentative ideas develop over several turns",
+      "statement": "Maintain a live decision buffer while tentative ideas develop over several turns.",
+      "clauses": [
+        "Maintain confirmed or active decisions, candidate memories, and ignored extraction dispositions. Open candidates persist across turns with stable identity, proposed decision, evidence, and current state. Ignored classification must never discard the captured source event.",
+        "Allow candidates to remain open across a configurable conversational window with no fixed universal turn count. Preserve an archived disposition when they leave the active buffer so they remain recoverable and reviewable."
+      ],
+      "spec_sections": [
+        "5.3"
+      ],
+      "contract_refs": [
+        "Candidate"
+      ],
+      "acceptance_ids": [
+        "A39"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-116",
+      "title": "Later reasoning may implicitly confirm an earlier candidate; retain the supporting context",
+      "statement": "Later reasoning may implicitly confirm an earlier candidate; retain the supporting context.",
+      "clauses": [
+        "Allow later reasoning that clearly relies on a proposal to support candidate confirmation, preserving the relevant evidence and inference basis. Reliance is evidence of adoption; mere lack of a reply is not the default runtime rule."
+      ],
+      "spec_sections": [
+        "5.2",
+        "5.3"
+      ],
+      "contract_refs": [
+        "Candidate"
+      ],
+      "acceptance_ids": [
+        "A38"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-117",
+      "title": "Distinguish an explored option from the eventual decision; do not store both as equally authoritative",
+      "statement": "Distinguish an explored option from the eventual decision; do not store both as equally authoritative.",
+      "clauses": [
+        "Distinguish earlier exploration from the decision later reached; do not retain both as equally active authority when the conversation clearly resolves the alternative. Preserve historical exploration and its sources rather than deleting it."
+      ],
+      "spec_sections": [
+        "5.1",
+        "5.2",
+        "5.3"
+      ],
+      "contract_refs": [
+        "Candidate",
+        "Revision"
+      ],
+      "acceptance_ids": [
+        "A35",
+        "A36",
+        "A37",
+        "A38",
+        "A39",
+        "A41",
+        "A42",
+        "A43"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-118",
+      "title": "Recognize the full state-transition vocabulary: rules, decisions, requirements, constraints, preferences, assumptions, questions, ideas, exceptions, facts, priority/feature/scope changes",
+      "statement": "Recognize RULE_CREATED, RULE_CHANGED, RULE_REJECTED, RULE_CONFIRMED; DECISION_MADE, DECISION_REVISED, DECISION_REVERSED; REQUIREMENT_ADDED, REQUIREMENT_REMOVED, REQUIREMENT_PRIORITY_CHANGED; CONSTRAINT_DISCOVERED; PREFERENCE_ESTABLISHED; ASSUMPTION_CREATED, ASSUMPTION_INVALIDATED; QUESTION_OPENED, QUESTION_RESOLVED; IDEA_PROPOSED, IDEA_REJECTED, IDEA_DEFERRED; EXCEPTION_CREATED; FACT_CORRECTED; FEATURE_DEFERRED; and PROJECT_SCOPE_CHANGED. Equivalent versioned tags must preserve every transition meaning.",
+      "clauses": [
+        "Recognize RULE_CREATED, RULE_CHANGED, RULE_REJECTED, DECISION_MADE, DECISION_REVISED, DECISION_REVERSED, REQUIREMENT_ADDED, REQUIREMENT_REMOVED, CONSTRAINT_DISCOVERED, PREFERENCE_ESTABLISHED, ASSUMPTION_CREATED, ASSUMPTION_INVALIDATED, QUESTION_OPENED, QUESTION_RESOLVED, IDEA_PROPOSED, IDEA_REJECTED, IDEA_DEFERRED, EXCEPTION_CREATED, and FACT_CORRECTED. Equivalent versioned schema names are acceptable only if every transition class remains represented."
+      ],
+      "spec_sections": [
+        "5.1",
+        "5.3"
+      ],
+      "contract_refs": [
+        "Candidate"
+      ],
+      "acceptance_ids": [
+        "A10",
+        "A35"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-119",
+      "title": "One utterance can have several event tags without producing duplicate memories",
+      "statement": "One utterance can have several event tags without producing duplicate memories.",
+      "clauses": [
+        "Recognize multiple semantic effects from one statement, including REQUIREMENT_PRIORITY_CHANGED, FEATURE_DEFERRED, and PROJECT_SCOPE_CHANGED, without creating duplicate canonical memories for each tag."
+      ],
+      "spec_sections": [
+        "5.1",
+        "5.3"
+      ],
+      "contract_refs": [
+        "Candidate"
+      ],
+      "acceptance_ids": [
+        "A10",
+        "A35"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-120",
+      "title": "The exact source pointer is created with the committed memory, not guessed later",
+      "statement": "The exact source pointer is created with the committed memory, not guessed later.",
+      "clauses": [
+        "Persist original conversation promptly and create exact source-window and reasoning/history references when a memory is committed. Source must exist before its referencing authoritative commit; later source reconstruction is not an acceptable default."
+      ],
+      "spec_sections": [
+        "4.1",
+        "5.3",
+        "9"
+      ],
+      "contract_refs": [
+        "Source",
+        "Commit"
+      ],
+      "acceptance_ids": [
+        "A43",
+        "A46"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-121",
+      "title": "Capture original conversation immediately so extraction cannot destroy or outrun its source",
+      "statement": "Capture original conversation immediately so extraction cannot destroy or outrun its source.",
+      "clauses": [],
+      "spec_sections": [
+        "4.1",
+        "5.3",
+        "9"
+      ],
+      "contract_refs": [
+        "Source",
+        "Commit"
+      ],
+      "acceptance_ids": [
+        "A43",
+        "A46"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-122",
+      "title": "Retain whole-conversation retrospective auditing alongside live extraction to catch later-revealed significance",
+      "statement": "Retain whole-conversation retrospective auditing alongside live extraction to catch later-revealed significance.",
+      "clauses": [
+        "Retain full-conversation retrospective auditing alongside the live compiler to recover missed state changes and earlier significance revealed by later context. Audit cadence is configurable; conversation completion and user-request triggers are engineering choices."
+      ],
+      "spec_sections": [
+        "5.3"
+      ],
+      "contract_refs": [
+        "AuditRun"
+      ],
+      "acceptance_ids": [
+        "A41"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-123",
+      "title": "Later auditing can add earlier origins and confirmations without replacing existing provenance",
+      "statement": "Later auditing can add earlier origins and confirmations without replacing existing provenance.",
+      "clauses": [
+        "Audit already preserved raw conversations to enrich provenance and indexing; never replace original material with audit output or destructive summaries. Derived corrections remain append-only authorized changes.",
+        "Allow retrospective review to add an earlier originating source and later confirmation evidence to an existing record while preserving prior provenance and history. Origin and confirmation evidence have distinct roles even when they support one current rule."
+      ],
+      "spec_sections": [
+        "5.3"
+      ],
+      "contract_refs": [
+        "AuditRun"
+      ],
+      "acceptance_ids": [
+        "A41"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-124",
+      "title": "If observer and auditor miss something, the source still exists for later mining",
+      "statement": "If observer and auditor miss something, the source still exists for later mining.",
+      "clauses": [
+        "Combine live capture, retrospective audit, and immutable original logs so missed extraction means unindexed information rather than permanently lost information. No extractor can guarantee perfect detection; retained source permits later repair."
+      ],
+      "spec_sections": [
+        "5.3"
+      ],
+      "contract_refs": [
+        "Source"
+      ],
+      "acceptance_ids": [
+        "A42"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-125",
+      "title": "Users can inspect decisions so far, revisions, deferrals, rejections, and open candidates with confidence",
+      "statement": "Users can inspect decisions so far, revisions, deferrals, rejections, and open candidates with confidence.",
+      "clauses": [
+        "Allow users to inspect actual durable memory state at any time, including active, revised, deferred, rejected, and open-candidate counts. State queries must not depend on the conversational model reconstructing its current working context."
+      ],
+      "spec_sections": [
+        "11",
+        "5.3"
+      ],
+      "contract_refs": [
+        "conversation.state",
+        "candidate.review"
+      ],
+      "acceptance_ids": [
+        "A40"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-126",
+      "title": "Users can confirm/reject selected candidates and return unresolved ideas to exploration without constant interruptions",
+      "statement": "Users can confirm/reject selected candidates and return unresolved ideas to exploration without constant interruptions.",
+      "clauses": [
+        "Display addressable candidate records and confidence. Let users confirm, reject, defer, or return selected candidates to exploration while preserving authority and state-transition evidence. Candidate counts and confidence thresholds are policy-specific."
+      ],
+      "spec_sections": [
+        "11",
+        "5.3"
+      ],
+      "contract_refs": [
+        "conversation.state",
+        "candidate.review"
+      ],
+      "acceptance_ids": [
+        "A40"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-127",
+      "title": "Persist durable project state outside the context window so compaction does not erase early decisions",
+      "statement": "Persist durable project state outside the context window so compaction does not erase early decisions.",
+      "clauses": [
+        "Compile durable project state incrementally outside the model's reasoning context so context eviction does not determine what decisions survive. Incremental compilation does not weaken every-turn observation or immediate source capture; batching latency is an implementation choice."
+      ],
+      "spec_sections": [
+        "3.3",
+        "5.3",
+        "6.1"
+      ],
+      "contract_refs": [
+        "Candidate",
+        "AuditRun"
+      ],
+      "acceptance_ids": [
+        "A41",
+        "A43"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-128",
+      "title": "Components are capture/log, main reasoner, observer, candidate buffer, compiler, stored state, and retrospective auditor; the storage graph is independent of the processing pipeline",
+      "statement": "Components are capture/log, main reasoner, observer, candidate buffer, compiler, stored state, and retrospective auditor; the storage graph is independent of the processing pipeline.",
+      "clauses": [
+        "Feed captured conversation events to a reasoner and memory observer. Classify preservation events as confirmed, candidate, or ignored; compile rules, decisions, and state into layered memory backed by immutable logs; audit for misses. Capture raw source before classification and keep observer writes within authorized commit paths."
+      ],
+      "spec_sections": [
+        "3.3",
+        "5.3",
+        "6.1"
+      ],
+      "contract_refs": [
+        "Candidate",
+        "AuditRun"
+      ],
+      "acceptance_ids": [
+        "A41",
+        "A43"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-129",
+      "title": "Maintain a versioned build specification and distinguish required behavior from demonstrated runtime behavior",
+      "statement": "Maintain a versioned build specification for the complete memory lifecycle and conformance tests. Report runtime capabilities only when an implementation demonstrates them.",
+      "clauses": [
+        "Specify storage format, traversal rules, Primary/Secondary movement, revision mechanics, and retrieval API; support a small local prototype without requiring particular hardware. A prototype milestone does not demonstrate the complete system.",
+        "Maintain a versioned specification covering layers, Primary and Secondary memory, scopes, inheritance, derivatives, provenance, retrieval, permissions, proposals, promotion, contradictions, immutable logs, and the conversation-to-rule lifecycle. Distinguish specified behavior from behavior demonstrated by a runtime."
+      ],
+      "spec_sections": [
+        "1",
+        "13"
+      ],
+      "contract_refs": [],
+      "acceptance_ids": [
+        "A53"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-130",
+      "title": "The overall goal is reconstructing what was and was not decided, why, how it changed, who had authority, and exact evidence without loading the lifetime archive",
+      "statement": "The overall goal is reconstructing what was and was not decided, why, how it changed, who had authority, and exact evidence without loading the lifetime archive.",
+      "clauses": [
+        "At a future date, recover what was decided and undecided, why, how it changed, who had authority, and exact original evidence for each stage without placing the entire archive in active context. Reliable informed decisions take precedence over minimizing the number of memory operations."
+      ],
+      "spec_sections": [
+        "1",
+        "12"
+      ],
+      "contract_refs": [],
+      "acceptance_ids": [
+        "A51"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-131",
+      "title": "Provide categorized memory views for decisions, facts, preferences, open questions, current state, important events, people, ideas, architecture, experiments, and hardware without copying all supporting evidence into those views",
+      "statement": "Provide categorized memory views for decisions, facts, preferences, open questions, current state, important events, people, ideas, architecture, experiments, and hardware without copying all supporting evidence into those views.",
+      "clauses": [
+        "Support categorized views for decisions, facts, preferences, open questions, current state, important events, people, ideas, architecture, experiments, and hardware as relevant to each scope. Views may be indexes rather than directories and must not bundle private project data.",
+        "Memory maps expose current approach and state, reasons through decision or test IDs, contextual limits with evidence links, and open problems with relevant discussion or test links. Particular project technologies and machine facts are not defaults."
+      ],
+      "spec_sections": [
+        "3.1",
+        "3.2",
+        "4.3"
+      ],
+      "contract_refs": [
+        "MemoryRecord",
+        "WorkingSet"
+      ],
+      "acceptance_ids": [
+        "A70"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    },
+    {
+      "id": "ALM-132",
+      "title": "Define and enforce a memory constitution covering what becomes memory, revision versus new identity, Primary/Secondary movement, contradictions, and required evidence review",
+      "statement": "Define and enforce a memory constitution covering what becomes memory, revision versus new identity, Primary/Secondary movement, contradictions, and required evidence review.",
+      "clauses": [
+        "Define and enforce a memory constitution for when to create memory, how to promote and demote it, how to handle contradictions, when to revise versus create a new identity, and when an answer requires descent to original evidence. Operational thresholds must be declared by the implementation or configuration."
+      ],
+      "spec_sections": [
+        "5",
+        "6",
+        "7"
+      ],
+      "contract_refs": [],
+      "acceptance_ids": [
+        "A71"
+      ],
+      "implementation": {
+        "status": "not_reported",
+        "evidence": [],
+        "notes": ""
+      }
+    }
+  ]
+}

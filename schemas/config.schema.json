@@ -1,0 +1,74 @@
+{
+  "$id": "urn:aniukas-lossless-memory:format:1:config",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_role": {
+      "const": "illustrative-fixture"
+    },
+    "encoding": {
+      "const": "UTF-8"
+    },
+    "extensions": {
+      "propertyNames": {
+        "pattern": "^[a-z0-9]+[.][a-z0-9_.-]+$"
+      },
+      "type": "object"
+    },
+    "format_version": {
+      "const": "1"
+    },
+    "id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "instance_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "kind": {
+      "const": "config"
+    },
+    "line_ending": {
+      "const": "LF"
+    },
+    "primary_byte_budgets": {
+      "additionalProperties": {
+        "minimum": 1,
+        "type": "integer"
+      },
+      "type": "object"
+    },
+    "profile": {
+      "const": "portable-files-alpha"
+    },
+    "required_extensions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "snapshot_sequence": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "format_version",
+    "instance_id",
+    "kind",
+    "id",
+    "primary_byte_budgets",
+    "encoding",
+    "line_ending",
+    "snapshot_sequence",
+    "profile",
+    "artifact_role",
+    "required_extensions"
+  ],
+  "title": "Aniukas Lossless Memory profile 1: config",
+  "type": "object"
+}

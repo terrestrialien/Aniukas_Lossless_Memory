@@ -1,0 +1,41 @@
+{
+  "assertion": {
+    "adoption_evidence": [],
+    "asserted_by": "principal:assistant",
+    "kind": "AI-inferred",
+    "reliability_note": "Fictional teaching scenario; these people and documents do not exist."
+  },
+  "candidate_statement": "Let Riverside skip the shared request queue.",
+  "confidence": 0.6,
+  "confidence_basis": "Tentative assistant suggestion without user adoption.",
+  "created_in": "TXN-000012",
+  "event_types": [
+    "IDEA_PROPOSED",
+    "IDEA_REJECTED"
+  ],
+  "format_version": "1",
+  "id": "CAND-REJECTED",
+  "instance_id": "alm.synthetic.example",
+  "kind": "candidate",
+  "resolution_record_id": "LIB-IDEA-0001",
+  "scope_id": "PROJECT-LIBRARY",
+  "source_refs": [
+    "win://WIN-00012",
+    "win://WIN-00013"
+  ],
+  "state": "rejected",
+  "state_history": [
+    {
+      "commit_id": "TXN-000012",
+      "reason": "Tentative time-saving suggestion, not an owner decision.",
+      "state": "open"
+    },
+    {
+      "commit_id": "TXN-000013",
+      "reason": "Owner rejected the shortcut because duplicate promises would confuse members.",
+      "state": "rejected"
+    }
+  ],
+  "subject": "Shared queue removal",
+  "updated_in": "TXN-000013"
+}

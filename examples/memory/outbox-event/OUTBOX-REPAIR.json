@@ -1,0 +1,24 @@
+{
+  "ack_commit_id": null,
+  "attempts": 0,
+  "delivery_history": [
+    {
+      "commit_id": "TXN-000020",
+      "reason": "Durably queued by source owner.",
+      "state": "pending"
+    }
+  ],
+  "delivery_state": "pending",
+  "event_type": "repair-proposed",
+  "format_version": "1",
+  "id": "OUTBOX-REPAIR",
+  "instance_id": "alm.synthetic.example",
+  "kind": "outbox-event",
+  "payload_refs": [
+    "proposal://SUG-REPAIR",
+    "mem://SYS-RULE-0010"
+  ],
+  "scope_id": "GLOBAL",
+  "source_commit_id": "TXN-000020",
+  "target_scope_id": "PROJECT-LIBRARY"
+}

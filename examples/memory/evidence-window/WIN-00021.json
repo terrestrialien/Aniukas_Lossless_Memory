@@ -1,0 +1,17 @@
+{
+  "cited_by": [
+    "SYS-RULE-0010.r2"
+  ],
+  "context_after": 1,
+  "context_before": 1,
+  "created_in": "TXN-000020",
+  "format_version": "1",
+  "id": "WIN-00021",
+  "instance_id": "alm.synthetic.example",
+  "kind": "evidence-window",
+  "log_id": "LOG-EXAMPLE",
+  "message_end": 21,
+  "message_start": 21,
+  "scope_id": "GLOBAL",
+  "source_digest": "3a879614b166237db0f2137c0c9a8cbc1cd467411361792c9e451da236abcc23"
+}

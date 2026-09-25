@@ -1,0 +1,130 @@
+{
+  "$id": "urn:aniukas-lossless-memory:format:1:working-set",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actual_bytes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "budget_bytes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "counting_method": {
+      "const": "UTF-8 bytes of the named rendered file"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "pinned": {
+            "type": "boolean"
+          },
+          "record_id": {
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+            "type": "string"
+          },
+          "revision_id": {
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "record_id",
+          "revision_id",
+          "pinned"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "extensions": {
+      "propertyNames": {
+        "pattern": "^[a-z0-9]+[.][a-z0-9_.-]+$"
+      },
+      "type": "object"
+    },
+    "format_version": {
+      "const": "1"
+    },
+    "id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "instance_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "kind": {
+      "const": "working-set"
+    },
+    "omitted_record_ids": {
+      "items": {
+        "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "overflow": {
+      "type": "boolean"
+    },
+    "rendered_file": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "rendered_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "scope_id": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{1,127}$",
+      "type": "string"
+    },
+    "snapshot_sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "token_count": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "tokenizer": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "format_version",
+    "instance_id",
+    "kind",
+    "id",
+    "scope_id",
+    "snapshot_sequence",
+    "budget_bytes",
+    "counting_method",
+    "token_count",
+    "tokenizer",
+    "entries",
+    "rendered_file",
+    "rendered_sha256",
+    "actual_bytes",
+    "overflow",
+    "omitted_record_ids"
+  ],
+  "title": "Aniukas Lossless Memory profile 1: working-set",
+  "type": "object"
+}

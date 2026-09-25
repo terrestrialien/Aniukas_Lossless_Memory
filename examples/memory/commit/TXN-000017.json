@@ -1,0 +1,27 @@
+{
+  "caused_by": [],
+  "created_at": "2026-09-23T12:17:00Z",
+  "expected_revisions": [
+    {
+      "record_id": "LIB-PREF-0001",
+      "revision_id": null
+    }
+  ],
+  "format_version": "1",
+  "grant_id": "GRANT-LIBRARY",
+  "high_impact": false,
+  "id": "TXN-000017",
+  "idempotency_key": "synthetic-event-17",
+  "instance_id": "alm.synthetic.example",
+  "kind": "commit",
+  "payload_sha256": "a0e1114fbaed9fc5339ffe724fc5239a48167c56d8ccaab7458c2d000e0c7c5f",
+  "principal_id": "principal:library-owner",
+  "review_receipt_ids": [],
+  "scope_id": "PROJECT-LIBRARY",
+  "sequence": 17,
+  "source_refs": [],
+  "writes": [
+    "rev://LIB-PREF-0001.r1",
+    "mem://LIB-PREF-0001"
+  ]
+}

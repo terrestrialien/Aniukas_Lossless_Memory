@@ -1,0 +1,29 @@
+{
+  "captured_at": "2026-09-23T12:01:00Z",
+  "chunks": [
+    {
+      "byte_length": 10848,
+      "file": "logs/c001.jsonl",
+      "message_end": 22,
+      "message_start": 1,
+      "number": 1,
+      "sha256": "edfa5ba75ba85c38a1700d5b0bf94edb5301e9a2d67bcfa85d86e3b390d55e20"
+    }
+  ],
+  "completeness": "complete",
+  "created_in": "TXN-000001",
+  "format_version": "1",
+  "id": "LOG-EXAMPLE",
+  "instance_id": "alm.synthetic.example",
+  "kind": "log-manifest",
+  "missing_ranges": [],
+  "original_byte_length": 4532,
+  "original_encoding": "UTF-8",
+  "original_file": "logs/original.txt",
+  "original_sha256": "3a879614b166237db0f2137c0c9a8cbc1cd467411361792c9e451da236abcc23",
+  "scope_id": "GLOBAL",
+  "source": "Fictional neighborhood lending library conversation, with source timestamps, speaker labels and reasons.",
+  "source_kind": "synthetic",
+  "started_at": "2026-09-23T11:01:00Z",
+  "time_note": null
+}

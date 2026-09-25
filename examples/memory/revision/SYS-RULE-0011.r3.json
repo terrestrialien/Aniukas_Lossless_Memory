@@ -1,0 +1,47 @@
+{
+  "alternatives": [
+    "Keep the previous interpretation unchanged."
+  ],
+  "change": "Branches may choose a contact method, but every request enters the shared queue.",
+  "commit_id": "TXN-000003",
+  "created_at": "2026-09-23T12:03:00Z",
+  "evidence_gap": null,
+  "format_version": "1",
+  "id": "SYS-RULE-0011.r3",
+  "instance_id": "alm.synthetic.example",
+  "kind": "revision",
+  "number": 3,
+  "predecessor_id": "SYS-RULE-0011.r2",
+  "reason": "Allow branch contact choices without losing reservation consistency.",
+  "record_id": "SYS-RULE-0011",
+  "scope_id": "GLOBAL",
+  "snapshot": {
+    "assertion": {
+      "adoption_evidence": [],
+      "asserted_by": "principal:synthetic-user",
+      "kind": "user-stated",
+      "reliability_note": "Fictional teaching scenario; these people and documents do not exist."
+    },
+    "conditions": [],
+    "confidence": 1.0,
+    "confidence_basis": "Clear fictional speaker statement; this score describes interpretation, not factual truth.",
+    "consequences": [],
+    "edges": {},
+    "importance": "high",
+    "parent_bases": [],
+    "statement": "Branches may choose a contact method, but every request enters the shared queue.",
+    "status": "active",
+    "title": "Lending request rule",
+    "triggers": [],
+    "type": "rule",
+    "valid_from": "2026-09-23T11:03:00Z",
+    "valid_time_note": null,
+    "valid_until": null,
+    "why": "Local access can vary while the shared queue prevents double bookings."
+  },
+  "snapshot_sha256": "75228b5c3c0e36a804d467c0efe6d7a921ac1c69610d866f285db41ff7546058",
+  "source_refs": [
+    "win://WIN-00003"
+  ],
+  "time_note": null
+}

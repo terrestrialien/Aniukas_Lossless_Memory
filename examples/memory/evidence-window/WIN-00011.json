@@ -1,0 +1,17 @@
+{
+  "cited_by": [
+    "LIB-FACT-0004.r1"
+  ],
+  "context_after": 1,
+  "context_before": 1,
+  "created_in": "TXN-000011",
+  "format_version": "1",
+  "id": "WIN-00011",
+  "instance_id": "alm.synthetic.example",
+  "kind": "evidence-window",
+  "log_id": "LOG-EXAMPLE",
+  "message_end": 11,
+  "message_start": 11,
+  "scope_id": "PROJECT-LIBRARY",
+  "source_digest": "3a879614b166237db0f2137c0c9a8cbc1cd467411361792c9e451da236abcc23"
+}

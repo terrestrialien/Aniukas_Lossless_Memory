@@ -1,0 +1,18 @@
+{
+  "actual_bytes": 17,
+  "budget_bytes": 20480,
+  "counting_method": "UTF-8 bytes of the named rendered file",
+  "entries": [],
+  "format_version": "1",
+  "id": "WORKING-USER",
+  "instance_id": "alm.synthetic.example",
+  "kind": "working-set",
+  "omitted_record_ids": [],
+  "overflow": false,
+  "rendered_file": "primary/USER.md",
+  "rendered_sha256": "fa49907b91fda426f541517c4cf76f6626c8f6bb3c302286782416d8a05d9649",
+  "scope_id": "USER",
+  "snapshot_sequence": 21,
+  "token_count": null,
+  "tokenizer": null
+}

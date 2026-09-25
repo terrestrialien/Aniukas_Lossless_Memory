@@ -1,0 +1,35 @@
+{
+  "created_in": "TXN-000011",
+  "format_version": "1",
+  "id": "CONF-0001",
+  "instance_id": "alm.synthetic.example",
+  "kind": "conflict",
+  "resolution": null,
+  "resolved_in": null,
+  "scope_id": "PROJECT-LIBRARY",
+  "sides": [
+    {
+      "record_id": "LIB-FACT-0003",
+      "revision_id": "LIB-FACT-0003.r1",
+      "source_refs": [
+        "win://WIN-00010"
+      ]
+    },
+    {
+      "record_id": "LIB-FACT-0004",
+      "revision_id": "LIB-FACT-0004.r1",
+      "source_refs": [
+        "win://WIN-00011"
+      ]
+    }
+  ],
+  "state": "unresolved",
+  "state_history": [
+    {
+      "commit_id": "TXN-000011",
+      "reason": "Contradictory sourced claims retained.",
+      "state": "unresolved"
+    }
+  ],
+  "subject": "Meeting room seating capacity"
+}

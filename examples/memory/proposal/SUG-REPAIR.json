@@ -1,0 +1,28 @@
+{
+  "created_in": "TXN-000019",
+  "format_version": "1",
+  "id": "SUG-REPAIR",
+  "instance_id": "alm.synthetic.example",
+  "kind": "proposal",
+  "proposal_kind": "repair",
+  "response_commit_id": "TXN-000020",
+  "response_history": [
+    {
+      "commit_id": "TXN-000020",
+      "reason": "Shared-rule owner adds the missing direct citation without editing the earlier revision.",
+      "state": "accepted"
+    }
+  ],
+  "response_reason": "Shared-rule owner adds the missing direct citation without editing the earlier revision.",
+  "scope_id": "PROJECT-LIBRARY",
+  "sender_principal_id": "principal:library-owner",
+  "source_refs": [
+    "win://WIN-00020"
+  ],
+  "state": "accepted",
+  "subject_refs": [
+    "rev://SYS-RULE-0010.r1"
+  ],
+  "suggestion": "Append a new weekly-schedule revision that directly cites the user's adoption and the audit explanation.",
+  "target_scope_id": "GLOBAL"
+}

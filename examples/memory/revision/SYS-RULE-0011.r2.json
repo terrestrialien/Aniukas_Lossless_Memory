@@ -1,0 +1,47 @@
+{
+  "alternatives": [
+    "Keep the previous interpretation unchanged."
+  ],
+  "change": "Accept phone and email requests; enter both in one shared queue.",
+  "commit_id": "TXN-000002",
+  "created_at": "2026-09-23T12:02:00Z",
+  "evidence_gap": null,
+  "format_version": "1",
+  "id": "SYS-RULE-0011.r2",
+  "instance_id": "alm.synthetic.example",
+  "kind": "revision",
+  "number": 2,
+  "predecessor_id": "SYS-RULE-0011.r1",
+  "reason": "Expand access while keeping one reservation record.",
+  "record_id": "SYS-RULE-0011",
+  "scope_id": "GLOBAL",
+  "snapshot": {
+    "assertion": {
+      "adoption_evidence": [],
+      "asserted_by": "principal:synthetic-user",
+      "kind": "user-stated",
+      "reliability_note": "Fictional teaching scenario; these people and documents do not exist."
+    },
+    "conditions": [],
+    "confidence": 1.0,
+    "confidence_basis": "Clear fictional speaker statement; this score describes interpretation, not factual truth.",
+    "consequences": [],
+    "edges": {},
+    "importance": "high",
+    "parent_bases": [],
+    "statement": "Accept phone and email requests; enter both in one shared queue.",
+    "status": "active",
+    "title": "Lending request rule",
+    "triggers": [],
+    "type": "rule",
+    "valid_from": "2026-09-23T11:02:00Z",
+    "valid_time_note": null,
+    "valid_until": null,
+    "why": "Members without email need access, and one queue prevents duplicate promises."
+  },
+  "snapshot_sha256": "5c5520c4bf94248fa8ce659b69fbb0e9b1a628750bd4537abe0411075110d191",
+  "source_refs": [
+    "win://WIN-00002"
+  ],
+  "time_note": null
+}

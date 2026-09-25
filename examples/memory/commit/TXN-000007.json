@@ -1,0 +1,24 @@
+{
+  "caused_by": [
+    "TXN-000006"
+  ],
+  "created_at": "2026-09-23T12:07:00Z",
+  "expected_revisions": [],
+  "format_version": "1",
+  "grant_id": "GRANT-GLOBAL",
+  "high_impact": false,
+  "id": "TXN-000007",
+  "idempotency_key": "synthetic-event-7",
+  "instance_id": "alm.synthetic.example",
+  "kind": "commit",
+  "payload_sha256": "2775adf796f3754335781b4026de5bcbd21c2fc4c07ac368419c420dc6d71806",
+  "principal_id": "principal:governor",
+  "review_receipt_ids": [],
+  "scope_id": "GLOBAL",
+  "sequence": 7,
+  "source_refs": [],
+  "writes": [
+    "map://MAP-SYS-RULE-0011",
+    "mem://SYS-RULE-0011"
+  ]
+}

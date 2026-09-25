@@ -1,0 +1,51 @@
+{
+  "alternatives": [
+    "Keep the previous interpretation unchanged."
+  ],
+  "change": "Branches may confirm pickups by phone when useful, but all confirmations stay in the shared queue.",
+  "commit_id": "TXN-000015",
+  "created_at": "2026-09-23T12:15:00Z",
+  "evidence_gap": null,
+  "format_version": "1",
+  "id": "SYS-RULE-0020.r1",
+  "instance_id": "alm.synthetic.example",
+  "kind": "revision",
+  "number": 1,
+  "predecessor_id": null,
+  "reason": "Shared-rule owner offers the option without editing Riverside or other branches.",
+  "record_id": "SYS-RULE-0020",
+  "scope_id": "GLOBAL",
+  "snapshot": {
+    "assertion": {
+      "adoption_evidence": [],
+      "asserted_by": "principal:synthetic-user",
+      "kind": "user-stated",
+      "reliability_note": "Fictional teaching scenario; these people and documents do not exist."
+    },
+    "conditions": [],
+    "confidence": 1.0,
+    "confidence_basis": "Clear fictional speaker statement; this score describes interpretation, not factual truth.",
+    "consequences": [],
+    "edges": {
+      "promoted_from": [
+        "LIB-RULE-0005"
+      ]
+    },
+    "importance": "high",
+    "parent_bases": [],
+    "statement": "Branches may confirm pickups by phone when useful, but all confirmations stay in the shared queue.",
+    "status": "active",
+    "title": "Optional phone confirmation",
+    "triggers": [],
+    "type": "rule",
+    "valid_from": "2026-09-23T11:15:00Z",
+    "valid_time_note": null,
+    "valid_until": null,
+    "why": "Riverside's experience showed an access benefit without losing one reservation record."
+  },
+  "snapshot_sha256": "8ba102bc7e1ced08b61bacf3f570814c64c6813c53d3498223c9aa155934fb83",
+  "source_refs": [
+    "win://WIN-00015"
+  ],
+  "time_note": null
+}

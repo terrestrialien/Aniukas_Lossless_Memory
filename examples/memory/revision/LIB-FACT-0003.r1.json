@@ -1,0 +1,47 @@
+{
+  "alternatives": [
+    "Keep the previous interpretation unchanged."
+  ],
+  "change": "The organizer reported that the meeting room seats 30.",
+  "commit_id": "TXN-000010",
+  "created_at": "2026-09-23T12:10:00Z",
+  "evidence_gap": null,
+  "format_version": "1",
+  "id": "LIB-FACT-0003.r1",
+  "instance_id": "alm.synthetic.example",
+  "kind": "revision",
+  "number": 1,
+  "predecessor_id": null,
+  "reason": "Keep the organizer account as a sourced, unresolved claim.",
+  "record_id": "LIB-FACT-0003",
+  "scope_id": "PROJECT-LIBRARY",
+  "snapshot": {
+    "assertion": {
+      "adoption_evidence": [],
+      "asserted_by": "principal:synthetic-user",
+      "kind": "user-stated",
+      "reliability_note": "Fictional teaching scenario; these people and documents do not exist."
+    },
+    "conditions": [],
+    "confidence": 0.7,
+    "confidence_basis": "The organizer's number is recalled clearly, but the current room limit is unverified.",
+    "consequences": [],
+    "edges": {},
+    "importance": "high",
+    "parent_bases": [],
+    "statement": "The organizer reported that the meeting room seats 30.",
+    "status": "conflicted",
+    "title": "Meeting room capacity claim",
+    "triggers": [],
+    "type": "fact",
+    "valid_from": "2026-09-23T11:10:00Z",
+    "valid_time_note": null,
+    "valid_until": null,
+    "why": "The workshop plan used this unverified organizer account."
+  },
+  "snapshot_sha256": "206f28bc25bba4a85d1b54708cf1ad192ced55333b48d334adc6326ecd8ec783",
+  "source_refs": [
+    "win://WIN-00010"
+  ],
+  "time_note": null
+}

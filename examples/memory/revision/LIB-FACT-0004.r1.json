@@ -1,0 +1,51 @@
+{
+  "alternatives": [
+    "Keep the previous interpretation unchanged."
+  ],
+  "change": "An assistant reports that the venue booking sheet lists 20 seats for the same room.",
+  "commit_id": "TXN-000011",
+  "created_at": "2026-09-23T12:11:00Z",
+  "evidence_gap": null,
+  "format_version": "1",
+  "id": "LIB-FACT-0004.r1",
+  "instance_id": "alm.synthetic.example",
+  "kind": "revision",
+  "number": 1,
+  "predecessor_id": null,
+  "reason": "Retain the reported document claim without choosing a winner or pretending to have the sheet.",
+  "record_id": "LIB-FACT-0004",
+  "scope_id": "PROJECT-LIBRARY",
+  "snapshot": {
+    "assertion": {
+      "adoption_evidence": [],
+      "asserted_by": "source:synthetic-booking-sheet",
+      "kind": "document",
+      "reliability_note": "The retained source is an assistant report about a fictional booking sheet; the sheet itself is not in this fixture."
+    },
+    "conditions": [],
+    "confidence": 0.8,
+    "confidence_basis": "The assistant's report is clear, but the original sheet is not captured and the current capacity is unresolved.",
+    "consequences": [],
+    "edges": {
+      "contradicts": [
+        "LIB-FACT-0003"
+      ]
+    },
+    "importance": "high",
+    "parent_bases": [],
+    "statement": "An assistant reports that the venue booking sheet lists 20 seats for the same room.",
+    "status": "conflicted",
+    "title": "Booking sheet capacity claim",
+    "triggers": [],
+    "type": "fact",
+    "valid_from": "2026-09-23T11:11:00Z",
+    "valid_time_note": null,
+    "valid_until": null,
+    "why": "The reported sheet conflicts with the organizer's account; the current capacity must be checked."
+  },
+  "snapshot_sha256": "62626afb9e1220f33a18399e9a9e9f769069163408d83eb202d345b12db88a8a",
+  "source_refs": [
+    "win://WIN-00011"
+  ],
+  "time_note": null
+}

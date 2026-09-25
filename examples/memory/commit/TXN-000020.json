@@ -1,0 +1,31 @@
+{
+  "caused_by": [
+    "TXN-000019"
+  ],
+  "created_at": "2026-09-23T12:20:00Z",
+  "expected_revisions": [
+    {
+      "record_id": "SYS-RULE-0010",
+      "revision_id": "SYS-RULE-0010.r1"
+    }
+  ],
+  "format_version": "1",
+  "grant_id": "GRANT-GLOBAL",
+  "high_impact": false,
+  "id": "TXN-000020",
+  "idempotency_key": "synthetic-event-20",
+  "instance_id": "alm.synthetic.example",
+  "kind": "commit",
+  "payload_sha256": "abf5c10f2c32673a2e7218bef289ac91f52490f70404af348e404413f8799baf",
+  "principal_id": "principal:governor",
+  "review_receipt_ids": [],
+  "scope_id": "GLOBAL",
+  "sequence": 20,
+  "source_refs": [],
+  "writes": [
+    "win://WIN-00021",
+    "rev://SYS-RULE-0010.r2",
+    "mem://SYS-RULE-0010",
+    "outbox://OUTBOX-REPAIR"
+  ]
+}

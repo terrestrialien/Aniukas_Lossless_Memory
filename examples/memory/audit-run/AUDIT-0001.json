@@ -1,0 +1,20 @@
+{
+  "auditor_principal_id": "principal:auditor",
+  "auditor_version": "synthetic-auditor-1",
+  "checkpoint": 20,
+  "created_in": "TXN-000019",
+  "findings": [
+    "The schedule revision directly cites the assistant suggestion but omits the user's adoption from its revision evidence list; propose enrichment to the shared-rule owner."
+  ],
+  "format_version": "1",
+  "id": "AUDIT-0001",
+  "instance_id": "alm.synthetic.example",
+  "kind": "audit-run",
+  "message_end": 20,
+  "message_start": 1,
+  "repair_proposal_refs": [
+    "proposal://SUG-REPAIR"
+  ],
+  "scope_id": "PROJECT-LIBRARY",
+  "source_log_id": "LOG-EXAMPLE"
+}

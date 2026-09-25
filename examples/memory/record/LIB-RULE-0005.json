@@ -1,0 +1,54 @@
+{
+  "created_in": "TXN-000006",
+  "current": {
+    "assertion": {
+      "adoption_evidence": [],
+      "asserted_by": "principal:synthetic-user",
+      "kind": "user-stated",
+      "reliability_note": "Fictional teaching scenario; these people and documents do not exist."
+    },
+    "conditions": [],
+    "confidence": 1.0,
+    "confidence_basis": "Clear fictional speaker statement; this score describes interpretation, not factual truth.",
+    "consequences": [],
+    "edges": {
+      "promoted_to": [
+        "SYS-RULE-0020"
+      ]
+    },
+    "importance": "high",
+    "parent_bases": [
+      {
+        "derivative_kind": "specialization",
+        "differences": [
+          "Riverside may confirm pickups by phone for members without email."
+        ],
+        "inherited_portion": "Every request remains in the shared queue.",
+        "reason": "Keep the branch reachable without losing reservation records.",
+        "record_id": "SYS-RULE-0011",
+        "registration_state": "registered",
+        "revision_id": "SYS-RULE-0011.r3"
+      }
+    ],
+    "statement": "At Riverside, volunteers may confirm pickups by phone and enter them in the shared queue.",
+    "status": "historical-origin",
+    "title": "Riverside phone confirmation",
+    "triggers": [],
+    "type": "rule",
+    "valid_from": "2026-09-23T11:16:00Z",
+    "valid_time_note": null,
+    "valid_until": null,
+    "why": "Some members cannot receive email; the shared queue still prevents double promises."
+  },
+  "current_revision_id": "LIB-RULE-0005.r3",
+  "derivation_map_ref": null,
+  "format_version": "1",
+  "history_ref": "rev://LIB-RULE-0005.r3",
+  "id": "LIB-RULE-0005",
+  "instance_id": "alm.synthetic.example",
+  "kind": "record",
+  "registered_derivative_count": 0,
+  "revision_count": 3,
+  "scope_id": "PROJECT-LIBRARY",
+  "updated_in": "TXN-000016"
+}

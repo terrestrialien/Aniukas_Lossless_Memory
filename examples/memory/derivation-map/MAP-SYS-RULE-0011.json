@@ -1,0 +1,25 @@
+{
+  "count_filter": "registered children whose current status is not superseded",
+  "entries": [
+    {
+      "base_revision_id": "SYS-RULE-0011.r3",
+      "child_id": "LIB-RULE-0005",
+      "child_revision_id": "LIB-RULE-0005.r1",
+      "child_scope_id": "PROJECT-LIBRARY",
+      "derivative_kind": "specialization",
+      "reason": "Members without email need access.",
+      "registered_in": "TXN-000007",
+      "summary": "Riverside phone confirmation; shared queue retained."
+    }
+  ],
+  "format_version": "1",
+  "generation": 1,
+  "id": "MAP-SYS-RULE-0011",
+  "instance_id": "alm.synthetic.example",
+  "kind": "derivation-map",
+  "parent_id": "SYS-RULE-0011",
+  "registered_count": 1,
+  "scope_id": "GLOBAL",
+  "updated_in": "TXN-000007",
+  "watermark": 7
+}

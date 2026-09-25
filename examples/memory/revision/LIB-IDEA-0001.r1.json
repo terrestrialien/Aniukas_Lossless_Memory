@@ -1,0 +1,48 @@
+{
+  "alternatives": [
+    "Keep the previous interpretation unchanged."
+  ],
+  "change": "Keep the shared queue at Riverside; skipping it was rejected.",
+  "commit_id": "TXN-000013",
+  "created_at": "2026-09-23T12:13:00Z",
+  "evidence_gap": null,
+  "format_version": "1",
+  "id": "LIB-IDEA-0001.r1",
+  "instance_id": "alm.synthetic.example",
+  "kind": "revision",
+  "number": 1,
+  "predecessor_id": null,
+  "reason": "The small time saving did not justify double booking risk.",
+  "record_id": "LIB-IDEA-0001",
+  "scope_id": "PROJECT-LIBRARY",
+  "snapshot": {
+    "assertion": {
+      "adoption_evidence": [],
+      "asserted_by": "principal:synthetic-user",
+      "kind": "user-stated",
+      "reliability_note": "Fictional teaching scenario; these people and documents do not exist."
+    },
+    "conditions": [],
+    "confidence": 1.0,
+    "confidence_basis": "Clear fictional speaker statement; this score describes interpretation, not factual truth.",
+    "consequences": [],
+    "edges": {},
+    "importance": "high",
+    "parent_bases": [],
+    "statement": "Keep the shared queue at Riverside; skipping it was rejected.",
+    "status": "rejected",
+    "title": "Rejected queue removal",
+    "triggers": [],
+    "type": "idea",
+    "valid_from": "2026-09-23T11:12:00Z",
+    "valid_time_note": null,
+    "valid_until": null,
+    "why": "Without one record, volunteers could promise one item twice."
+  },
+  "snapshot_sha256": "685c6f9f5d3f3054065aecc699f8f5cf2f55258579e455d6e673b54098ea5084",
+  "source_refs": [
+    "win://WIN-00012",
+    "win://WIN-00013"
+  ],
+  "time_note": null
+}

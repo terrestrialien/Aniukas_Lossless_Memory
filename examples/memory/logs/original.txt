@@ -1,0 +1,22 @@
+2026-09-23T11:01:00Z | user | For our neighborhood lending library pilot, accept lending requests by email only. Two volunteers can manage one inbox, and we can expand access after we learn the workload.
+2026-09-23T11:02:00Z | user | People without email still need to borrow items. Accept phone or email requests, but enter both in one shared queue so two volunteers never promise the same item.
+2026-09-23T11:03:00Z | user | Branches may choose their own contact method. Keep every request in the shared queue; that common step prevents double bookings even when the front desk works differently.
+2026-09-23T11:04:00Z | user | I want a repair workshop later because members have asked for one. We still need a room and a volunteer instructor, so this is a goal rather than a scheduled event.
+2026-09-23T11:05:00Z | user | Defer the repair workshop until we confirm the room schedule. Keep it in the plan; I do not want the missing room booking mistaken for a decision to cancel.
+2026-09-23T11:06:00Z | user | At the Riverside branch, volunteers may confirm pickups by phone for members without email. Enter those confirmations in the shared queue so the branch keeps the common reservation record.
+2026-09-23T11:07:00Z | agent | I have recorded Riverside's phone-confirmation choice in the branch notebook. I will ask the shared-rule owner to list this local variation in the branch map; recording it locally does not edit the shared rule.
+2026-09-23T11:08:00Z | agent | The shared-rule owner registered the Riverside variation. The branch owner acknowledges the receipt, keeping the original parent version pinned so later policy edits cannot rewrite why the variation began.
+2026-09-23T11:09:00Z | user | Add one pickup checklist across branches. Substitute volunteers need a consistent handoff, but each branch can keep its chosen way of contacting members.
+2026-09-23T11:10:00Z | user | The organizer told me the meeting room seats 30. I had planned the repair workshop around that number, although I have not checked the current booking sheet.
+2026-09-23T11:11:00Z | assistant | The venue booking sheet lists 20 seats for the same room. I cannot tell whether the sheet or the organizer has the current number, so keep both claims and ask the venue before setting attendance.
+2026-09-23T11:12:00Z | assistant | What if Riverside stops using the shared queue to save a few volunteer minutes? This is only a suggestion; it could make phone confirmations quicker.
+2026-09-23T11:13:00Z | user | No. Reject skipping the queue. Without one shared record, two volunteers could promise the same item to different people; the small time saving is not worth that confusion.
+2026-09-23T11:14:00Z | agent | Riverside's phone option has helped members without email. I propose offering that option to other branches, with the shared queue still required. This proposal does not change those branches.
+2026-09-23T11:15:00Z | agent | The shared-rule owner accepts a new optional phone-confirmation rule. Riverside keeps its own earlier record and other branches may decide whether the option fits their members.
+2026-09-23T11:16:00Z | user | Riverside can adopt the shared phone option and keep its original local entry as history. The shared decision must not silently change any other branch's contact practice.
+2026-09-23T11:17:00Z | user | Our import mentions an old flyer style note about spelling 'résumé' with accents, but the original note and its date are missing. Mark the imported preference's source as unavailable.
+2026-09-23T11:18:00Z | assistant | Would a large-print weekly lending schedule help members find pickup options and workshop news? I am suggesting it; no one has chosen it yet.
+2026-09-23T11:19:00Z | user | Yes, adopt the large-print weekly schedule. Members who miss email can read it at the desk, and volunteers answering calls can refer to the same page.
+2026-09-23T11:20:00Z | agent | A later audit found that the weekly-schedule record cited the suggestion but did not list the user's adoption as direct revision evidence. I will propose an evidence update to the shared-rule owner.
+2026-09-23T11:21:00Z | agent | The shared-rule owner accepts the audit repair. Add the adoption and audit explanation in a new revision; leave the first revision's evidence exactly as it was.
+2026-09-23T11:22:00Z | agent | A second Riverside variation combines the shared queue with optional phone confirmation. Both parent versions are pinned; registration is pending, so the shared map must not count this variation yet.

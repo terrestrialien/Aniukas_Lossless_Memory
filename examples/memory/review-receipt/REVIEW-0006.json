@@ -1,0 +1,36 @@
+{
+  "alternatives": [
+    "Use email confirmations at every branch."
+  ],
+  "conflicts": [],
+  "consequences": [
+    "Other branches keep their own contact rules until their owners decide."
+  ],
+  "constraints": [
+    "The branch must still log confirmations in the shared queue."
+  ],
+  "created_at": "2026-09-23T12:05:30Z",
+  "format_version": "1",
+  "gaps": [],
+  "grant_id": "GRANT-LIBRARY",
+  "id": "REVIEW-0006",
+  "instance_id": "alm.synthetic.example",
+  "intent": "Let Riverside confirm pickups by phone for members without email.",
+  "kind": "review-receipt",
+  "outcome": "sufficient",
+  "principal_id": "principal:library-owner",
+  "read_sequence": 5,
+  "reviewed": [
+    {
+      "record_id": "SYS-RULE-0011",
+      "revision_id": "SYS-RULE-0011.r3"
+    }
+  ],
+  "scope_id": "PROJECT-LIBRARY",
+  "sources": [
+    {
+      "source_digest": "3a879614b166237db0f2137c0c9a8cbc1cd467411361792c9e451da236abcc23",
+      "window_id": "WIN-00003"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "ack_commit_id": null,
+  "attempts": 0,
+  "delivery_history": [
+    {
+      "commit_id": "TXN-000021",
+      "reason": "Durably queued by source owner.",
+      "state": "pending"
+    }
+  ],
+  "delivery_state": "pending",
+  "event_type": "register-derivation",
+  "format_version": "1",
+  "id": "OUTBOX-COMBINATION",
+  "instance_id": "alm.synthetic.example",
+  "kind": "outbox-event",
+  "payload_refs": [
+    "rev://LIB-RULE-0006.r1"
+  ],
+  "scope_id": "PROJECT-LIBRARY",
+  "source_commit_id": "TXN-000021",
+  "target_scope_id": "GLOBAL"
+}

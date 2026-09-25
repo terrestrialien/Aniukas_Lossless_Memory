@@ -1,0 +1,50 @@
+{
+  "alternatives": [
+    "Keep the previous interpretation unchanged."
+  ],
+  "change": "Defer the repair workshop until the room schedule is confirmed; keep it planned.",
+  "commit_id": "TXN-000005",
+  "created_at": "2026-09-23T12:05:00Z",
+  "evidence_gap": null,
+  "format_version": "1",
+  "id": "LIB-DEC-0001.r2",
+  "instance_id": "alm.synthetic.example",
+  "kind": "revision",
+  "number": 2,
+  "predecessor_id": "LIB-DEC-0001.r1",
+  "reason": "Deferral preserves the goal while avoiding an unbooked promise.",
+  "record_id": "LIB-DEC-0001",
+  "scope_id": "PROJECT-LIBRARY",
+  "snapshot": {
+    "assertion": {
+      "adoption_evidence": [],
+      "asserted_by": "principal:synthetic-user",
+      "kind": "user-stated",
+      "reliability_note": "Fictional teaching scenario; these people and documents do not exist."
+    },
+    "conditions": [],
+    "confidence": 1.0,
+    "confidence_basis": "Clear fictional speaker statement; this score describes interpretation, not factual truth.",
+    "consequences": [],
+    "edges": {},
+    "importance": "high",
+    "parent_bases": [],
+    "statement": "Defer the repair workshop until the room schedule is confirmed; keep it planned.",
+    "status": "deferred",
+    "title": "Repair workshop",
+    "triggers": [
+      "room schedule confirmed",
+      "instructor available"
+    ],
+    "type": "decision",
+    "valid_from": "2026-09-23T11:05:00Z",
+    "valid_time_note": null,
+    "valid_until": null,
+    "why": "The room is unconfirmed; the user wants a delay, not cancellation."
+  },
+  "snapshot_sha256": "a2aff1bca1394cf1da578f0fe1967d1f11d9f6a4f7adfcee016465166d8bd5f8",
+  "source_refs": [
+    "win://WIN-00005"
+  ],
+  "time_note": null
+}
