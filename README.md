@@ -29,6 +29,7 @@ Decisions are detected while conversation happens, including informal decisions.
 | Track what you have built | [Requirements](docs/REQUIREMENTS.md) and the [machine-readable checklist](docs/requirements.json) |
 | Adapt to your agents and hardware | [Adaptation guide](docs/ADAPTATION.md) and [implementation choices](docs/OPEN_CHOICES.md) |
 | Test compatibility | [Reference format](docs/REFERENCE_FORMAT.md), [schemas](schemas/), and [portable conformance cases](conformance/README.md) |
+| Try code in other languages | [JavaScript and C# source/evidence examples](examples/REFERENCE_IMPLEMENTATIONS.md) |
 | Fork, modify, or contribute | [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE](LICENSE), and [attribution](ATTRIBUTION.md) |
 
 ```mermaid

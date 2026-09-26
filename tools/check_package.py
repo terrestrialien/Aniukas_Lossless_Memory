@@ -8,7 +8,7 @@ import re
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
-SKIP = {".git", ".venv", "venv", "__pycache__", ".pytest_cache", "dist", "build"}
+SKIP = {".git", ".venv", "venv", "__pycache__", ".pytest_cache", "dist", "build", "bin", "obj"}
 REQUIRED = (
     "README.md", "BUILD_SPEC.md", "LICENSE", "ATTRIBUTION.md", "CONTRIBUTING.md",
     "requirements-dev.txt", ".gitattributes", ".gitignore", "docs/REQUIREMENTS.md",
@@ -17,6 +17,9 @@ REQUIRED = (
     ".github/workflows/validate.yml", "tools/check_all.py",
     "tools/check_requirements.py", "tools/check_conformance_cases.py",
     "examples/WALKTHROUGH.md",
+    "examples/REFERENCE_IMPLEMENTATIONS.md", ".github/workflows/reference-examples.yml",
+    "examples/reference-js/evidence.mjs", "examples/reference-js/evidence.test.mjs",
+    "examples/reference-csharp/Program.cs", "examples/reference-csharp/ReferenceEvidence.csproj",
 )
 
 

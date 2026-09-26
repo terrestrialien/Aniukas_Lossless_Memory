@@ -8,6 +8,8 @@ __pycache__/
 dist/
 build/
 *.egg-info/
+**/bin/
+**/obj/
 .DS_Store
 Thumbs.db
 # Operational data belongs outside the public checkout.
