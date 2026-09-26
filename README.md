@@ -2,507 +2,185 @@ Aniukas Lossless Memory
 
 Your AI should not have to forget in order to think.
 
-Most AI memory systems solve limited context by throwing information away.
+Most AI memory systems solve limited context by compressing or discarding history.
 
-Conversations are summarized. Summaries are summarized again. Decisions lose their rationale. Rejected alternatives disappear. Conditions disappear. Contradictions get resolved implicitly. Eventually the system remembers a clean version of the past that may never have existed.
+ALM separates storage from attention.
 
-That is an attention solution disguised as a storage solution.
+Keep the history. Keep working context small. Descend into exact evidence only when needed.
 
-Aniukas Lossless Memory (ALM) separates the two.
+Working Memory
+      ↓
+Current State
+      ↓
+Revision History
+      ↓
+Exact Evidence
+      ↓
+Original Source
 
-Storage can grow.
+ALM is an implementation-independent specification for durable, auditable memory for persistent AI and multi-agent systems.
 
-Working context stays bounded.
+Status: ALM is currently a specification and portable conformance contract, not a finished memory library.
 
-The original evidence remains recoverable.
+Start here: Build Specification · Implementation Plan · Why ALM? · Conformance
 
----
+The problem ALM-WHY-001
 
-The basic idea
+Suppose an AI remembers:
 
-An AI does not need its entire history in context.
+Do not use X.
 
-It needs a small representation of what matters now, with deterministic paths back to why it matters.
+But the original decision was:
 
-ALM therefore separates:
-
-CURRENT WORKING MEMORY
-        ↓
-CURRENT CANONICAL STATE
-        ↓
-IMMUTABLE REVISION HISTORY
-        ↓
-EXACT EVIDENCE
-        ↓
-ORIGINAL SOURCE
-
-Most interactions stop near the top.
-
-When uncertainty, contradiction, audit, or consequential change requires more context, the system can descend.
-
-The archive may contain 10,000 conversations or 10,000,000.
-
-That does not mean 10,000,000 conversations belong in the prompt.
-
-Storage and attention are different problems.
-
-ALM treats them that way.
-
----
-
-Why lossless?
-
-Consider this memory:
-
-«Do not use X.»
-
-That may be perfectly accurate.
-
-But suppose the original decision was:
-
-«Do not use X because library Y does not support Windows.»
+Do not use X because library Y does not support Windows.
 
 Six months later, Y supports Windows.
 
-The compressed memory was never false.
+The memory was not false.
 
-It simply lost the condition that made it true.
+It lost the condition that made it true.
 
-A system that retained only the conclusion may continue obeying an obsolete decision forever.
+ALM preserves the path from today's conclusion back through its revisions, conditions, rationale, evidence, and original source.
 
-ALM preserves the chain:
+Why this matters →
 
-current state
-    ↓
-decision
-    ↓
-revision history
-    ↓
-conditions
-    ↓
-alternatives
-    ↓
-rationale
-    ↓
-evidence
-    ↓
-original conversation
+The idea ALM-WHY-002
 
-The old decision does not disappear.
+Archive size and context size are different problems.
 
-The changed condition does not automatically create a new decision.
+ARCHIVE                         WORKING CONTEXT
 
-The system has enough evidence to recognize that reconsideration may now be appropriate.
+████                            ████
+████████                        ████
+████████████████                ████
+████████████████████████        ████
 
----
+History can grow without requiring the model to carry all of it at once.
 
-Memory is not truth
+Summaries and indexes help navigate memory.
 
-ALM does not assume that something becomes true because:
+They do not replace the evidence beneath them.
 
-- it is newer,
-- an AI said it confidently,
-- it appears in memory,
-- it was retrieved by semantic similarity,
-- it was written by an authoritative source,
-- or another record contradicting it could not be found.
+How bounded attention works →
 
-A memory can be:
+Memory is not truth ALM-WHY-003
 
-- current,
-- historical,
-- disputed,
-- conditional,
-- rejected,
-- superseded,
-- proposed,
-- inherited,
-- locally overridden,
-- or unresolved.
+ALM does not assume something is correct because it is newer, retrieved first, semantically similar, or confidently stated by a model.
 
-Contradictions do not have to disappear simply because the system wants one clean answer.
+Memory can remain:
 
-Sometimes the correct memory is:
+current · historical · conditional · rejected · superseded · disputed · unresolved
 
-«We do not currently know which of these claims is correct.»
+Sometimes the correct answer is:
 
----
+We do not currently know which claim is correct.
 
-The past is immutable. Its meaning is not.
+Why memory needs epistemic state →
 
-ALM distinguishes the original record from the system's interpretation of that record.
+Search discovers. Identity governs. ALM-WHY-004
 
-An original conversation is evidence of what was said.
+Vector search, embeddings, full-text search and other retrieval systems can help find relevant memory.
 
-It is not automatically proof that what was said remains true.
+Once the memory is identified, ALM uses stable references and deterministic relationships to determine its history, evidence, authority, and current state.
 
-Derived memory can evolve without rewriting its source.
+Search finds the filing cabinet. Identity tells you which document governs.
 
-SOURCE
-  │
-  ├── Revision 1
-  │
-  ├── Revision 2
-  │
-  └── Revision 3 ← current
+Why ALM separates discovery from authority →
 
-Revision 3 does not erase Revision 1.
+AI reasoning is not authorization ALM-WHY-005
 
-And Revision 1 can still lead back to the exact evidence that produced it.
+A model can propose a memory change.
 
-This makes it possible to ask two very different questions:
+That does not mean it is allowed to commit one.
 
-«What applies now?»
+ALM separates reasoning from authority so retrieved text, external content, another agent, or an old conversation cannot grant itself permission to rewrite institutional memory.
 
-and:
+Why authorization lives outside the model →
 
-«What did the system believe applied then, using the information available at that time?»
+Built for persistent systems ALM-WHY-006
 
-ALM preserves both.
+ALM is intended for systems that need to remember across:
 
----
+long-running conversations
 
-Forgetting is not the only way to stay within context
+changing decisions
 
-A common assumption in AI memory is:
+multiple agents
 
-history grows
-      ↓
-context grows
-      ↓
-compress history
-      ↓
-discard detail
+multiple projects
 
-ALM instead aims for:
+model replacements
 
-history grows ───────────────────────────────►
+contradictory evidence
 
-working context
-████████████████████
-remains bounded
+changing conditions
 
-Older information can become colder without becoming nonexistent.
+years of accumulated history
 
-Summaries can exist without replacing their evidence.
+Projects can share knowledge without sharing unrestricted write authority.
 
-Indexes can become smaller without destroying the material they index.
+Historical state can survive without controlling current state.
 
----
+Explore temporal memory, ownership, inheritance and multi-agent governance →
 
-Search helps you find memory. It does not define memory.
+Bring your own stack ALM-WHY-007
 
-Semantic search is useful.
+ALM is not a database, RAG framework, model, programming language, or agent framework.
 
-ALM does not reject embeddings, vector databases, full-text search, graph search, or other discovery systems.
+An implementation might use:
 
-It rejects using approximate similarity as the final authority for questions such as:
+Python      + SQLite
+Rust        + PostgreSQL
+TypeScript  + graph storage
+Local LLMs  + filesystem
+Cloud LLMs  + distributed storage
 
-«Which decision is currently in force?»
+All can implement ALM.
 
-«Which revision superseded this one?»
+The technology is replaceable. The guarantees are the architecture.
 
-«Who had authority to change this?»
+Why ALM is a specification rather than a library →
 
-«Which project owns this rule?»
+Build it
 
-«What evidence supported it?»
+The repository contains:
 
-Once an identity is known, ALM favors deterministic traversal through stable references.
+BUILD_SPEC.md — normative architecture
+Implementation Plan — staged build path
+Data Contracts — records and transaction semantics
+Requirements — traceable normative requirements
+Reference Format — portable representation
+Conformance — language-neutral compatibility cases
 
-Search finds the filing cabinet.
+Want the reasoning behind all of this?
 
-Identity tells you which document inside it actually governs.
+→ Read WHY_ALM.md
 
----
+This README is an ALM demo ALM-WHY-008
 
-AI reasoning is not authorization
+This file deliberately contains only the information most visitors need.
 
-An LLM can propose a memory change.
+Each ALM-WHY-* identity maps to a deeper record in WHY_ALM.md.
 
-That does not mean the LLM is allowed to perform it.
+That document maps onward to the normative specification where appropriate.
 
-ALM separates reasoning from authority.
+README
+bounded, current explanation
+        ↓
+WHY_ALM
+deeper reasoning and examples
+        ↓
+BUILD_SPEC / requirements / contracts
+normative detail
 
-A model output can become a proposed event.
+You are navigating the documentation using the same principle ALM applies to memory:
 
-The memory service decides whether the actor has permission to commit that event.
+Start small. Descend when needed. Preserve the source.
 
-This matters when persistent agents ingest:
+See how the documentation map works →
 
-- old conversations,
-- external documents,
-- web content,
-- other agents' messages,
-- retrieved memories,
-- or potentially hostile instructions.
+Keep the evidence. Keep the history. Keep context bounded.
 
-A sentence discovered in memory cannot grant itself permission to rewrite memory.
-
----
-
-Memory for more than one agent
-
-Persistent AI systems increasingly involve multiple agents, projects, models, tools, and humans.
-
-ALM therefore treats memory ownership explicitly.
-
-A project may inherit global knowledge without gaining authority to rewrite it.
-
-A global system may inspect project state without silently changing project-owned memory.
-
-Projects may create local variants.
-
-Improvements may be proposed upward.
-
-Global changes may be proposed downward.
-
-Ownership follows scopes and authority, not whichever model happens to be running today.
-
-This allows different agents to share institutional memory without sharing unrestricted write access.
-
----
-
-Memory has time
-
-ALM distinguishes:
-
-Valid time
-When something was actually applicable.
-
-Recorded time
-When the system learned or recorded it.
-
-Those are not always the same.
-
-A system may discover today that something changed three months ago.
-
-ALM can preserve both:
-
-«What do we now believe was true on that date?»
-
-and
-
-«What did the system believe was true on that date at the time?»
-
-This allows historical reconstruction without rewriting history.
-
----
-
-Consequential changes can require evidence review
-
-For important changes, ALM can require the acting agent to descend through relevant history and evidence before committing a revision.
-
-That review can produce an immutable receipt recording:
-
-- what was inspected,
-- which revisions were considered,
-- which evidence was available,
-- alternatives,
-- constraints,
-- consequences,
-- unresolved gaps,
-- and the resulting conclusion.
-
-If the underlying memory changes before the new revision is committed, the review can become stale.
-
-The agent must reconsider the changed evidence.
-
-A review receipt does not prove that an AI understood what it read.
-
-It proves what evidence was made available when the decision was made.
-
-That distinction is deliberate.
-
----
-
-What ALM is
-
-ALM is a specification and conformance contract for durable AI memory.
-
-It defines behavioral guarantees around:
-
-- lossless source retention,
-- bounded working context,
-- immutable revisions,
-- stable identity,
-- evidence provenance,
-- temporal reconstruction,
-- explicit contradictions,
-- negative memory,
-- rejected and deferred alternatives,
-- deterministic traversal,
-- scope ownership,
-- authority enforcement,
-- atomic commits,
-- optimistic concurrency,
-- inheritance,
-- proposals and overrides,
-- consequential-change review,
-- live observation,
-- retrospective audit,
-- replay,
-- and portable export and restoration.
-
----
-
-What ALM is not
-
-ALM is not:
-
-- a vector database,
-- a RAG framework,
-- a summarization strategy,
-- a prompt template,
-- a specific LLM,
-- a specific database,
-- a specific programming language,
-- a specific agent framework,
-- or a requirement to keep an entire archive in context.
-
-You can implement ALM using PostgreSQL.
-
-Or SQLite.
-
-Or files.
-
-Or a graph database.
-
-You can use Python, Rust, Go, TypeScript, Java, or something that does not exist yet.
-
-You can use embeddings for discovery.
-
-You can use local models, cloud models, or both.
-
-Those are implementation choices.
-
-The guarantees are the architecture.
-
----
-
-Build it your way
-
-This repository deliberately contains a build specification, not one privileged implementation.
-
-The goal is interoperability rather than technological lock-in.
-
-An implementation should be able to say:
-
-«We are ALM-conformant.»
-
-and demonstrate what that means through portable contracts and conformance tests.
-
-The repository includes:
-
-- normative architecture,
-- logical data contracts,
-- numbered requirements,
-- portable schemas,
-- reference-format definitions,
-- conformance fixtures,
-- acceptance scenarios,
-- implementation sequencing,
-- and explicit implementation choices left open to builders.
-
-Start here:
-
-BUILD_SPEC.md
-Normative architecture and behavioral requirements.
-
-docs/IMPLEMENTATION_PLAN.md
-Recommended implementation sequence.
-
-docs/DATA_CONTRACTS.md
-Logical records and transaction semantics.
-
-docs/REFERENCE_FORMAT.md
-Portable representation and schemas.
-
-docs/REQUIREMENTS.md
-Traceable ALM requirements.
-
-conformance/
-Portable conformance cases.
-
-docs/OPEN_CHOICES.md
-Technology decisions intentionally left to implementations.
-
----
-
-A simple test for an AI memory system
-
-Ask it:
-
-«What is the current decision?»
-
-Then:
-
-«Why?»
-
-Then:
-
-«What did we believe before that?»
-
-Then:
-
-«Why did we change it?»
-
-Then:
-
-«What alternatives did we reject?»
-
-Then:
-
-«Under what conditions?»
-
-Then:
-
-«Who authorized the change?»
-
-Then:
-
-«Show me the exact evidence.»
-
-Then:
-
-«Show me the original conversation around that evidence.»
-
-Then:
-
-«Reconstruct what the system believed before the change occurred.»
-
-If those questions eventually terminate in:
-
-«“The summary says…”»
-
-you do not have the past.
-
-You have a story about the past.
-
----
-
-The principle
-
-AI systems will accumulate years of decisions, relationships, failures, corrections, exceptions, experiments, agreements, disagreements, and institutional knowledge.
-
-We should not require them to repeatedly destroy that history merely because attention is finite.
-
-Keep the evidence.
-
-Keep the history.
-
-Keep the contradictions.
-
-Keep the reasons.
-
-Keep context bounded.
-
-And when the AI needs to know why it believes something:
+When the AI needs to know why it believes something:
 
 let it look.
-
----
-
-Aniukas Lossless Memory
-
-The archive is not the context.
