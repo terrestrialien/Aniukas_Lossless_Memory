@@ -4,7 +4,7 @@
 
 **Original concept and system architecture: Andrius Cincys.**
 
-Aniukas Lossless Memory (ALM) is a build specification for memory that survives long conversations, changing projects, and replacement AI models. It keeps original conversations, extracts decisions with exact evidence, and lets an assistant move from today's answer to its reasoning and full history whenever needed.
+Aniukas Lossless Memory (ALM) is a language independent build specification for memory that survives long conversations, changing projects, and replacement AI models. It keeps original conversations, extracts decisions with exact evidence, and lets an assistant move from today's answer to its reasoning and full history whenever needed.
 
 **Release: 0.2.0-alpha.3 — specification and executable contract kit.** The checkers and synthetic examples run today. The memory service, live observer, search engine, and integrations are requirements to build; this package does not claim they already exist. It prescribes no programming language, database, model, operating system or hardware, so any system — including a homemade one — can implement it through its own adapters.
 
