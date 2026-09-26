@@ -2,11 +2,9 @@ Aniukas Lossless Memory
 
 Your AI should not have to forget in order to think.
 
-Most AI memory systems solve limited context by compressing or discarding history.
+Most AI memory systems solve limited context by throwing information away.
 
-ALM separates storage from attention.
-
-Keep the history. Keep working context small. Descend into exact evidence only when needed.
+ALM takes a different approach: keep the history losslessly, keep working context small, and let the AI descend into exact evidence only when it needs to.
 
 Working Memory
       ↓
@@ -20,7 +18,7 @@ Original Source
 
 ALM is an implementation-independent specification for durable, auditable memory for persistent AI and multi-agent systems.
 
-Status: ALM is currently a specification and portable conformance contract, not a finished memory library.
+Status: In order to preserve adaptability, ALM is currently a specification and portable conformance contract, not a finished memory library.
 
 Start here: [Build Specification](BUILD_SPEC.md) · [Implementation Plan](docs/IMPLEMENTATION_PLAN.md) · [Why ALM?](docs/WHY_ALM.md) · [Conformance](conformance/README.md)
 
@@ -78,8 +76,6 @@ We do not currently know which claim is correct.
 [Why memory needs epistemic state →](docs/WHY_ALM.md#why_alm-003--memory-is-not-truth)
 
 Search discovers. Identity governs. [WHY_ALM-004](docs/WHY_ALM.md#why_alm-004--discovery-is-not-identity)
-
-Vector search, embeddings, full-text search and other retrieval systems can help find relevant memory.
 
 Once the memory is identified, ALM uses stable references and deterministic relationships to determine its history, evidence, authority, and current state.
 
@@ -156,7 +152,7 @@ Want the reasoning behind all of this?
 
 → [Read WHY_ALM.md](docs/WHY_ALM.md)
 
-This README is an ALM demo [WHY_ALM-008](docs/WHY_ALM.md#why_alm-008--this-documentation-is-a-demo)
+This README is in part an ALM demo [WHY_ALM-008](docs/WHY_ALM.md#why_alm-008--this-documentation-is-a-demo)
 
 This file deliberately contains only the information most visitors need.
 
