@@ -1,93 +1,508 @@
-# Aniukas Lossless Memory
+Aniukas Lossless Memory
 
-**A small working memory. A complete captured archive. A traceable history of every decision.**
+Your AI should not have to forget in order to think.
 
-**Original concept and system architecture: Andrius Cincys.**
+Most AI memory systems solve limited context by throwing information away.
 
-Aniukas Lossless Memory (ALM) is a language independent build specification for memory that survives long conversations, changing projects, and replacement AI models. It keeps original conversations, extracts decisions with exact evidence, and lets an assistant move from today's answer to its reasoning and full history whenever needed.
+Conversations are summarized. Summaries are summarized again. Decisions lose their rationale. Rejected alternatives disappear. Conditions disappear. Contradictions get resolved implicitly. Eventually the system remembers a clean version of the past that may never have existed.
 
-**Release: 0.2.0-alpha.3 — specification and executable contract kit.** The checkers and synthetic examples run today. The memory service, live observer, search engine, and integrations are requirements to build; this package does not claim they already exist. It prescribes no programming language, database, model, operating system or hardware, so any system — including a homemade one — can implement it through its own adapters.
+That is an attention solution disguised as a storage solution.
 
-## In ordinary language
+Aniukas Lossless Memory (ALM) separates the two.
 
-Think of an assistant with a small desk and a large filing cabinet. The desk holds what matters today. The cabinet keeps the original conversations. Every useful desk note points to why it exists, how it changed, and exactly what was said.
+Storage can grow.
 
-An everyday task uses the desk notes. A difficult decision opens the explanation, then the original evidence if necessary. The assistant can examine several related decisions together without loading its entire lifetime into one conversation.
+Working context stays bounded.
 
-Each project owns its notebook. It may create a local exception and propose a better shared rule. A global rule manager may suggest a project change. Neither can silently rewrite the other's notebook. The human owner retains authority over both.
+The original evidence remains recoverable.
 
-Decisions are detected while conversation happens, including informal decisions. Tentative ideas remain candidates; a later audit catches meaning missed earlier. An extraction mistake can be investigated because the captured source survives.
+---
 
-“Lossless” describes preservation of **captured evidence**. It does not promise perfect extraction, perfect retrieval, capture of information a host never supplied, or unlimited physical storage. See the [limits and acceptance criteria](docs/ACCEPTANCE.md).
+The basic idea
 
-## Start here
+An AI does not need its entire history in context.
 
-| Reader | Read |
-|---|---|
-| See how the system works | Start with the [fictional walkthrough](examples/WALKTHROUGH.md), then [the plain-language explanation](docs/EXPLAINED.md) |
-| Build an implementation | [Build specification](BUILD_SPEC.md), [data contracts](docs/DATA_CONTRACTS.md), and [implementation plan](docs/IMPLEMENTATION_PLAN.md) |
-| Track what you have built | [Requirements](docs/REQUIREMENTS.md) and the [machine-readable checklist](docs/requirements.json) |
-| Adapt to your agents and hardware | [Adaptation guide](docs/ADAPTATION.md) and [implementation choices](docs/OPEN_CHOICES.md) |
-| Test compatibility | [Reference format](docs/REFERENCE_FORMAT.md), [schemas](schemas/), and [portable conformance cases](conformance/README.md) |
-| Try code in other languages | [JavaScript and C# source/evidence examples](examples/REFERENCE_IMPLEMENTATIONS.md) |
-| Fork, modify, or contribute | [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE](LICENSE), and [attribution](ATTRIBUTION.md) |
+It needs a small representation of what matters now, with deterministic paths back to why it matters.
 
-```mermaid
-flowchart TD
-  C[Conversation] --> L[Complete captured source]
-  L --> O[Live observer and decision candidates]
-  O --> A[Authorized memory commit]
-  A --> W[Small relevant working set]
-  W --> R[Current decision]
-  R --> H[Revision history and reasons]
-  H --> E[Exact evidence]
-  E --> L
-  R --> M[Separate map of project variants]
-  L --> U[Retrospective audit]
-  U --> O
-```
+ALM therefore separates:
 
-## Run the contract checks
+CURRENT WORKING MEMORY
+        ↓
+CURRENT CANONICAL STATE
+        ↓
+IMMUTABLE REVISION HISTORY
+        ↓
+EXACT EVIDENCE
+        ↓
+ORIGINAL SOURCE
 
-Checker tools require **Python 3.11 or later**. The CI configuration uses Python 3.12 on Windows, Linux, and macOS. A future memory implementation may use any language that satisfies the contracts.
+Most interactions stop near the top.
 
-Create a virtual environment from the repository root:
+When uncertainty, contradiction, audit, or consequential change requires more context, the system can descend.
 
-```text
-python -m venv .venv
-```
+The archive may contain 10,000 conversations or 10,000,000.
 
-On Windows PowerShell:
+That does not mean 10,000,000 conversations belong in the prompt.
 
-```powershell
-.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
-.venv\Scripts\python.exe tools/check_all.py
-```
+Storage and attention are different problems.
 
-On Linux or macOS:
+ALM treats them that way.
 
-```sh
-.venv/bin/python -m pip install -r requirements-dev.txt
-.venv/bin/python tools/check_all.py
-```
+---
 
-These commands check requirement coverage, schemas, generated examples, semantic integrity, documentation links, and regression tests. They do not start a memory server or benchmark an unimplemented system.
+Why lossless?
 
-The examples contain synthetic conversations. Your real logs, credentials, models, and operational databases belong outside this public repository.
+Consider this memory:
 
-## What an implementation must preserve
+«Do not use X.»
 
-- Complete captured originals and exact, stable evidence references.
-- Current state, immutable revision history, rejected ideas, unresolved conflicts, authority, and temporal validity.
-- A bounded combined working set with explicit overflow and on-demand deeper retrieval.
-- Reciprocal project/global ownership enforced outside the model's instructions.
-- Local rule variants with pinned ancestry, separate derivative maps, and owner-controlled adoption.
-- Live decision extraction, candidate review, retrospective auditing, replay, backup, and portable restore.
+That may be perfectly accurate.
 
-Optional embeddings, accelerators, server databases, and a graphical explorer can improve a deployment. They must preserve the same evidence and ownership guarantees. A reduced capture/manual profile remains useful when no suitable extraction model is available; it must identify its missing automatic capabilities.
+But suppose the original decision was:
 
-## Free reuse and credit
+«Do not use X because library Y does not support Windows.»
 
-The **whole package is MIT licensed**, including its specification, documentation, schemas, examples, and tools. Keep the supplied copyright and permission notice when redistributing covered material. Forks, modifications, adaptations, and contributions are welcome. Changes to the maintained original are reviewed through pull requests; a public fork does not change it. See [LICENSE](LICENSE) and [CONTRIBUTING.md](CONTRIBUTING.md).
+Six months later, Y supports Windows.
 
-Suggested credit: **“Based on Aniukas Lossless Memory, originally conceived and designed by Andrius Cincys.”** [Attribution guidance](ATTRIBUTION.md).
+The compressed memory was never false.
+
+It simply lost the condition that made it true.
+
+A system that retained only the conclusion may continue obeying an obsolete decision forever.
+
+ALM preserves the chain:
+
+current state
+    ↓
+decision
+    ↓
+revision history
+    ↓
+conditions
+    ↓
+alternatives
+    ↓
+rationale
+    ↓
+evidence
+    ↓
+original conversation
+
+The old decision does not disappear.
+
+The changed condition does not automatically create a new decision.
+
+The system has enough evidence to recognize that reconsideration may now be appropriate.
+
+---
+
+Memory is not truth
+
+ALM does not assume that something becomes true because:
+
+- it is newer,
+- an AI said it confidently,
+- it appears in memory,
+- it was retrieved by semantic similarity,
+- it was written by an authoritative source,
+- or another record contradicting it could not be found.
+
+A memory can be:
+
+- current,
+- historical,
+- disputed,
+- conditional,
+- rejected,
+- superseded,
+- proposed,
+- inherited,
+- locally overridden,
+- or unresolved.
+
+Contradictions do not have to disappear simply because the system wants one clean answer.
+
+Sometimes the correct memory is:
+
+«We do not currently know which of these claims is correct.»
+
+---
+
+The past is immutable. Its meaning is not.
+
+ALM distinguishes the original record from the system's interpretation of that record.
+
+An original conversation is evidence of what was said.
+
+It is not automatically proof that what was said remains true.
+
+Derived memory can evolve without rewriting its source.
+
+SOURCE
+  │
+  ├── Revision 1
+  │
+  ├── Revision 2
+  │
+  └── Revision 3 ← current
+
+Revision 3 does not erase Revision 1.
+
+And Revision 1 can still lead back to the exact evidence that produced it.
+
+This makes it possible to ask two very different questions:
+
+«What applies now?»
+
+and:
+
+«What did the system believe applied then, using the information available at that time?»
+
+ALM preserves both.
+
+---
+
+Forgetting is not the only way to stay within context
+
+A common assumption in AI memory is:
+
+history grows
+      ↓
+context grows
+      ↓
+compress history
+      ↓
+discard detail
+
+ALM instead aims for:
+
+history grows ───────────────────────────────►
+
+working context
+████████████████████
+remains bounded
+
+Older information can become colder without becoming nonexistent.
+
+Summaries can exist without replacing their evidence.
+
+Indexes can become smaller without destroying the material they index.
+
+---
+
+Search helps you find memory. It does not define memory.
+
+Semantic search is useful.
+
+ALM does not reject embeddings, vector databases, full-text search, graph search, or other discovery systems.
+
+It rejects using approximate similarity as the final authority for questions such as:
+
+«Which decision is currently in force?»
+
+«Which revision superseded this one?»
+
+«Who had authority to change this?»
+
+«Which project owns this rule?»
+
+«What evidence supported it?»
+
+Once an identity is known, ALM favors deterministic traversal through stable references.
+
+Search finds the filing cabinet.
+
+Identity tells you which document inside it actually governs.
+
+---
+
+AI reasoning is not authorization
+
+An LLM can propose a memory change.
+
+That does not mean the LLM is allowed to perform it.
+
+ALM separates reasoning from authority.
+
+A model output can become a proposed event.
+
+The memory service decides whether the actor has permission to commit that event.
+
+This matters when persistent agents ingest:
+
+- old conversations,
+- external documents,
+- web content,
+- other agents' messages,
+- retrieved memories,
+- or potentially hostile instructions.
+
+A sentence discovered in memory cannot grant itself permission to rewrite memory.
+
+---
+
+Memory for more than one agent
+
+Persistent AI systems increasingly involve multiple agents, projects, models, tools, and humans.
+
+ALM therefore treats memory ownership explicitly.
+
+A project may inherit global knowledge without gaining authority to rewrite it.
+
+A global system may inspect project state without silently changing project-owned memory.
+
+Projects may create local variants.
+
+Improvements may be proposed upward.
+
+Global changes may be proposed downward.
+
+Ownership follows scopes and authority, not whichever model happens to be running today.
+
+This allows different agents to share institutional memory without sharing unrestricted write access.
+
+---
+
+Memory has time
+
+ALM distinguishes:
+
+Valid time
+When something was actually applicable.
+
+Recorded time
+When the system learned or recorded it.
+
+Those are not always the same.
+
+A system may discover today that something changed three months ago.
+
+ALM can preserve both:
+
+«What do we now believe was true on that date?»
+
+and
+
+«What did the system believe was true on that date at the time?»
+
+This allows historical reconstruction without rewriting history.
+
+---
+
+Consequential changes can require evidence review
+
+For important changes, ALM can require the acting agent to descend through relevant history and evidence before committing a revision.
+
+That review can produce an immutable receipt recording:
+
+- what was inspected,
+- which revisions were considered,
+- which evidence was available,
+- alternatives,
+- constraints,
+- consequences,
+- unresolved gaps,
+- and the resulting conclusion.
+
+If the underlying memory changes before the new revision is committed, the review can become stale.
+
+The agent must reconsider the changed evidence.
+
+A review receipt does not prove that an AI understood what it read.
+
+It proves what evidence was made available when the decision was made.
+
+That distinction is deliberate.
+
+---
+
+What ALM is
+
+ALM is a specification and conformance contract for durable AI memory.
+
+It defines behavioral guarantees around:
+
+- lossless source retention,
+- bounded working context,
+- immutable revisions,
+- stable identity,
+- evidence provenance,
+- temporal reconstruction,
+- explicit contradictions,
+- negative memory,
+- rejected and deferred alternatives,
+- deterministic traversal,
+- scope ownership,
+- authority enforcement,
+- atomic commits,
+- optimistic concurrency,
+- inheritance,
+- proposals and overrides,
+- consequential-change review,
+- live observation,
+- retrospective audit,
+- replay,
+- and portable export and restoration.
+
+---
+
+What ALM is not
+
+ALM is not:
+
+- a vector database,
+- a RAG framework,
+- a summarization strategy,
+- a prompt template,
+- a specific LLM,
+- a specific database,
+- a specific programming language,
+- a specific agent framework,
+- or a requirement to keep an entire archive in context.
+
+You can implement ALM using PostgreSQL.
+
+Or SQLite.
+
+Or files.
+
+Or a graph database.
+
+You can use Python, Rust, Go, TypeScript, Java, or something that does not exist yet.
+
+You can use embeddings for discovery.
+
+You can use local models, cloud models, or both.
+
+Those are implementation choices.
+
+The guarantees are the architecture.
+
+---
+
+Build it your way
+
+This repository deliberately contains a build specification, not one privileged implementation.
+
+The goal is interoperability rather than technological lock-in.
+
+An implementation should be able to say:
+
+«We are ALM-conformant.»
+
+and demonstrate what that means through portable contracts and conformance tests.
+
+The repository includes:
+
+- normative architecture,
+- logical data contracts,
+- numbered requirements,
+- portable schemas,
+- reference-format definitions,
+- conformance fixtures,
+- acceptance scenarios,
+- implementation sequencing,
+- and explicit implementation choices left open to builders.
+
+Start here:
+
+BUILD_SPEC.md
+Normative architecture and behavioral requirements.
+
+docs/IMPLEMENTATION_PLAN.md
+Recommended implementation sequence.
+
+docs/DATA_CONTRACTS.md
+Logical records and transaction semantics.
+
+docs/REFERENCE_FORMAT.md
+Portable representation and schemas.
+
+docs/REQUIREMENTS.md
+Traceable ALM requirements.
+
+conformance/
+Portable conformance cases.
+
+docs/OPEN_CHOICES.md
+Technology decisions intentionally left to implementations.
+
+---
+
+A simple test for an AI memory system
+
+Ask it:
+
+«What is the current decision?»
+
+Then:
+
+«Why?»
+
+Then:
+
+«What did we believe before that?»
+
+Then:
+
+«Why did we change it?»
+
+Then:
+
+«What alternatives did we reject?»
+
+Then:
+
+«Under what conditions?»
+
+Then:
+
+«Who authorized the change?»
+
+Then:
+
+«Show me the exact evidence.»
+
+Then:
+
+«Show me the original conversation around that evidence.»
+
+Then:
+
+«Reconstruct what the system believed before the change occurred.»
+
+If those questions eventually terminate in:
+
+«“The summary says…”»
+
+you do not have the past.
+
+You have a story about the past.
+
+---
+
+The principle
+
+AI systems will accumulate years of decisions, relationships, failures, corrections, exceptions, experiments, agreements, disagreements, and institutional knowledge.
+
+We should not require them to repeatedly destroy that history merely because attention is finite.
+
+Keep the evidence.
+
+Keep the history.
+
+Keep the contradictions.
+
+Keep the reasons.
+
+Keep context bounded.
+
+And when the AI needs to know why it believes something:
+
+let it look.
+
+---
+
+Aniukas Lossless Memory
+
+The archive is not the context.
