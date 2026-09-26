@@ -4,6 +4,7 @@ This document contains the deeper reasoning behind the concepts introduced in th
 
 It is deliberately organized using stable concept identities.
 
+<pre>
 README concept
       ↓
 WHY_ALM-###
@@ -11,6 +12,7 @@ WHY_ALM-###
 deeper explanation
       ↓
 normative specification / requirements
+</pre>
 
 The README can therefore remain small without becoming shallow.
 
@@ -42,6 +44,7 @@ Do not use X.
 
 ALM aims to preserve:
 
+<pre>
 CURRENT STATE
 Do not use X
       ↓
@@ -59,6 +62,7 @@ exact source material
       ↓
 ORIGINAL SOURCE
 conversation / document / event
+</pre>
 
 If the condition changes, ALM does not silently rewrite the decision.
 
@@ -84,6 +88,7 @@ Those problems should not automatically receive the same solution.
 
 Many AI memory systems effectively follow:
 
+<pre>
 history grows
       ↓
 context becomes expensive
@@ -91,15 +96,18 @@ context becomes expensive
 compress history
       ↓
 discard information
+</pre>
 
 ALM separates the archive from the working set.
 
+<pre>
 LOSSLESS ARCHIVE ─────────────────────► grows
 
                         ↓ retrieval
 
 WORKING CONTEXT       ████████████
                        remains bounded
+</pre>
 
 Cold information does not need to remain continuously visible to the model.
 
@@ -113,6 +121,7 @@ The system can begin with a compact representation and descend only when the tas
 
 This is the origin of the ALM resolution model:
 
+<pre>
 current
    ↓
 history
@@ -120,6 +129,7 @@ history
 evidence
    ↓
 source
+</pre>
 
 The archive may grow dramatically while ordinary context remains bounded.
 
@@ -262,6 +272,7 @@ Persistent systems create different problems.
 
 Imagine:
 
+<pre>
 GLOBAL
   ├── Project A
   │    ├── Agent 1
@@ -270,6 +281,7 @@ GLOBAL
   └── Project B
        ├── Agent 3
        └── Agent 4
+</pre>
 
 Project A may need to read global policy.
 
@@ -378,6 +390,7 @@ Where appropriate, this layer can then point onward to normative requirements, c
 
 The structure therefore resembles:
 
+<pre>
 README
 │
 │  compact representation
@@ -394,6 +407,7 @@ README
               REQUIREMENTS
               DATA_CONTRACTS
               CONFORMANCE
+</pre>
 
 This is intentionally not a perfect implementation of ALM inside Markdown.
 
