@@ -5,11 +5,11 @@ This document contains the deeper reasoning behind the concepts introduced in th
 It is deliberately organized using stable concept identities.
 
 README concept
-     ↓
-ALM-WHY-###
-     ↓
+      ↓
+WHY_ALM-###
+      ↓
 deeper explanation
-     ↓
+      ↓
 normative specification / requirements
 
 The README can therefore remain small without becoming shallow.
@@ -18,7 +18,7 @@ This is also a simple demonstration of one of ALM's central ideas:
 
 A compact representation should provide a path into deeper information, not replace it.
 
-ALM-WHY-001 — Lossy truth
+WHY_ALM-001 — Lossy truth
 
 A memory can be true and still be wrong to use
 
@@ -72,7 +72,7 @@ truth preservation is not enough.
 
 Context, applicability, provenance and history can determine what a true statement actually means.
 
-ALM-WHY-002 — Storage is not attention
+WHY_ALM-002 — Storage is not attention
 
 Humans have limited biological memory and limited attention.
 
@@ -85,21 +85,21 @@ Those problems should not automatically receive the same solution.
 Many AI memory systems effectively follow:
 
 history grows
-     ↓
+      ↓
 context becomes expensive
-     ↓
+      ↓
 compress history
-     ↓
+      ↓
 discard information
 
 ALM separates the archive from the working set.
 
 LOSSLESS ARCHIVE ─────────────────────► grows
 
-                       ↓ retrieval
+                        ↓ retrieval
 
 WORKING CONTEXT       ████████████
-                      remains bounded
+                       remains bounded
 
 Cold information does not need to remain continuously visible to the model.
 
@@ -123,7 +123,7 @@ source
 
 The archive may grow dramatically while ordinary context remains bounded.
 
-ALM-WHY-003 — Memory is not truth
+WHY_ALM-003 — Memory is not truth
 
 Persistent memory creates a dangerous temptation:
 
@@ -179,7 +179,7 @@ That uncertainty is information.
 
 ALM preserves it.
 
-ALM-WHY-004 — Discovery is not identity
+WHY_ALM-004 — Discovery is not identity
 
 Approximate retrieval is extremely useful.
 
@@ -215,7 +215,7 @@ Search finds the filing cabinet. Identity tells you which document governs.
 
 This allows ALM implementations to benefit from modern retrieval techniques without making approximate similarity responsible for institutional truth.
 
-ALM-WHY-005 — Reasoning is not authorization
+WHY_ALM-005 — Reasoning is not authorization
 
 LLMs consume instructions.
 
@@ -254,7 +254,7 @@ Text cannot grant itself authority merely by being read.
 
 This is especially important for persistent systems because a poisoned memory can otherwise survive long after the interaction that created it.
 
-ALM-WHY-006 — Memory beyond one agent
+WHY_ALM-006 — Memory beyond one agent
 
 A single-session assistant can often survive with relatively simple memory.
 
@@ -263,13 +263,13 @@ Persistent systems create different problems.
 Imagine:
 
 GLOBAL
- ├── Project A
- │    ├── Agent 1
- │    └── Agent 2
- │
- └── Project B
-      ├── Agent 3
-      └── Agent 4
+  ├── Project A
+  │    ├── Agent 1
+  │    └── Agent 2
+  │
+  └── Project B
+       ├── Agent 3
+       └── Agent 4
 
 Project A may need to read global policy.
 
@@ -309,7 +309,7 @@ What did the system believe on Wednesday using only information available then?
 
 Historical reconstruction therefore does not require rewriting the historical record.
 
-ALM-WHY-007 — Why a specification?
+WHY_ALM-007 — Why a specification?
 
 ALM deliberately does not prescribe a programming language, database, model provider, embedding system or deployment architecture.
 
@@ -353,7 +353,7 @@ A reference implementation can demonstrate one way to satisfy the specification.
 
 It should never become the definition of the specification itself.
 
-ALM-WHY-008 — This documentation is a demo
+WHY_ALM-008 — This documentation is a demo
 
 The ALM documentation intentionally uses its own architectural principle.
 
@@ -365,9 +365,9 @@ But that information does not stand alone.
 
 Each major concept has a stable identity:
 
-ALM-WHY-001
-ALM-WHY-002
-ALM-WHY-003
+WHY_ALM-001
+WHY_ALM-002
+WHY_ALM-003
 ...
 
 That identity maps into this document.
@@ -382,9 +382,9 @@ README
 │
 │  compact representation
 │
-├── ALM-WHY-001 ──────┐
-├── ALM-WHY-002 ───┐  │
-├── ALM-WHY-003 ─┐ │  │
+├── WHY_ALM-001 ──────┐
+├── WHY_ALM-002 ───┐  │
+├── WHY_ALM-003 ─┐ │  │
 │                ↓ ↓  ↓
 │              WHY_ALM
 │                 │
