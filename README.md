@@ -46,12 +46,14 @@ The idea [WHY_ALM-002](docs/WHY_ALM.md#why_alm-002--storage-is-not-attention)
 
 Archive size and context size are different problems.
 
+<pre>
 ARCHIVE                         WORKING CONTEXT
 
 ████                            ████
 ████████                        ████
 ████████████████                ████
 ████████████████████████        ████
+</pre>
 
 History can grow without requiring the model to carry all of it at once.
 
